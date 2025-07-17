@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"; import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default function Home() { return ( <main className="min-h-screen bg-neutral-950 text-white px-6 py-12"> <section className="max-w-5xl mx-auto text-center mb-16"> <h1 className="text-4xl sm:text-5xl font-bold mb-4">HideXS</h1> <p className="text-lg text-neutral-400">Scripts úteis para facilitar suas tarefas da sala do futuro!</p> </section>
+export default function Home() { return ( <main className="min-h-screen bg-neutral-950 text-white px-6 py-12"> <section className="max-w-5xl mx-auto text-center mb-16"> <h1 className="text-4xl sm:text-5xl font-bold mb-4">HideXS</h1> <p className="text-lg text-neutral-400">Scripts úteis para facilitar suas tarefas da sala do futuro</p> </section>
 
 <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
     <Card className="bg-neutral-900 border-neutral-800 rounded-2xl">
