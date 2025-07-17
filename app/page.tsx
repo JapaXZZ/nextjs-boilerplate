@@ -13,7 +13,7 @@ export default function Home() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
-      alert("Por favor preencha todos os campos.");
+      alert("Por gentileza preencha todos os campos.");
       return;
     }
     setSent(true);
