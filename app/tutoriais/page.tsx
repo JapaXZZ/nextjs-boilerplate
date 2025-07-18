@@ -28,38 +28,46 @@ const Page = () => {
           >
             ⬅ Voltar
           </button>
-
           <h1 className="text-3xl font-bold text-purple-400">Tutoriais</h1>
         </div>
 
-        <div className="flex gap-3 mb-8">
-          {!selected || selected === "celular" ? (
-            <button
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+          {(!selected || selected === "celular") && (
+            <div
               onClick={() => setSelected("celular")}
-              className="px-4 py-2 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-all duration-300"
+              className="cursor-pointer bg-slate-900/80 border border-purple-700 hover:border-purple-500 hover:shadow-lg transition-all rounded-xl p-6 text-center shadow-md shadow-purple-800/20 hover:shadow-purple-700"
             >
-              Para Celular
-            </button>
-          ) : null}
-
-          {!selected || selected === "pc" ? (
-            <button
+              <p className="text-lg font-bold text-purple-300">📱 Para Celular</p>
+            </div>
+          )}
+          {(!selected || selected === "pc") && (
+            <div
               onClick={() => setSelected("pc")}
-              className="px-4 py-2 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-all duration-300"
+              className="cursor-pointer bg-slate-900/80 border border-purple-700 hover:border-purple-500 hover:shadow-lg transition-all rounded-xl p-6 text-center shadow-md shadow-purple-800/20 hover:shadow-purple-700"
             >
-              Para Computador
-            </button>
-          ) : null}
-
-          {!selected || selected === "ios" ? (
-            <button
+              <p className="text-lg font-bold text-purple-300">🖥️ Para Computador</p>
+            </div>
+          )}
+          {(!selected || selected === "ios") && (
+            <div
               onClick={() => setSelected("ios")}
-              className="px-4 py-2 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-all duration-300"
+              className="cursor-pointer bg-slate-900/80 border border-purple-700 hover:border-purple-500 hover:shadow-lg transition-all rounded-xl p-6 text-center shadow-md shadow-purple-800/20 hover:shadow-purple-700"
             >
-              Para iOS
-            </button>
-          ) : null}
+              <p className="text-lg font-bold text-purple-300">🍎 Para iOS</p>
+            </div>
+          )}
         </div>
+
+        {selected && (
+          <div className="mb-10 text-center">
+            <button
+              onClick={() => setSelected(null)}
+              className="px-5 py-3 bg-slate-800 hover:bg-slate-700 text-purple-300 hover:text-white border border-slate-600 rounded-xl font-semibold transition-all shadow-sm"
+            >
+              🔄 Mostrar Todos
+            </button>
+          </div>
+        )}
 
         {selected && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
