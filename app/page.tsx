@@ -15,7 +15,7 @@ interface Script {
 }
 
 const initialScripts: Script[] = [
-  { id: 1, title: "Tarefa SP", description: "Ferramenta avançada para automação e conclusão de tarefas educacionais", online: true, url: "#", category: "Educação" },
+  { id: 1, title: "Tarefa SP", description: "Ferramenta avançada para automação e conclusão de tarefas educacionais", online: false, url: "#", category: "Educação" },
   { id: 2, title: "Redação SP", description: "Sistema inteligente para geração e aperfeiçoamento de redações", online: false, url: "#", category: "Escrita" },
   { id: 3, title: "Khanware v3.1.1", description: "Suite completa para automação da plataforma Khan Academy", online: true, url: "#", category: "Matemática" },
   { id: 4, title: "Speak", description: "Ferramenta de automação para plataformas de idiomas", online: true, url: "#", category: "Idiomas" },
