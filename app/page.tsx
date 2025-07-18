@@ -39,13 +39,9 @@ const Index = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const router = useRouter();
 
-  function goToTutoriais() {
-    router.push("/tutoriais");
-  }
-
   const stats = useMemo(() => {
     const total = scripts.length;
-    const online = scripts.filter(s => s.online).length;
+    const online = scripts.filter((s) => s.online).length;
     const offline = total - online;
     return { total, online, offline };
   }, [scripts]);
@@ -80,20 +76,12 @@ const Index = () => {
   };
 
   const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30,
-      scale: 0.9,
-    },
+    hidden: { opacity: 0, y: 30, scale: 0.9 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: {
-        type: "spring" as const,
-        stiffness: 100,
-        damping: 12,
-      },
+      transition: { type: "spring" as const, stiffness: 100, damping: 12 },
     },
   };
 
@@ -102,11 +90,22 @@ const Index = () => {
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800/20 via-transparent to-transparent" />
       <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
 
+      {/* Topo com botão de Tutoriais */}
+      <header className="relative z-10 flex justify-between items-center px-4 pt-6 max-w-7xl mx-auto">
+        <h1 className="text-xl font-bold text-purple-400 select-none">🚀 HideXS</h1>
+        <button
+          onClick={() => router.push("/tutoriais")}
+          className="px-4 py-2 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-all duration-300 shadow-md shadow-purple-600/40"
+        >
+          Tutoriais
+        </button>
+      </header>
+
       <motion.header
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 pt-20 pb-12 px-4"
+        className="relative z-10 pt-12 pb-12 px-4"
       >
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
@@ -132,24 +131,10 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-lg md:text-xl text-purple-300 max-w-3xl mx-auto leading-relaxed mb-6"
+            className="text-lg md:text-xl text-purple-300 max-w-3xl mx-auto leading-relaxed mb-10"
           >
             Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.75, duration: 0.5 }}
-            className="mb-10"
-          >
-            <button
-              onClick={goToTutoriais}
-              className="px-6 py-3 bg-purple-700 hover:bg-purple-600 text-white font-semibold rounded-xl transition-colors duration-300 shadow-md shadow-purple-600/40"
-            >
-              Tutoriais
-            </button>
-          </motion.div>
 
           <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6">
             <h3 className="text-lg font-semibold text-white mb-1">Estatísticas</h3>
@@ -173,7 +158,117 @@ const Index = () => {
         </div>
       </motion.header>
 
-      {/* restante do código continua como está, sem alteração */}
+      <motion.main
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 px-4 pb-20"
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="flex items-center gap-3 mb-12"
+          >
+            <span className="text-purple-400 text-xl">💻</span>
+            <h2 className="text-3xl font-bold text-purple-400">Scripts Disponíveis</h2>
+            <div className="flex-1 h-px bg-gradient-to-r from-purple-700 to-transparent" />
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {scripts.map((script) => (
+              <motion.div
+                key={script.id}
+                variants={itemVariants}
+                whileHover={{
+                  y: -8,
+                  transition: { type: "spring", stiffness: 300, damping: 20 },
+                }}
+                onHoverStart={() => setHoveredCard(script.id)}
+                onHoverEnd={() => setHoveredCard(null)}
+                className="group relative"
+              >
+                <div
+                  className={cn(
+                    "absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",
+                    hoveredCard === script.id && "opacity-40"
+                  )}
+                />
+                <div className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-extrabold text-white group-hover:text-purple-400 transition-colors duration-300 select-none">
+                        {script.title}
+                      </h3>
+                      <span className="inline-block mt-1 px-3 py-1 bg-slate-800 text-purple-300 text-xs font-medium rounded-full select-none">
+                        {script.category}
+                      </span>
+                    </div>
+                    <div
+                      className={cn(
+                        "flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none",
+                        script.online
+                          ? "bg-purple-500/30 text-purple-400 border border-purple-500/40"
+                          : "bg-red-500/30 text-red-400 border border-red-500/40"
+                      )}
+                    >
+                      <div
+                        className={cn(
+                          "w-2 h-2 rounded-full",
+                          script.online ? "bg-purple-400" : "bg-red-400"
+                        )}
+                      />
+                      {script.online ? "Online" : "Offline"}
+                    </div>
+                  </div>
+                  <p className="text-purple-300 text-sm leading-relaxed mb-6 flex-1 select-text">
+                    {script.description}
+                  </p>
+                  <div className="flex gap-3">
+                    <motion.a
+                      href={script.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-700 to-purple-600 hover:from-purple-600 hover:to-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/40"
+                    >
+                      <span>↗</span>
+                      Acessar
+                    </motion.a>
+                    <motion.button
+                      onClick={() => handleShare(script)}
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-xl transition-all duration-300 shadow-md shadow-black/40"
+                      aria-label={`Compartilhar ${script.title}`}
+                    >
+                      <span>📤</span>
+                    </motion.button>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.main>
+
+      <footer className="relative z-10 py-12 text-center border-t border-purple-800/60 px-4 max-w-7xl mx-auto select-none">
+        <p className="text-purple-300 mb-4">
+          Desenvolvido por <span className="font-semibold text-white">JapaXZZ</span>.
+        </p>
+        <p className="text-purple-300 mb-6 max-w-xl mx-auto">
+          Agradecimentos especiais a todos os colaboradores e usuários da plataforma HideXS.
+        </p>
+        <button
+          onClick={openEmail}
+          className="inline-block px-6 py-3 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-colors duration-300 shadow-md shadow-purple-600/40"
+          aria-label="Enviar email para suporte"
+        >
+          Contatar Suporte
+        </button>
+      </footer>
     </div>
   );
 };
