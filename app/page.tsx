@@ -83,7 +83,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white overflow-x-hidden">
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800/20 via-transparent to-transparent" />
       <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
 
@@ -91,14 +91,14 @@ const Index = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 pt-20 pb-16 px-6"
+        className="relative z-10 pt-20 pb-12 px-4"
       >
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-purple-800/50 backdrop-blur-sm border border-purple-700/50 rounded-full"
+            className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-purple-800/50 backdrop-blur-sm border border-purple-700/50 rounded-full"
           >
             <span className="text-purple-400">⚡</span>
             <span className="text-slate-300 font-medium">Plataforma Premium</span>
@@ -108,7 +108,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent select-none"
+            className="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent select-none"
           >
             HideXS
           </motion.h1>
@@ -117,48 +117,30 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-xl md:text-2xl text-purple-300 max-w-3xl mx-auto leading-relaxed mb-6"
+            className="text-lg md:text-xl text-purple-300 max-w-3xl mx-auto leading-relaxed mb-10"
           >
             Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.
           </motion.p>
 
-          {/* Estatísticas reformuladas */}
-          <div className="mt-12 flex justify-center gap-8 max-w-md mx-auto">
-            <div className="flex items-center gap-3 bg-slate-800/70 rounded-lg px-5 py-3 border border-purple-700 shadow-lg shadow-purple-900/50">
-              <div className="p-3 rounded-full bg-purple-600/80 text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 7h18M3 12h18M3 17h18" />
-                </svg>
+          {/* Estatísticas em Card Dark */}
+          <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6">
+            <h3 className="text-lg font-semibold text-white mb-1">📊 Estatísticas</h3>
+            <p className="text-xs text-slate-400 mb-4">
+              Última atualização: {new Date().toLocaleDateString("pt-BR")} às {new Date().toLocaleTimeString("pt-BR").slice(0, 5)}
+            </p>
+            <div className="h-px bg-slate-700 mb-4" />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3">
+                <span className="text-white text-sm">Total</span>
+                <span className="text-xl font-bold text-purple-400">{stats.total}</span>
               </div>
-              <div>
-                <p className="text-xs uppercase text-purple-400">Total de Scripts</p>
-                <p className="text-2xl font-bold text-white">{stats.total}</p>
+              <div className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3">
+                <span className="text-white text-sm">Online</span>
+                <span className="text-xl font-bold text-green-400">{stats.online}</span>
               </div>
-            </div>
-
-            <div className="flex items-center gap-3 bg-slate-800/70 rounded-lg px-5 py-3 border border-purple-700 shadow-lg shadow-purple-900/50">
-              <div className="p-3 rounded-full bg-green-600/80 text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M9 12l2 2 4-4" />
-                  <circle cx="12" cy="12" r="10" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-xs uppercase text-green-400">Online</p>
-                <p className="text-2xl font-bold text-green-400">{stats.online}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3 bg-slate-800/70 rounded-lg px-5 py-3 border border-purple-700 shadow-lg shadow-purple-900/50">
-              <div className="p-3 rounded-full bg-red-600/80 text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="6" y1="18" x2="18" y2="6" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-xs uppercase text-red-400">Offline</p>
-                <p className="text-2xl font-bold text-red-400">{stats.offline}</p>
+              <div className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3">
+                <span className="text-white text-sm">Offline</span>
+                <span className="text-xl font-bold text-red-400">{stats.offline}</span>
               </div>
             </div>
           </div>
@@ -169,7 +151,7 @@ const Index = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 px-6 pb-20"
+        className="relative z-10 px-4 pb-20"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -202,7 +184,6 @@ const Index = () => {
                     hoveredCard === script.id && "opacity-40"
                   )}
                 />
-
                 <div className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
@@ -215,13 +196,12 @@ const Index = () => {
                         {script.category}
                       </span>
                     </div>
-
                     <div
                       className={cn(
                         "flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none",
                         script.online
-                          ? "bg-purple-500/30 text-purple-400 border border-purple-500/40 shadow-md shadow-purple-500/40"
-                          : "bg-red-500/30 text-red-400 border border-red-500/40 shadow-md shadow-red-500/40"
+                          ? "bg-purple-500/30 text-purple-400 border border-purple-500/40"
+                          : "bg-red-500/30 text-red-400 border border-red-500/40"
                       )}
                     >
                       <div
@@ -233,11 +213,9 @@ const Index = () => {
                       {script.online ? "Online" : "Offline"}
                     </div>
                   </div>
-
                   <p className="text-purple-300 text-sm leading-relaxed mb-6 flex-1 select-text">
                     {script.description}
                   </p>
-
                   <div className="flex gap-3">
                     <motion.a
                       href={script.url}
@@ -250,7 +228,6 @@ const Index = () => {
                       <span>↗</span>
                       Acessar
                     </motion.a>
-
                     <motion.button
                       onClick={() => handleShare(script)}
                       whileHover={{ scale: 1.03 }}
@@ -268,7 +245,7 @@ const Index = () => {
         </div>
       </motion.main>
 
-      <footer className="relative z-10 py-12 text-center border-t border-purple-800/60 px-6 max-w-7xl mx-auto select-none">
+      <footer className="relative z-10 py-12 text-center border-t border-purple-800/60 px-4 max-w-7xl mx-auto select-none">
         <p className="text-purple-300 mb-4">
           Desenvolvido por <span className="font-semibold text-white">JapaXZZ</span>.
         </p>
