@@ -14,14 +14,14 @@ interface Script {
 }
 
 const initialScripts: Script[] = [
-  { id: 1, title: "Tarefa SP", description: "Ferramenta avançada para automação e conclusão de tarefas educacionais", online: false, url: "https://taskitos.cupiditys.lol/", category: "Web" },
-  { id: 2, title: "Redação SP", description: "Sistema inteligente para geração e aperfeiçoamento de redações", online: false, url: "https://redacao.cupiditys.lol/", category: "Web" },
-  { id: 3, title: "Khanware v3.1.1", description: "Suite completa para automação da plataforma Khan Academy", online: true, url: "https://khanware.space/", category: "BookMark" },
-  { id: 4, title: "Speak", description: "Ferramenta de automação para plataformas de idiomas", online: true, url: "https://speakify.cupiditys.lol/", category: "BookMark" },
-  { id: 5, title: "Leia SP", description: "Sistema automatizado para leitura e compreensão textual", online: false, url: "https://leiasp.cupiditys.lol/", category: "BookMark" },
+  { id: 1, title: "Tarefa SP", description: "Ferramenta avançada para automação e conclusão de tarefas", online: false, url: "https://taskitos.cupiditys.lol/", category: "Web" },
+  { id: 2, title: "Redação SP", description: "Sistema inteligente para geração de redações", online: false, url: "https://redacao.cupiditys.lol/", category: "Web" },
+  { id: 3, title: "Khanware v3.1.1", description: "Script completo para automação da plataforma Khan Academy", online: true, url: "https://khanware.space/", category: "BookMark" },
+  { id: 4, title: "Speak", description: "Ferramenta de automação para a plataforma Speak", online: true, url: "https://speakify.cupiditys.lol/", category: "BookMark" },
+  { id: 5, title: "Leia SP", description: "Sistema automatizado para concluir questões dos livros", online: false, url: "https://leiasp.cupiditys.lol/", category: "BookMark" },
   { id: 6, title: "Matific", description: "Automação avançada para exercícios matemáticos", online: false, url: "https://matific.cupiditys.lol/", category: "BookMark" },
-  { id: 7, title: "Alura", description: "Ferramenta premium para cursos e certificações", online: true, url: "https://crimsonstrauss.xyz/alura", category: "Web" },
-  { id: 8, title: "Expansão Noturno", description: "Sistema especializado para ensino noturno e EJA", online: false, url: "https://crimsonstrauss.xyz/expansao.html", category: "Web" },
+  { id: 7, title: "Alura", description: "Ferramenta para concluir a plataforma Alura", online: true, url: "https://crimsonstrauss.xyz/alura", category: "Web" },
+  { id: 8, title: "Expansão Noturno", description: "Sistema para automatização das tarefas da plataforma Expansão Noturno", online: false, url: "https://crimsonstrauss.xyz/expansao.html", category: "Web" },
 ];
 
 const Index = () => {
