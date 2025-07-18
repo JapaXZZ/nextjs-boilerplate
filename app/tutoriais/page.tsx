@@ -1,10 +1,12 @@
+"use client";
+
 import { ArrowLeft, Smartphone, Monitor, Apple, Play, CheckCircle2 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 const Tutoriais = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const deviceSections = [
     {
@@ -18,7 +20,7 @@ const Tutoriais = () => {
     {
       id: "computador",
       icon: Monitor,
-      label: "Computador (Windows/Mac/Linux)", 
+      label: "Computador (Windows/Mac/Linux)",
       description: "Tutoriais para desktops e notebooks",
       scripts: ["Speak", "Khan", "Matific"],
       color: "from-green-500 to-green-600"
@@ -43,7 +45,7 @@ const Tutoriais = () => {
     Khan: {
       title: "Khan Academy",
       description: "Automação completa para plataforma Khan Academy",
-      videoId: "dQw4w9WgXcQ", 
+      videoId: "dQw4w9WgXcQ",
       duration: "8:45"
     },
     Matific: {
@@ -62,13 +64,13 @@ const Tutoriais = () => {
           <div className="flex items-center justify-between">
             <Button
               variant="ghost"
-              onClick={() => navigate(-1)}
+              onClick={() => router.back()}
               className="text-pro-text-secondary hover:text-pro-text-primary hover:bg-pro-bg-tertiary transition-all duration-200"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               Voltar
             </Button>
-            
+
             <div className="text-sm text-pro-text-muted">
               Todos os Tutoriais
             </div>
@@ -91,7 +93,7 @@ const Tutoriais = () => {
         <div className="space-y-16">
           {deviceSections.map((device) => {
             const DeviceIcon = device.icon;
-            
+
             return (
               <section key={device.id} className="animate-fade-in">
                 {/* Device Header */}
@@ -113,7 +115,7 @@ const Tutoriais = () => {
                 <div className="grid gap-6">
                   {device.scripts.map((script) => {
                     const info = scriptInfo[script as keyof typeof scriptInfo];
-                    
+
                     return (
                       <Card
                         key={`${device.id}-${script}`}
@@ -133,7 +135,7 @@ const Tutoriais = () => {
                               ></iframe>
                             </div>
                           </div>
-                          
+
                           {/* Content Section */}
                           <div className="lg:w-3/5 p-6 flex flex-col justify-center">
                             <div className="mb-4">
@@ -142,20 +144,20 @@ const Tutoriais = () => {
                                   {info.title}
                                 </h3>
                                 <span className={`ml-3 px-2 py-1 text-xs font-medium rounded-full bg-gradient-to-r ${device.color} text-white`}>
-                                  {device.label.split(' ')[0]}
+                                  {device.label.split(" ")[0]}
                                 </span>
                               </div>
                               <p className="text-pro-text-secondary mb-4 text-sm leading-relaxed">
                                 {info.description}
                               </p>
                             </div>
-                            
+
                             <div className="flex items-center justify-between">
                               <div className="flex items-center text-pro-text-muted text-sm">
                                 <Play className="h-4 w-4 mr-2" />
                                 {info.duration}
                               </div>
-                              
+
                               <div className="flex items-center text-pro-accent-primary text-sm font-medium">
                                 <CheckCircle2 className="h-4 w-4 mr-2" />
                                 Completo
