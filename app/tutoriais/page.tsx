@@ -7,7 +7,7 @@ const scripts = [
   {
     title: "Khanware v3.1.1",
     links: {
-      celular: "https://www.youtube.com/embed/KHAN_CELULAR",
+      celular: "https://www.youtube.com/embed/KHAN_CELULR",
       computador: "https://www.youtube.com/embed/KHAN_PC",
     },
   },
