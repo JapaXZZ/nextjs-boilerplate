@@ -83,28 +83,31 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
-      <div className="fixed inset-0 bg-black/90" />
-
-      <div className="relative z-20 bg-slate-950 border-b border-slate-800 px-6 py-4 flex items-center justify-between shadow shadow-black/50">
-        <h1 className="text-xl font-bold text-white">HideXS</h1>
-        <button onClick={openEmail} className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-sm font-semibold transition">
-          Suporte
-        </button>
-      </div>
-
+    <div className="min-h-screen bg-gradient-to-br from-black via-slate-950 to-slate-900 text-white overflow-hidden">
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-700/10 via-transparent to-transparent" />
+      <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
       <motion.header
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 pt-28 pb-12 px-6"
+        className="relative z-10 pt-20 pb-16 px-6"
       >
         <div className="max-w-7xl mx-auto text-center">
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-slate-900/60 backdrop-blur-md border border-slate-700/60 rounded-full shadow-lg shadow-emerald-700/20"
+          >
+            <span className="text-emerald-400">⚡</span>
+            <span className="text-slate-300 font-medium">Plataforma Premium</span>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-white via-slate-300 to-slate-500 bg-clip-text text-transparent"
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="text-7xl md:text-8xl font-extrabold mb-6 bg-gradient-to-r from-emerald-400 via-slate-200 to-slate-400 bg-clip-text text-transparent select-none"
           >
             HideXS
           </motion.h1>
@@ -112,16 +115,22 @@ const Index = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-6"
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-6"
           >
             Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.
           </motion.p>
 
-          <div className="flex flex-wrap justify-center gap-3 text-sm font-medium text-slate-400">
-            <span className="px-3 py-1 bg-slate-900 border border-slate-700 rounded-full">Total: {stats.total}</span>
-            <span className="px-3 py-1 bg-slate-900 border border-emerald-700 text-emerald-400 rounded-full">Online: {stats.online}</span>
-            <span className="px-3 py-1 bg-slate-900 border border-red-700 text-red-400 rounded-full">Offline: {stats.offline}</span>
+          <div className="flex flex-wrap justify-center gap-4 text-sm font-medium text-slate-400">
+            <span className="px-4 py-2 bg-slate-900 rounded-full border border-slate-700 shadow-inner shadow-black/30">
+              Total: {stats.total}
+            </span>
+            <span className="px-4 py-2 bg-slate-900 rounded-full border border-emerald-700 text-emerald-400 shadow-md shadow-emerald-600/50">
+              Online: {stats.online}
+            </span>
+            <span className="px-4 py-2 bg-slate-900 rounded-full border border-red-700 text-red-400 shadow-md shadow-red-600/50">
+              Offline: {stats.offline}
+            </span>
           </div>
         </div>
       </motion.header>
@@ -137,11 +146,11 @@ const Index = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
-            className="flex items-center gap-3 mb-10"
+            className="flex items-center gap-3 mb-12"
           >
             <span className="text-emerald-400 text-xl">💻</span>
-            <h2 className="text-2xl font-semibold">Scripts Disponíveis</h2>
-            <div className="flex-1 h-px bg-slate-700" />
+            <h2 className="text-3xl font-extrabold text-slate-100">Scripts Disponíveis</h2>
+            <div className="flex-1 h-px bg-gradient-to-r from-slate-700 to-transparent" />
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -151,54 +160,75 @@ const Index = () => {
                 variants={itemVariants}
                 whileHover={{
                   y: -8,
-                  transition: { type: "spring" as const, stiffness: 300, damping: 20 },
+                  transition: { type: "spring", stiffness: 300, damping: 20 },
                 }}
                 onHoverStart={() => setHoveredCard(script.id)}
                 onHoverEnd={() => setHoveredCard(null)}
                 className="group relative"
               >
-                <div className={cn(
-                  "absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl opacity-0 blur transition-opacity duration-500",
-                  hoveredCard === script.id && "opacity-30"
-                )} />
+                <div
+                  className={cn(
+                    "absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",
+                    hoveredCard === script.id && "opacity-40"
+                  )}
+                />
 
-                <div className="relative bg-slate-950/90 border border-slate-800 rounded-2xl p-6 h-full flex flex-col">
+                <div className="relative bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-black/50">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-white group-hover:text-emerald-400 transition">{script.title}</h3>
-                      <span className="inline-block mt-2 px-3 py-1 bg-slate-800 text-slate-300 text-xs rounded-full">{script.category}</span>
+                      <div className="flex items-center gap-2 mb-2">
+                        <h3 className="text-xl font-extrabold text-white group-hover:text-emerald-400 transition-colors duration-300 select-none">
+                          {script.title}
+                        </h3>
+                      </div>
+                      <span className="inline-block px-3 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-full select-none">
+                        {script.category}
+                      </span>
                     </div>
-                    <div className={cn(
-                      "flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold",
-                      script.online
-                        ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
-                        : "bg-red-500/10 text-red-400 border border-red-500/30"
-                    )}>
-                      <div className={cn("w-2 h-2 rounded-full", script.online ? "bg-emerald-400" : "bg-red-400")} />
+
+                    <div
+                      className={cn(
+                        "flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none",
+                        script.online
+                          ? "bg-emerald-500/30 text-emerald-400 border border-emerald-500/40 shadow-md shadow-emerald-500/40"
+                          : "bg-red-500/30 text-red-400 border border-red-500/40 shadow-md shadow-red-500/40"
+                      )}
+                    >
+                      <div
+                        className={cn(
+                          "w-2 h-2 rounded-full",
+                          script.online ? "bg-emerald-400" : "bg-red-400"
+                        )}
+                      />
                       {script.online ? "Online" : "Offline"}
                     </div>
                   </div>
 
-                  <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">{script.description}</p>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1 select-text">
+                    {script.description}
+                  </p>
 
                   <div className="flex gap-3">
                     <motion.a
                       href={script.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-semibold rounded-xl transition-all duration-300"
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-emerald-700 to-emerald-600 hover:from-emerald-600 hover:to-emerald-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-emerald-600/40"
                     >
-                      <span>↗</span>Acessar
+                      <span>↗</span>
+                      Acessar
                     </motion.a>
+
                     <motion.button
                       onClick={() => handleShare(script)}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="px-4 py-3 bg-slate-900 border border-slate-700 text-slate-300 hover:text-white rounded-xl transition"
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-xl transition-all duration-300 shadow-md shadow-black/40"
+                      aria-label={`Compartilhar ${script.title}`}
                     >
-                      📤
+                      <span>📤</span>
                     </motion.button>
                   </div>
                 </div>
@@ -208,12 +238,17 @@ const Index = () => {
         </div>
       </motion.main>
 
-      <footer className="relative z-10 py-10 text-center border-t border-slate-800 px-6 max-w-7xl mx-auto">
-        <p className="text-slate-500 mb-2">Desenvolvido por <span className="text-white font-semibold">JapaXZZ</span></p>
-        <p className="text-slate-600 mb-4">Agradecimentos especiais aos colaboradores da plataforma HideXS</p>
+      <footer className="relative z-10 py-12 text-center border-t border-slate-800/60 px-6 max-w-7xl mx-auto select-none">
+        <p className="text-slate-400 mb-4">
+          Desenvolvido por <span className="font-semibold text-white">JapaXZZ</span>.
+        </p>
+        <p className="text-slate-400 mb-6 max-w-xl mx-auto">
+          Agradecimentos especiais a todos os colaboradores e usuários da plataforma HideXS.
+        </p>
         <button
           onClick={openEmail}
-          className="px-5 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl font-medium shadow shadow-emerald-500/30"
+          className="inline-block px-6 py-3 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl font-semibold transition-colors duration-300 shadow-md shadow-emerald-600/40"
+          aria-label="Enviar email para suporte"
         >
           Contatar Suporte
         </button>
