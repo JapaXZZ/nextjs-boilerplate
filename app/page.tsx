@@ -24,6 +24,15 @@ const initialScripts: Script[] = [
 { id: 8, title: "Expansão Noturno", description: "Sistema para automatização das tarefas da plataforma Expansão Noturno", online: false, url: "https://crimsonstrauss.xyz/expansao.html", category: "Web" },
 ];
 
+const apostilas = [
+  {
+    id: 1,
+    title: "Apostilas",
+    description: "Material completo para complementar seus estudos",
+    url: "https://seulink.com/apostilas", // edite aqui
+  },
+];
+
 const Index = () => {
 const [scripts] = useState(initialScripts);
 const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -164,6 +173,61 @@ return (
         <h2 className="text-3xl font-bold text-purple-400">Scripts Disponíveis</h2>  
         <div className="flex-1 h-px bg-gradient-to-r from-purple-700 to-transparent" />  
       </motion.div>  
+      
+      // 2. Coloque isso no lugar certo, logo abaixo dos <Scripts Disponíveis>
+
+<motion.div
+  initial={{ opacity: 0, x: -20 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ delay: 1, duration: 0.6 }}
+  className="flex items-center gap-3 mb-12 mt-20"
+>
+  <span className="text-purple-400 text-xl">📚</span>
+  <h2 className="text-3xl font-bold text-purple-400">Apostilas</h2>
+  <div className="flex-1 h-px bg-gradient-to-r from-purple-700 to-transparent" />
+</motion.div>
+
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+  {apostilas.map((apostila) => (
+    <motion.div
+      key={apostila.id}
+      variants={itemVariants}
+      whileHover={{
+        y: -8,
+        transition: { type: "spring", stiffness: 300, damping: 20 },
+      }}
+      className="group relative"
+    >
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl group-hover:opacity-40 transition-opacity duration-500" />
+      <div className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50">
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex-1">
+            <h3 className="text-xl font-extrabold text-white group-hover:text-purple-400 transition-colors duration-300 select-none">
+              {apostila.title}
+            </h3>
+            <span className="inline-block mt-2 px-3 py-1 bg-slate-800 text-purple-300 text-xs font-medium rounded-full select-none">
+              Material
+            </span>
+          </div>
+        </div>
+        <p className="text-purple-300 text-sm leading-relaxed mb-6 flex-1 select-text">
+          {apostila.description}
+        </p>
+        <motion.a
+          href={apostila.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-700 to-purple-600 hover:from-purple-600 hover:to-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/40"
+        >
+          <span>↗</span>
+          Acessar
+        </motion.a>
+      </div>
+    </motion.div>
+  ))}
+</div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">  
         {scripts.map((script) => (  
