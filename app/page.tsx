@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -28,9 +28,12 @@ const Index = () => {
   const [scripts] = useState(initialScripts);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  const total = scripts.length;
-  const online = scripts.filter((s) => s.online).length;
-  const offline = scripts.filter((s) => !s.online).length;
+  const stats = useMemo(() => {
+    const total = scripts.length;
+    const online = scripts.filter(s => s.online).length;
+    const offline = total - online;
+    return { total, online, offline };
+  }, [scripts]);
 
   function handleShare(script: Script) {
     if (navigator.share) {
@@ -79,7 +82,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white overflow-hidden">
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800/20 via-transparent to-transparent" />
       <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
-
+      
       <motion.header 
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -96,7 +99,7 @@ const Index = () => {
             <span className="text-emerald-400">⚡</span>
             <span className="text-slate-300 font-medium">Plataforma Premium</span>
           </motion.div>
-          
+
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -110,31 +113,20 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-6"
           >
             A mais avançada plataforma de automação educacional com design premium e tecnologia de ponta
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="mt-10 flex flex-wrap justify-center gap-6"
-          >
-            <div className="px-6 py-4 bg-slate-800/50 rounded-xl border border-slate-700/50 text-white">
-              Total: <span className="font-bold">{total}</span>
-            </div>
-            <div className="px-6 py-4 bg-slate-800/50 rounded-xl border border-slate-700/50 text-emerald-400">
-              Online: <span className="font-bold">{online}</span>
-            </div>
-            <div className="px-6 py-4 bg-slate-800/50 rounded-xl border border-slate-700/50 text-red-400">
-              Offline: <span className="font-bold">{offline}</span>
-            </div>
-          </motion.div>
+          <div className="flex flex-wrap justify-center gap-4 text-sm font-medium text-slate-400">
+            <span className="px-4 py-2 bg-slate-800 rounded-full border border-slate-700">Total: {stats.total}</span>
+            <span className="px-4 py-2 bg-slate-800 rounded-full border border-emerald-700 text-emerald-400">Online: {stats.online}</span>
+            <span className="px-4 py-2 bg-slate-800 rounded-full border border-red-700 text-red-400">Offline: {stats.offline}</span>
+          </div>
         </div>
       </motion.header>
 
-      {/* restante do seu código permanece igual */}
+      {/* o restante do seu código continua exatamente como está */}
     </div>
   );
 };
