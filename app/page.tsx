@@ -8,7 +8,7 @@ interface Script {
   id: number;
   title: string;
   description: string;
-  online: boolean; // Altere esse valor para true/false para mudar o status do script
+  online: boolean; // Alterar aqui para true/false e definir status do script
 }
 
 const initialScripts: Script[] = [
@@ -23,15 +23,17 @@ const initialScripts: Script[] = [
 ];
 
 export default function Home() {
-  const [scripts, setScripts] = useState<Script[]>(initialScripts);
+  const [scripts] = useState<Script[]>(initialScripts);
 
   function handleShare(script: Script) {
     if (navigator.share) {
-      navigator.share({
-        title: script.title,
-        text: script.description,
-        url: window.location.href,
-      }).catch(() => alert("Não foi possível compartilhar."));
+      navigator
+        .share({
+          title: script.title,
+          text: script.description,
+          url: window.location.href,
+        })
+        .catch(() => alert("Não foi possível compartilhar."));
     } else {
       alert("Seu navegador não suporta a função de compartilhar.");
     }
@@ -39,34 +41,51 @@ export default function Home() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full bg-gradient-to-r from-indigo-900 via-black to-indigo-900 z-50 border-b border-indigo-700">
+      <header className="fixed top-0 left-0 w-full bg-black bg-opacity-90 backdrop-blur-md border-b border-gray-800 z-50">
         <nav className="max-w-7xl mx-auto px-6 sm:px-12 flex items-center justify-between h-16">
-          <h1 className="text-white text-3xl font-extrabold tracking-wide select-none cursor-default">HideXS</h1>
-          <ul className="hidden sm:flex space-x-10 text-indigo-300 font-semibold">
-            <li><a href="#home" className="hover:text-white transition">Início</a></li>
-            <li><a href="#scripts" className="hover:text-white transition">Scripts</a></li>
-            <li><a href="#about" className="hover:text-white transition">Sobre</a></li>
+          <h1 className="text-purple-500 text-3xl font-extrabold select-none cursor-default tracking-wide">
+            HideXS
+          </h1>
+          <ul className="hidden sm:flex space-x-12 text-gray-400 font-semibold">
+            <li>
+              <a href="#home" className="hover:text-purple-500 transition duration-300">
+                Início
+              </a>
+            </li>
+            <li>
+              <a href="#scripts" className="hover:text-purple-500 transition duration-300">
+                Scripts
+              </a>
+            </li>
+            <li>
+              <a href="#about" className="hover:text-purple-500 transition duration-300">
+                Sobre
+              </a>
+            </li>
           </ul>
         </nav>
       </header>
 
-      <main id="home" className="pt-20 min-h-screen bg-gradient-to-br from-neutral-900 via-indigo-900 to-black text-indigo-50 flex flex-col items-center px-6 sm:px-12">
+      <main
+        id="home"
+        className="pt-24 min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 text-gray-200 px-6 sm:px-12 flex flex-col items-center"
+      >
         <motion.h2
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-5xl sm:text-6xl font-extrabold max-w-5xl text-center leading-tight mb-8"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-5xl sm:text-6xl font-extrabold max-w-5xl text-center leading-tight mb-10 tracking-wide"
         >
-          HideXS — Sua plataforma definitiva para scripts e ferramentas
+          HideXS — Scripts e ferramentas com estilo dark, elegância e performance
         </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.7 }}
-          className="max-w-3xl text-center text-indigo-300 text-lg mb-12"
+          transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+          className="max-w-3xl text-center text-gray-400 text-lg mb-16"
         >
-          Organize, compartilhe e monitore seus scripts favoritos com estilo, rapidez e segurança.
+          Organize, compartilhe e monitore seus scripts favoritos com status em tempo real, tudo com design escuro e sofisticado.
         </motion.p>
 
         <section
@@ -78,28 +97,28 @@ export default function Home() {
               key={script.id}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: script.id * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="cursor-default bg-gradient-to-br from-indigo-800 to-indigo-900 rounded-3xl p-6 shadow-lg border border-indigo-700 flex flex-col justify-between"
+              transition={{ duration: 0.5, delay: script.id * 0.12 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 12px 25px rgba(128, 90, 213, 0.6)" }}
+              className="cursor-default bg-gradient-to-tr from-gray-800 to-gray-900 rounded-3xl p-7 shadow-xl border border-purple-700 flex flex-col justify-between select-none"
             >
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-semibold">{script.title}</h3>
-                  {/* Sinalizador de status online/offline: verde = online, vermelho = offline */}
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-semibold text-purple-400">{script.title}</h3>
+                  {/* Sinalizador de status online/offline */}
                   <span
                     title={script.online ? "Online" : "Offline"}
                     className={clsx(
-                      "w-4 h-4 rounded-full",
-                      script.online ? "bg-green-400" : "bg-red-500"
+                      "w-5 h-5 rounded-full border-2 border-gray-700",
+                      script.online ? "bg-green-500" : "bg-red-600"
                     )}
                   />
                 </div>
-                <p className="text-indigo-300">{script.description}</p>
+                <p className="text-gray-400 leading-relaxed">{script.description}</p>
               </div>
 
               <button
                 onClick={() => handleShare(script)}
-                className="mt-6 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 transition rounded-full px-5 py-2 text-white font-semibold select-none"
+                className="mt-8 bg-purple-700 hover:bg-purple-800 active:bg-purple-900 transition rounded-full px-6 py-3 text-white font-semibold tracking-wide"
               >
                 Compartilhar
               </button>
@@ -109,16 +128,16 @@ export default function Home() {
 
         <section
           id="about"
-          className="mt-20 max-w-4xl text-center text-indigo-300"
+          className="mt-24 max-w-4xl text-center text-gray-400"
         >
-          <h3 className="text-3xl font-bold mb-4 text-indigo-50">Sobre o HideXS</h3>
-          <p className="leading-relaxed">
-            HideXS é uma plataforma moderna que te ajuda a organizar seus scripts, compartilhá-los facilmente e acompanhar seus status online em tempo real. Tudo isso com design elegante, rápido e responsivo.
+          <h3 className="text-3xl font-bold mb-6 text-purple-400">Sobre o HideXS</h3>
+          <p className="leading-relaxed text-lg max-w-xl mx-auto">
+            HideXS é a plataforma ideal para organizar, compartilhar e acompanhar seus scripts com status online e offline, tudo em um design dark moderno, rápido e sofisticado.
           </p>
         </section>
       </main>
 
-      <footer className="mt-24 py-6 text-center text-indigo-400 text-sm border-t border-indigo-700">
+      <footer className="mt-32 py-8 text-center text-gray-500 text-sm border-t border-gray-800 select-none">
         © {new Date().getFullYear()} HideXS. Todos os direitos reservados.
       </footer>
     </>
