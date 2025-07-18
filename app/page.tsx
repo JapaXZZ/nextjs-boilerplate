@@ -28,8 +28,8 @@ const apostilas = [
   {
     id: 1,
     title: "Apostilas",
-    description: "Material completo para complementar seus estudos",
-    url: "https://seulink.com/apostilas",
+    description: "Material completo com gabarito de todas as séries",
+    url: "https://apostiladestroyer.netlify.app/",
   },
 ];
 
