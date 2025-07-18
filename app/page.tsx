@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Card, CardHeader, CardTitle, CardContent } from 'app/card';
+import { Card, CardHeader, CardTitle, CardContent } from '@/app/card';
 
 const scripts = [
   { title: 'Tarefa SP', description: 'Ferramenta para concluir as tarefas' },
