@@ -2,19 +2,18 @@
   "name": "nextjs",
   "version": "0.1.0",
   "private": true,
- "scripts": {
-  "dev": "next dev --turbopack",
-  "build": "npm install --legacy-peer-deps && next build",
-  "start": "next start",
-  "lint": "next lint"
-},
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "next": "15.4.1",
     "clsx": "^2.1.0",
-    "framer-motion": "^11.0.1",
-    "lucide-react": "^0.320.0"
+    "framer-motion": "^11.0.1"
   },
   "devDependencies": {
     "typescript": "^5",
