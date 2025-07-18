@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useClient } from "react";
 import { motion } from "framer-motion";
 import { Share2, ExternalLink, Circle, Zap, Shield, Code } from "lucide-react";
 import { cn } from "@/lib/utils";
