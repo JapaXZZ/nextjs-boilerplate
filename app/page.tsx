@@ -83,9 +83,10 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-slate-950 to-slate-900 text-white overflow-hidden">
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-700/10 via-transparent to-transparent" />
+    <div className="min-h-screen bg-gradient-to-br from-purple-950 via-purple-900 to-black text-white overflow-hidden">
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-800/20 via-transparent to-transparent" />
       <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
+
       <motion.header
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -97,7 +98,7 @@ const Index = () => {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-slate-900/60 backdrop-blur-md border border-slate-700/60 rounded-full shadow-lg shadow-purple-700/30"
+            className="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-purple-800/50 backdrop-blur-sm border border-purple-700/50 rounded-full"
           >
             <span className="text-purple-400">⚡</span>
             <span className="text-slate-300 font-medium">Plataforma Premium</span>
@@ -107,24 +108,64 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-purple-500 via-purple-400 to-purple-600 bg-clip-text text-transparent select-none"
+            className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent select-none"
           >
             HideXS
           </motion.h1>
 
-          {/* Novo layout para estatísticas */}
-          <div className="flex justify-center gap-8 max-w-md mx-auto text-center">
-            <div className="bg-slate-900/90 rounded-2xl p-6 flex-1 shadow-lg shadow-purple-900/50 border border-purple-700">
-              <p className="text-purple-400 font-semibold text-lg mb-1">Total de Scripts</p>
-              <p className="text-3xl font-bold text-white">{stats.total}</p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="text-xl md:text-2xl text-purple-300 max-w-3xl mx-auto leading-relaxed mb-6"
+          >
+            Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.
+          </motion.p>
+
+          {/* Estatísticas com ícones */}
+          <div className="mt-12 flex justify-center gap-8 max-w-3xl mx-auto text-center">
+            <div className="flex flex-col items-center bg-purple-900/90 p-6 rounded-3xl shadow-lg shadow-purple-800/80 border border-purple-700 w-36">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-12 w-12 mb-3 text-purple-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M3 12h18M3 17h18" />
+              </svg>
+              <span className="text-purple-300 uppercase font-semibold mb-1">Total de Scripts</span>
+              <span className="text-4xl font-extrabold text-white">{stats.total}</span>
             </div>
-            <div className="bg-slate-900/90 rounded-2xl p-6 flex-1 shadow-lg shadow-purple-700/40 border border-purple-500">
-              <p className="text-purple-300 font-semibold text-lg mb-1">Online</p>
-              <p className="text-3xl font-bold text-purple-400">{stats.online}</p>
+            <div className="flex flex-col items-center bg-purple-900/90 p-6 rounded-3xl shadow-lg shadow-purple-700/70 border border-purple-600 w-36">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-12 w-12 mb-3 text-green-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+              </svg>
+              <span className="text-purple-300 uppercase font-semibold mb-1">Online</span>
+              <span className="text-4xl font-extrabold text-green-400">{stats.online}</span>
             </div>
-            <div className="bg-slate-900/90 rounded-2xl p-6 flex-1 shadow-lg shadow-purple-700/40 border border-purple-500">
-              <p className="text-purple-300 font-semibold text-lg mb-1">Offline</p>
-              <p className="text-3xl font-bold text-purple-400">{stats.offline}</p>
+            <div className="flex flex-col items-center bg-purple-900/90 p-6 rounded-3xl shadow-lg shadow-red-700/70 border border-red-600 w-36">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-12 w-12 mb-3 text-red-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              <span className="text-purple-300 uppercase font-semibold mb-1">Offline</span>
+              <span className="text-4xl font-extrabold text-red-400">{stats.offline}</span>
             </div>
           </div>
         </div>
@@ -144,7 +185,7 @@ const Index = () => {
             className="flex items-center gap-3 mb-12"
           >
             <span className="text-purple-400 text-xl">💻</span>
-            <h2 className="text-3xl font-extrabold text-purple-400">Scripts Disponíveis</h2>
+            <h2 className="text-3xl font-bold text-purple-400">Scripts Disponíveis</h2>
             <div className="flex-1 h-px bg-gradient-to-r from-purple-700 to-transparent" />
           </motion.div>
 
@@ -199,7 +240,7 @@ const Index = () => {
                     </div>
                   </div>
 
-                  <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1 select-text">
+                  <p className="text-purple-300 text-sm leading-relaxed mb-6 flex-1 select-text">
                     {script.description}
                   </p>
 
@@ -233,11 +274,11 @@ const Index = () => {
         </div>
       </motion.main>
 
-      <footer className="relative z-10 py-12 text-center border-t border-slate-800/60 px-6 max-w-7xl mx-auto select-none">
-        <p className="text-slate-400 mb-4">
+      <footer className="relative z-10 py-12 text-center border-t border-purple-800/60 px-6 max-w-7xl mx-auto select-none">
+        <p className="text-purple-300 mb-4">
           Desenvolvido por <span className="font-semibold text-white">JapaXZZ</span>.
         </p>
-        <p className="text-slate-400 mb-6 max-w-xl mx-auto">
+        <p className="text-purple-300 mb-6 max-w-xl mx-auto">
           Agradecimentos especiais a todos os colaboradores e usuários da plataforma HideXS.
         </p>
         <button
