@@ -1,8 +1,8 @@
+
 "use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Share2, ExternalLink, Circle, Zap, Shield, Code } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Script {
@@ -92,7 +92,7 @@ const Index = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-full"
           >
-            <Zap className="w-5 h-5 text-emerald-400" />
+            <span className="text-emerald-400">⚡</span>
             <span className="text-slate-300 font-medium">Plataforma Premium</span>
           </motion.div>
           
@@ -130,7 +130,7 @@ const Index = () => {
             transition={{ delay: 0.9, duration: 0.6 }}
             className="flex items-center gap-3 mb-12"
           >
-            <Code className="w-6 h-6 text-emerald-400" />
+            <span className="text-emerald-400 text-xl">💻</span>
             <h2 className="text-3xl font-bold">Scripts Disponíveis</h2>
             <div className="flex-1 h-px bg-gradient-to-r from-slate-700 to-transparent" />
           </motion.div>
@@ -176,9 +176,9 @@ const Index = () => {
                         ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30" 
                         : "bg-red-500/20 text-red-400 border border-red-500/30"
                     )}>
-                      <Circle className={cn(
-                        "w-2 h-2 fill-current",
-                        script.online ? "text-emerald-400" : "text-red-400"
+                      <div className={cn(
+                        "w-2 h-2 rounded-full",
+                        script.online ? "bg-emerald-400" : "bg-red-400"
                       )} />
                       {script.online ? "Online" : "Offline"}
                     </div>
@@ -199,7 +199,7 @@ const Index = () => {
                       whileTap={{ scale: 0.98 }}
                       className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-emerald-500/25"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <span>↗</span>
                       Acessar
                     </motion.a>
                     
@@ -210,7 +210,7 @@ const Index = () => {
                       className="px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-xl transition-all duration-300"
                       aria-label={`Compartilhar ${script.title}`}
                     >
-                      <Share2 className="w-4 h-4" />
+                      <span>📤</span>
                     </motion.button>
                   </div>
                 </div>
@@ -234,7 +234,7 @@ const Index = () => {
             transition={{ delay: 1.4, duration: 0.6 }}
             className="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-full"
           >
-            <Shield className="w-5 h-5 text-blue-400" />
+            <span className="text-blue-400">🛡️</span>
             <span className="text-slate-300 font-medium">Sobre o Projeto</span>
           </motion.div>
           
