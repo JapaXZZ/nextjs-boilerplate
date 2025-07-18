@@ -1,119 +1,192 @@
-"use client";
+import { ArrowLeft, Smartphone, Monitor, Apple, Play, CheckCircle2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+const Tutoriais = () => {
+  const navigate = useNavigate();
 
-const scripts = [
-  {
-    title: "Khanware v3.1.1",
-    links: {
-      celular: "https://www.youtube.com/embed/KHAN_CELULR",
-      computador: "https://www.youtube.com/embed/KHAN_PC",
+  const deviceSections = [
+    {
+      id: "celular",
+      icon: Smartphone,
+      label: "Celular (Android)",
+      description: "Tutoriais para dispositivos móveis Android",
+      scripts: ["Speak", "Khan", "Matific"],
+      color: "from-blue-500 to-blue-600"
     },
-  },
-  {
-    title: "Speak",
-    links: {
-      celular: "https://www.youtube.com/embed/SPEAK_CELULAR",
-      computador: "https://www.youtube.com/embed/SPEAK_PC",
-      ios: "https://www.youtube.com/embed/SPEAK_IOS",
+    {
+      id: "computador",
+      icon: Monitor,
+      label: "Computador (Windows/Mac/Linux)", 
+      description: "Tutoriais para desktops e notebooks",
+      scripts: ["Speak", "Khan", "Matific"],
+      color: "from-green-500 to-green-600"
     },
-  },
-  {
-    title: "Matific",
-    links: {
-      celular: "https://www.youtube.com/embed/MATIFIC_CELULAR",
-      computador: "https://www.youtube.com/embed/MATIFIC_PC",
-    },
-  },
-];
-
-const TutorialPage = () => {
-  const [selected, setSelected] = useState<"celular" | "computador" | "ios" | null>(null);
-
-  const filteredScripts = selected
-    ? scripts.filter((s) => s.links[selected])
-    : [];
-
-  const devices = [
-    { id: "celular", label: "Celular", emoji: "📱" },
-    { id: "computador", label: "Computador", emoji: "💻" },
-    { id: "ios", label: "iOS", emoji: "🍎" },
+    {
+      id: "ios",
+      icon: Apple,
+      label: "iOS (iPhone/iPad)",
+      description: "Tutoriais para dispositivos Apple",
+      scripts: ["Speak"],
+      color: "from-purple-500 to-purple-600"
+    }
   ];
 
+  const scriptInfo = {
+    Speak: {
+      title: "Speak",
+      description: "Sistema de síntese de voz avançado para melhor acessibilidade",
+      videoId: "dQw4w9WgXcQ",
+      duration: "5:32"
+    },
+    Khan: {
+      title: "Khan Academy",
+      description: "Automação completa para plataforma Khan Academy",
+      videoId: "dQw4w9WgXcQ", 
+      duration: "8:45"
+    },
+    Matific: {
+      title: "Matific",
+      description: "Assistente inteligente para plataforma Matific",
+      videoId: "dQw4w9WgXcQ",
+      duration: "6:12"
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white">
-      {/* Toolbar */}
-      <header className="sticky top-0 z-50 bg-slate-900/70 backdrop-blur-md border-b border-purple-800/30 px-4 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <a
-            href="/"
-            className="text-purple-300 hover:text-white transition-colors font-semibold text-sm bg-slate-800/60 px-4 py-2 rounded-lg border border-purple-700 hover:bg-purple-700 hover:border-purple-600"
-          >
-            ← Voltar ao Início
-          </a>
-          <h1 className="text-xl font-bold text-purple-400 select-none">Tutoriais</h1>
-          <div />
+    <div className="min-h-screen bg-pro-gradient">
+      {/* Navigation Header */}
+      <header className="sticky top-0 z-50 bg-pro-bg-secondary/95 backdrop-blur-xl border-b border-pro-border-primary">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <Button
+              variant="ghost"
+              onClick={() => navigate(-1)}
+              className="text-pro-text-secondary hover:text-pro-text-primary hover:bg-pro-bg-tertiary transition-all duration-200"
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Voltar
+            </Button>
+            
+            <div className="text-sm text-pro-text-muted">
+              Todos os Tutoriais
+            </div>
+          </div>
         </div>
       </header>
 
-      {/* Conteúdo */}
-      <main className="max-w-7xl mx-auto px-4 py-10">
-        {/* Seleção de Dispositivo */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
-          {devices.map((device) => (
-            <motion.button
-              key={device.id}
-              onClick={() =>
-                setSelected(device.id as "celular" | "computador" | "ios")
-              }
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className={`flex flex-col items-center justify-center gap-2 p-6 rounded-2xl border transition-all duration-300 shadow-lg select-none ${
-                selected === device.id
-                  ? "bg-purple-700 border-purple-500 shadow-purple-700/30"
-                  : "bg-slate-800/70 border-slate-700 hover:border-purple-600 hover:bg-slate-800"
-              }`}
-            >
-              <span className="text-3xl">{device.emoji}</span>
-              <span className="text-white font-semibold text-lg">{device.label}</span>
-            </motion.button>
-          ))}
+      <div className="container mx-auto px-6 py-12">
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl lg:text-6xl font-bold text-pro-text-primary mb-6 tracking-tight">
+            Central de Tutoriais
+          </h1>
+          <p className="text-xl text-pro-text-secondary max-w-2xl mx-auto leading-relaxed">
+            Todos os guias em um só lugar. Encontre o tutorial perfeito para sua plataforma.
+          </p>
         </div>
 
-        {/* Lista de Tutoriais */}
-        {selected && filteredScripts.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredScripts.map((script) => (
-              <motion.div
-                key={script.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 flex flex-col shadow-lg shadow-purple-900/40"
-              >
-                <h2 className="text-xl font-bold text-white mb-4 select-none">{script.title}</h2>
-                <div className="aspect-video">
-                  <iframe
-                    src={script.links[selected]}
-                    title={`Tutorial ${script.title}`}
-                    allowFullScreen
-                    className="w-full h-full rounded-lg border border-slate-700"
-                  />
+        {/* All Device Sections */}
+        <div className="space-y-16">
+          {deviceSections.map((device) => {
+            const DeviceIcon = device.icon;
+            
+            return (
+              <section key={device.id} className="animate-fade-in">
+                {/* Device Header */}
+                <div className="flex items-center mb-8">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${device.color} flex items-center justify-center mr-4`}>
+                    <DeviceIcon className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold text-pro-text-primary">
+                      {device.label}
+                    </h2>
+                    <p className="text-pro-text-muted text-sm">
+                      {device.description}
+                    </p>
+                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        )}
 
-        {selected && filteredScripts.length === 0 && (
-          <p className="text-purple-300 text-center mt-20 text-lg">
-            Nenhum tutorial disponível para essa plataforma.
+                {/* Tutorials for this device */}
+                <div className="grid gap-6">
+                  {device.scripts.map((script) => {
+                    const info = scriptInfo[script as keyof typeof scriptInfo];
+                    
+                    return (
+                      <Card
+                        key={`${device.id}-${script}`}
+                        className="bg-card-gradient border border-pro-border-primary hover:border-pro-accent-primary/50 transition-all duration-300 overflow-hidden group"
+                      >
+                        <div className="lg:flex">
+                          {/* Video Section */}
+                          <div className="lg:w-2/5 relative">
+                            <div className="aspect-video bg-pro-bg-primary relative overflow-hidden">
+                              <iframe
+                                src={`https://www.youtube.com/embed/${info.videoId}?modestbranding=1&rel=0`}
+                                title={`Tutorial ${info.title} - ${device.label}`}
+                                className="w-full h-full"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                              ></iframe>
+                            </div>
+                          </div>
+                          
+                          {/* Content Section */}
+                          <div className="lg:w-3/5 p-6 flex flex-col justify-center">
+                            <div className="mb-4">
+                              <div className="flex items-center mb-2">
+                                <h3 className="text-xl font-bold text-pro-text-primary">
+                                  {info.title}
+                                </h3>
+                                <span className={`ml-3 px-2 py-1 text-xs font-medium rounded-full bg-gradient-to-r ${device.color} text-white`}>
+                                  {device.label.split(' ')[0]}
+                                </span>
+                              </div>
+                              <p className="text-pro-text-secondary mb-4 text-sm leading-relaxed">
+                                {info.description}
+                              </p>
+                            </div>
+                            
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center text-pro-text-muted text-sm">
+                                <Play className="h-4 w-4 mr-2" />
+                                {info.duration}
+                              </div>
+                              
+                              <div className="flex items-center text-pro-accent-primary text-sm font-medium">
+                                <CheckCircle2 className="h-4 w-4 mr-2" />
+                                Completo
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </Card>
+                    );
+                  })}
+                </div>
+              </section>
+            );
+          })}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-16 py-12 border-t border-pro-border-primary">
+          <h3 className="text-xl font-semibold text-pro-text-primary mb-2">
+            Precisa de Ajuda?
+          </h3>
+          <p className="text-pro-text-muted mb-6">
+            Entre em contato conosco se tiver dúvidas sobre algum tutorial
           </p>
-        )}
-      </main>
+          <Button className="bg-accent-gradient hover:opacity-90 transition-opacity text-white font-medium">
+            Falar com Suporte
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default TutorialPage;
+export default Tutoriais;
