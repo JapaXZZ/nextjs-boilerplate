@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 
 const scripts = [
   { nome: 'Tarefa SP', desc: 'Ferramenta para concluir as tarefas' },
@@ -16,26 +15,34 @@ const scripts = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#0f0f0f] via-[#141414] to-[#1e1e1e] text-white p-4">
-      <h1 className="text-4xl font-bold mb-8 text-center text-purple-400">Scripts Educacionais</h1>
+    <main className="min-h-screen bg-gradient-to-br from-black via-[#0d0d0d] to-[#1a1a1a] text-white px-4 py-12 font-sans relative overflow-hidden">
+      <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-purple-700/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-blue-700/30 rounded-full blur-3xl" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <h1 className="text-center text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-blue-400 mb-12">
+        HideXS Scripts
+      </h1>
+
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {scripts.map((item, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="bg-[#1f1f1f] border border-purple-800/30 hover:border-purple-500/70 rounded-2xl p-6 shadow-xl hover:shadow-purple-600/20 transition-all duration-300"
+            className="group bg-white/5 border border-white/10 backdrop-blur-sm p-6 rounded-3xl shadow-lg hover:shadow-purple-500/30 transition-all duration-300 relative overflow-hidden"
           >
-            <h2 className="text-xl font-semibold text-purple-300">{item.nome}</h2>
-            <p className="mt-2 text-gray-300">{item.desc}</p>
-            <Link
-              href="#"
-              className="mt-4 inline-block text-sm text-purple-400 hover:text-purple-200 transition"
-            >
-              Acessar
-            </Link>
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none" />
+
+            <h2 className="text-2xl font-bold text-purple-300 mb-2 group-hover:text-purple-100 transition">
+              {item.nome}
+            </h2>
+            <p className="text-gray-300">{item.desc}</p>
+            <div className="mt-4">
+              <button className="bg-purple-700 hover:bg-purple-600 text-white text-sm px-4 py-2 rounded-xl transition-all duration-300 shadow-md hover:shadow-purple-600/40">
+                Acessar Script
+              </button>
+            </div>
           </motion.div>
         ))}
       </div>
