@@ -1,26 +1,27 @@
-"use client";
+'use client';
 
 import { useState } from "react";
 import { motion } from "framer-motion";
 import clsx from "clsx";
+import { Share2, ArrowRight, Wifi, WifiOff } from "lucide-react";
 
 interface Script {
   id: number;
   title: string;
   description: string;
-  online: boolean; // true = online, false = offline
-  url: string; // link de acesso do script (exemplo)
+  online: boolean;
+  url: string;
 }
 
 const initialScripts: Script[] = [
-  { id: 1, title: "Tarefa SP", description: "Ferramenta para concluir as tarefas", online: true, url: "#" },
-  { id: 2, title: "Redação SP", description: "Ferramenta para concluir as redações", online: false, url: "#" },
-  { id: 3, title: "Khanware v3.1.1", description: "Ferramenta para concluir o Khan", online: true, url: "#" },
-  { id: 4, title: "Speak", description: "Ferramenta para concluir o Speak", online: true, url: "#" },
-  { id: 5, title: "Leia SP", description: "Ferramenta para concluir o Leia SP", online: false, url: "#" },
-  { id: 6, title: "Matific", description: "Ferramenta para concluir o Matific", online: true, url: "#" },
-  { id: 7, title: "Alura", description: "Ferramenta para concluir o Alura", online: true, url: "#" },
-  { id: 8, title: "Expansão Noturno", description: "Ferramenta para concluir o Expansão", online: false, url: "#" },
+  { id: 1, title: "Tarefa SP", description: "Conclui automaticamente as tarefas.", online: true, url: "#" },
+  { id: 2, title: "Redação SP", description: "Escreve redações com IA.", online: false, url: "#" },
+  { id: 3, title: "Khanware v3.1.1", description: "Responde atividades do Khan Academy.", online: true, url: "#" },
+  { id: 4, title: "Speak", description: "Conclui lições do Speak automaticamente.", online: true, url: "#" },
+  { id: 5, title: "Leia SP", description: "Lê e responde questões do Leia SP.", online: false, url: "#" },
+  { id: 6, title: "Matific", description: "Finaliza exercícios do Matific.", online: true, url: "#" },
+  { id: 7, title: "Alura", description: "Completa cursos automaticamente.", online: true, url: "#" },
+  { id: 8, title: "Expansão Noturno", description: "Acelera atividades do Expansão Noturno.", online: false, url: "#" },
 ];
 
 export default function Home() {
@@ -28,95 +29,84 @@ export default function Home() {
 
   function handleShare(script: Script) {
     if (navigator.share) {
-      navigator
-        .share({
-          title: script.title,
-          text: script.description,
-          url: window.location.href,
-        })
-        .catch(() => alert("Não foi possível compartilhar."));
+      navigator.share({
+        title: script.title,
+        text: script.description,
+        url: window.location.href,
+      }).catch(() => alert("Falha ao compartilhar."));
     } else {
-      alert("Seu navegador não suporta a função de compartilhar.");
+      alert("Seu navegador não suporta compartilhamento.");
     }
   }
 
   return (
-    <>
-      <main className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-purple-950 text-gray-300 px-6 py-12 sm:px-12">
-        <header className="max-w-7xl mx-auto mb-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <h1 className="text-4xl font-extrabold text-purple-400 select-none tracking-wider">
-            HideXS
-          </h1>
-          <nav className="space-x-8 text-gray-500 font-medium hidden sm:flex">
-            <a href="#scripts" className="hover:text-purple-500 transition">
-              Scripts
-            </a>
-            <a href="#about" className="hover:text-purple-500 transition">
-              Sobre
-            </a>
-          </nav>
-        </header>
+    <main className="min-h-screen bg-[#0d0d0d] text-gray-100 px-6 py-12 sm:px-12 font-sans">
+      <header className="max-w-7xl mx-auto mb-16 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <h1 className="text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+          HideXS
+        </h1>
+        <nav className="space-x-8 text-gray-400 hidden sm:flex">
+          <a href="#scripts" className="hover:text-pink-500 transition">Scripts</a>
+          <a href="#about" className="hover:text-pink-500 transition">Sobre</a>
+        </nav>
+      </header>
 
-        <section id="scripts" className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-          {scripts.map((script) => (
-            <motion.div
-              key={script.id}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: script.id * 0.12, duration: 0.5 }}
-              whileHover={{ scale: 1.05, boxShadow: "0 0 20px 3px rgba(124, 58, 237, 0.7)" }}
-              className="bg-gradient-to-tr from-gray-850 to-gray-900 rounded-3xl p-8 shadow-lg border border-purple-800 flex flex-col justify-between"
-            >
-              <div>
-                <h2 className="text-xl font-semibold text-purple-300 mb-2 select-text">{script.title}</h2>
-                <p className="text-gray-400 mb-5 leading-relaxed select-text">{script.description}</p>
-              </div>
+      <section id="scripts" className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10">
+        {scripts.map((script) => (
+          <motion.div
+            key={script.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: script.id * 0.1, duration: 0.4 }}
+            className="bg-gradient-to-br from-[#1a1a1a] to-[#131313] rounded-2xl p-6 border border-gray-800 shadow-xl flex flex-col justify-between hover:ring-2 hover:ring-pink-500/30 transition-all"
+          >
+            <div>
+              <h2 className="text-xl font-bold text-pink-400 mb-2">{script.title}</h2>
+              <p className="text-sm text-gray-400 mb-5">{script.description}</p>
+            </div>
 
-              <div className="flex items-center justify-between">
-                {/* Indicador com texto colorido */}
-                <span
-                  className={clsx(
-                    "inline-block px-3 py-1 rounded-full font-semibold text-sm",
-                    script.online ? "bg-green-700 text-green-300" : "bg-red-700 text-red-300"
-                  )}
+            <div className="flex items-center justify-between mt-auto">
+              <span className={clsx(
+                "flex items-center gap-1 text-sm font-medium px-3 py-1 rounded-full transition-all",
+                script.online
+                  ? "bg-green-900 text-green-400"
+                  : "bg-red-900 text-red-400"
+              )}>
+                {script.online ? <Wifi size={16} /> : <WifiOff size={16} />}
+                {script.online ? "Online" : "Offline"}
+              </span>
+
+              <div className="flex gap-2">
+                <a
+                  href={script.url}
+                  target="_blank"
+                  className="inline-flex items-center gap-1 px-4 py-2 bg-pink-600 hover:bg-pink-700 active:bg-pink-800 text-white text-sm font-medium rounded-full transition"
                 >
-                  {script.online ? "Online" : "Offline"}
-                </span>
+                  Acessar <ArrowRight size={16} />
+                </a>
 
-                <div className="flex gap-3">
-                  <a
-                    href={script.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-5 py-2 bg-purple-600 hover:bg-purple-700 active:bg-purple-800 transition rounded-full font-semibold text-gray-100 shadow-md"
-                  >
-                    Acessar
-                  </a>
-
-                  <button
-                    onClick={() => handleShare(script)}
-                    className="px-5 py-2 border border-purple-600 hover:border-purple-400 text-purple-400 hover:text-purple-300 transition rounded-full font-semibold shadow-md"
-                    aria-label={`Compartilhar ${script.title}`}
-                  >
-                    Compartilhar
-                  </button>
-                </div>
+                <button
+                  onClick={() => handleShare(script)}
+                  className="inline-flex items-center gap-1 px-4 py-2 border border-pink-500 hover:border-pink-400 text-pink-400 hover:text-pink-300 text-sm font-medium rounded-full transition"
+                >
+                  <Share2 size={16} />
+                </button>
               </div>
-            </motion.div>
-          ))}
-        </section>
+            </div>
+          </motion.div>
+        ))}
+      </section>
 
-        <section id="about" className="max-w-4xl mx-auto mt-20 text-center text-gray-400 select-text">
-          <h3 className="text-3xl font-bold mb-6 text-purple-400">Sobre o HideXS</h3>
-          <p className="leading-relaxed text-lg max-w-xl mx-auto">
-            HideXS é a plataforma ideal para organizar, compartilhar e acompanhar seus scripts com status online e offline, tudo em um design dark moderno, rápido e sofisticado.
-          </p>
-        </section>
-      </main>
+      <section id="about" className="max-w-4xl mx-auto mt-24 text-center text-gray-400">
+        <h3 className="text-3xl font-bold mb-4 text-pink-400">Sobre o HideXS</h3>
+        <p className="text-lg">
+          O HideXS é um hub moderno, seguro e estiloso para gerenciar, acessar e compartilhar scripts escolares de forma rápida e prática.
+        </p>
+      </section>
 
-      <footer className="py-8 text-center text-gray-600 border-t border-purple-800 select-none">
+      <footer className="text-center mt-24 text-sm text-gray-600 py-6 border-t border-gray-800">
         © {new Date().getFullYear()} HideXS. Todos os direitos reservados.
       </footer>
-    </>
+    </main>
   );
 }
