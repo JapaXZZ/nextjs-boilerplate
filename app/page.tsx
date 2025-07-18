@@ -1,112 +1,164 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Share2 } from 'lucide-react';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import clsx from "clsx";
 
-const scripts = [
-  {
-    nome: 'Tarefa SP',
-    desc: 'Ferramenta para concluir as tarefas',
-    status: 'online',
-  },
-  {
-    nome: 'Redação SP',
-    desc: 'Ferramenta para concluir as redações',
-    status: 'offline',
-  },
-  {
-    nome: 'Khanware v3.1.1',
-    desc: 'Ferramenta para concluir o Khan',
-    status: 'online',
-  },
-  {
-    nome: 'Speak',
-    desc: 'Ferramenta para concluir o Speak',
-    status: 'online',
-  },
-  {
-    nome: 'Leia SP',
-    desc: 'Ferramenta para concluir o Leia SP',
-    status: 'offline',
-  },
-  {
-    nome: 'Matific',
-    desc: 'Ferramenta para concluir o Matific',
-    status: 'online',
-  },
-  {
-    nome: 'Alura',
-    desc: 'Ferramenta para concluir o Alura',
-    status: 'online',
-  },
-  {
-    nome: 'Expansão Noturno',
-    desc: 'Ferramenta para concluir o Expansão',
-    status: 'online',
-  },
+interface Script {
+  id: number;
+  title: string;
+  description: string;
+  online: boolean;
+}
+
+const scriptsData: Script[] = [
+  { id: 1, title: "Tarefa SP", description: "Ferramenta para concluir as tarefas", online: true },
+  { id: 2, title: "Redação SP", description: "Ferramenta para concluir as redações", online: false },
+  { id: 3, title: "Khanware v3.1.1", description: "Ferramenta para concluir o Khan", online: true },
+  { id: 4, title: "Speak", description: "Ferramenta para concluir o Speak", online: true },
+  { id: 5, title: "Leia SP", description: "Ferramenta para concluir o Leia SP", online: false },
+  { id: 6, title: "Matific", description: "Ferramenta para concluir o Matific", online: true },
+  { id: 7, title: "Alura", description: "Ferramenta para concluir o Alura", online: true },
+  { id: 8, title: "Expansão Noturno", description: "Ferramenta para concluir o Expansão", online: false },
 ];
 
-// ⚙️ Se quiser mudar o status de online para offline, altere o campo `status` para 'offline' ou 'online' no array acima.
-
 export default function Home() {
+  const [scripts, setScripts] = useState<Script[]>(scriptsData);
+
+  // Função para compartilhar via Web Share API (se disponível)
+  function handleShare(script: Script) {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: script.title,
+          text: script.description,
+          url: window.location.href,
+        })
+        .catch(() => {
+          alert("Não foi possível compartilhar.");
+        });
+    } else {
+      alert("Seu navegador não suporta a função de compartilhar.");
+    }
+  }
+
+  // Alterar status online/offline — exemplo de alteração rápida (pode ser removido)
+  // Exemplo para alterar status de um script ao clicar nele
+  function toggleStatus(id: number) {
+    setScripts((prev) =>
+      prev.map((s) => (s.id === id ? { ...s, online: !s.online } : s))
+    );
+  }
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-black via-[#0d0d0d] to-[#1a1a1a] text-white px-4 py-12 font-sans relative overflow-hidden">
-      <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-purple-700/30 rounded-full blur-3xl" />
-      <div className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-blue-700/30 rounded-full blur-3xl" />
+    <>
+      <header className="fixed top-0 left-0 w-full bg-gradient-to-r from-indigo-900 via-black to-indigo-900 z-50 border-b border-indigo-700">
+        <nav className="max-w-7xl mx-auto px-6 sm:px-12 flex items-center justify-between h-16">
+          <h1 className="text-white text-3xl font-extrabold tracking-wide select-none cursor-default">
+            HideXS
+          </h1>
+          <ul className="hidden sm:flex space-x-10 text-indigo-300 font-semibold">
+            <li>
+              <a href="#home" className="hover:text-white transition">
+                Início
+              </a>
+            </li>
+            <li>
+              <a href="#scripts" className="hover:text-white transition">
+                Scripts
+              </a>
+            </li>
+            <li>
+              <a href="#about" className="hover:text-white transition">
+                Sobre
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
 
-      <h1 className="text-center text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-blue-400 mb-12">
-        HideXS Scripts
-      </h1>
+      <main
+        id="home"
+        className="pt-20 min-h-screen bg-gradient-to-br from-neutral-900 via-indigo-900 to-black text-indigo-50 flex flex-col items-center px-6 sm:px-12"
+      >
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-5xl sm:text-6xl font-extrabold max-w-5xl text-center leading-tight mb-8"
+        >
+          HideXS — Sua plataforma definitiva para scripts e ferramentas
+        </motion.h2>
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {scripts.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className="group bg-white/5 border border-white/10 backdrop-blur-sm p-6 rounded-3xl shadow-lg hover:shadow-purple-500/30 transition-all duration-300 relative overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none" />
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+          className="max-w-3xl text-center text-indigo-300 text-lg mb-12"
+        >
+          Organize, compartilhe e monitore seus scripts favoritos com estilo,
+          rapidez e segurança.
+        </motion.p>
 
-            <div className="flex justify-between items-center mb-3">
-              <h2 className="text-2xl font-bold text-purple-300 group-hover:text-purple-100 transition">
-                {item.nome}
-              </h2>
-              <span
-                className={`text-sm font-semibold ${
-                  item.status === 'online' ? 'text-green-400' : 'text-red-500'
-                }`}
-              >
-                {item.status === 'online' ? '🟢 Online' : '🔴 Offline'}
-              </span>
-            </div>
+        {/* Scripts Section */}
+        <section
+          id="scripts"
+          className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+        >
+          {scripts.map((script) => (
+            <motion.div
+              key={script.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: script.id * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              onClick={() => toggleStatus(script.id)} // clique pra mudar status online/offline (opcional)
+              className="cursor-pointer bg-gradient-to-br from-indigo-800 to-indigo-900 rounded-3xl p-6 shadow-lg border border-indigo-700 flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl font-semibold">{script.title}</h3>
+                  <span
+                    title={script.online ? "Online" : "Offline"}
+                    className={clsx(
+                      "w-4 h-4 rounded-full",
+                      script.online ? "bg-green-400" : "bg-red-500"
+                    )}
+                  />
+                </div>
+                <p className="text-indigo-300">{script.description}</p>
+              </div>
 
-            <p className="text-gray-300 mb-4">{item.desc}</p>
-
-            <div className="flex gap-3">
               <button
-                className={`${
-                  item.status === 'online'
-                    ? 'bg-purple-700 hover:bg-purple-600'
-                    : 'bg-gray-600 cursor-not-allowed'
-                } text-white text-sm px-4 py-2 rounded-xl transition-all duration-300 shadow-md`}
-                disabled={item.status !== 'online'}
+                onClick={(e) => {
+                  e.stopPropagation(); // evita disparar toggleStatus no card
+                  handleShare(script);
+                }}
+                className="mt-6 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 transition rounded-full px-5 py-2 text-white font-semibold select-none"
               >
-                Acessar Script
+                Compartilhar
               </button>
+            </motion.div>
+          ))}
+        </section>
 
-              <button
-                onClick={() => navigator.share?.({ title: item.nome, text: item.desc })}
-                className="bg-white/10 hover:bg-white/20 p-2 rounded-xl text-white transition-all duration-300 flex items-center justify-center"
-                title="Compartilhar"
-              >
-                <Share2 size={18} />
-              </button>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </main>
+        {/* About Section */}
+        <section
+          id="about"
+          className="mt-20 max-w-4xl text-center text-indigo-300"
+        >
+          <h3 className="text-3xl font-bold mb-4 text-indigo-50">Sobre o HideXS</h3>
+          <p className="leading-relaxed">
+            HideXS é uma plataforma moderna que te ajuda a organizar seus scripts,
+            compartilhá-los facilmente e acompanhar seus status online em tempo real.
+            Tudo isso com design elegante, rápido e responsivo.
+          </p>
+        </section>
+      </main>
+
+      <footer className="mt-24 py-6 text-center text-indigo-400 text-sm border-t border-indigo-700">
+        © {new Date().getFullYear()} HideXS. Todos os direitos reservados.
+      </footer>
+    </>
   );
 }
