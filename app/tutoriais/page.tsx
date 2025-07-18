@@ -14,73 +14,95 @@ const scripts = [
   { id: 8, title: "Expansão Noturno", video: "https://www.youtube.com/embed/VIDEO_ID_8" },
 ];
 
-const Page = () => {
-  const [selected, setSelected] = useState<"celular" | "pc" | "ios" | null>(null);
+const options = [
+  { id: "celular", label: "Para celular", emoji: "📱" },
+  { id: "pc", label: "Para computador", emoji: "🖥️" },
+  { id: "ios", label: "Para iOS", emoji: "🍎" },
+];
+
+export default function Page() {
+  const [selected, setSelected] = useState<string | null>(null);
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white p-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white p-6">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex items-center justify-between mb-10">
           <button
             onClick={() => router.push("/")}
-            className="px-4 py-2 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-all duration-300 shadow-md shadow-purple-600/40"
+            className="text-purple-400 hover:text-purple-300 transition-colors font-semibold flex items-center gap-2"
           >
-            ⬅ Voltar
+            ⬅ Voltar para Início
           </button>
-          <h1 className="text-3xl font-bold text-purple-400">Tutoriais</h1>
+          <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 select-none">
+            Tutoriais
+          </h1>
+          <div style={{ width: 100 }} /> {/* Spacer to balance flex */}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
-          {(!selected || selected === "celular") && (
-            <div
-              onClick={() => setSelected("celular")}
-              className="cursor-pointer bg-slate-900/80 border border-purple-700 hover:border-purple-500 hover:shadow-lg transition-all rounded-xl p-6 text-center shadow-md shadow-purple-800/20 hover:shadow-purple-700"
-            >
-              <p className="text-lg font-bold text-purple-300">📱 Para Celular</p>
-            </div>
-          )}
-          {(!selected || selected === "pc") && (
-            <div
-              onClick={() => setSelected("pc")}
-              className="cursor-pointer bg-slate-900/80 border border-purple-700 hover:border-purple-500 hover:shadow-lg transition-all rounded-xl p-6 text-center shadow-md shadow-purple-800/20 hover:shadow-purple-700"
-            >
-              <p className="text-lg font-bold text-purple-300">🖥️ Para Computador</p>
-            </div>
-          )}
-          {(!selected || selected === "ios") && (
-            <div
-              onClick={() => setSelected("ios")}
-              className="cursor-pointer bg-slate-900/80 border border-purple-700 hover:border-purple-500 hover:shadow-lg transition-all rounded-xl p-6 text-center shadow-md shadow-purple-800/20 hover:shadow-purple-700"
-            >
-              <p className="text-lg font-bold text-purple-300">🍎 Para iOS</p>
-            </div>
-          )}
+        {/* Opções estilo ApostilaDestroyer */}
+        <div className="flex gap-8 justify-center mb-12 flex-wrap">
+          {options.map(({ id, label, emoji }) => {
+            const isActive = selected === id;
+            return (
+              <button
+                key={id}
+                onClick={() => setSelected(isActive ? null : id)}
+                className={`
+                  cursor-pointer select-none rounded-lg px-8 py-6
+                  text-center
+                  border-2
+                  transition-all duration-300
+                  flex flex-col items-center gap-2
+                  font-bold text-lg
+                  ${isActive
+                    ? "border-purple-500 bg-gradient-to-tr from-purple-700/30 to-purple-700/10 text-purple-300 shadow-[0_0_10px_3px_rgba(139,92,246,0.4)]"
+                    : "border-purple-700 text-purple-500 hover:border-purple-500 hover:text-purple-300"}
+                  w-44
+                  shadow-sm
+                `}
+              >
+                <span className="text-4xl">{emoji}</span>
+                {label}
+              </button>
+            );
+          })}
         </div>
 
+        {/* Mostrar todos */}
         {selected && (
-          <div className="mb-10 text-center">
+          <div className="text-center mb-10">
             <button
               onClick={() => setSelected(null)}
-              className="px-5 py-3 bg-slate-800 hover:bg-slate-700 text-purple-300 hover:text-white border border-slate-600 rounded-xl font-semibold transition-all shadow-sm"
+              className="px-6 py-3 rounded-full bg-purple-700 hover:bg-purple-600 transition-colors shadow-lg text-white font-semibold"
             >
               🔄 Mostrar Todos
             </button>
           </div>
         )}
 
-        {selected && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {scripts.map((script) => (
+        {/* Conteúdo dos vídeos */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+          {(selected
+            ? scripts
+            : scripts
+          ).map(({ id, title, video }) => {
+            // Se filtrasse por plataforma, aqui aplicaria filtro. Agora mostra todos sempre.
+            // Para simular filtro, poderia usar "selected" para filtrar, mas aqui exibe todos.
+            if (selected && selected !== "celular" && selected !== "pc" && selected !== "ios") return null;
+
+            return (
               <div
-                key={script.id}
-                className="bg-slate-900/90 border border-purple-700 rounded-2xl p-4 shadow-md shadow-purple-800"
+                key={id}
+                className="bg-slate-900 rounded-2xl border border-purple-700 shadow-purple-900/50 shadow-lg overflow-hidden"
               >
-                <h2 className="text-lg font-bold text-purple-300 mb-2">{script.title}</h2>
-                <div className="aspect-video rounded-lg overflow-hidden">
+                <h2 className="px-6 py-4 text-purple-300 font-semibold text-xl border-b border-purple-700 select-none">
+                  {title}
+                </h2>
+                <div className="aspect-video">
                   <iframe
-                    src={script.video}
-                    title={script.title}
+                    src={video}
+                    title={title}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -88,12 +110,10 @@ const Page = () => {
                   />
                 </div>
               </div>
-            ))}
-          </div>
-        )}
+            );
+          })}
+        </div>
       </div>
     </div>
   );
-};
-
-export default Page;
+}
