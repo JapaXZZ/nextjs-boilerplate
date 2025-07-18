@@ -126,7 +126,102 @@ const Index = () => {
         </div>
       </motion.header>
 
-      {/* o restante do seu código continua exatamente como está */}
+      <motion.main 
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 px-6 pb-20"
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="flex items-center gap-3 mb-12"
+          >
+            <span className="text-emerald-400 text-xl">💻</span>
+            <h2 className="text-3xl font-bold">Scripts Disponíveis</h2>
+            <div className="flex-1 h-px bg-gradient-to-r from-slate-700 to-transparent" />
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {scripts.map((script) => (
+              <motion.div
+                key={script.id}
+                variants={itemVariants}
+                whileHover={{ 
+                  y: -8,
+                  transition: { type: "spring" as const, stiffness: 300, damping: 20 }
+                }}
+                onHoverStart={() => setHoveredCard(script.id)}
+                onHoverEnd={() => setHoveredCard(null)}
+                className="group relative"
+              >
+                <div className={cn(
+                  "absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl opacity-0 blur transition-opacity duration-500",
+                  hoveredCard === script.id && "opacity-30"
+                )} />
+                
+                <div className="relative bg-slate-900/90 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 h-full flex flex-col">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <h3 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors duration-300">
+                          {script.title}
+                        </h3>
+                      </div>
+                      <span className="inline-block px-3 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-full">
+                        {script.category}
+                      </span>
+                    </div>
+                    
+                    <div className={cn(
+                      "flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold",
+                      script.online 
+                        ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30" 
+                        : "bg-red-500/20 text-red-400 border border-red-500/30"
+                    )}>
+                      <div className={cn(
+                        "w-2 h-2 rounded-full",
+                        script.online ? "bg-emerald-400" : "bg-red-400"
+                      )} />
+                      {script.online ? "Online" : "Offline"}
+                    </div>
+                  </div>
+
+                  <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
+                    {script.description}
+                  </p>
+
+                  <div className="flex gap-3">
+                    <motion.a
+                      href={script.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-emerald-500/25"
+                    >
+                      <span>↗</span>
+                      Acessar
+                    </motion.a>
+                    
+                    <motion.button
+                      onClick={() => handleShare(script)}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-xl transition-all duration-300"
+                      aria-label={`Compartilhar ${script.title}`}
+                    >
+                      <span>📤</span>
+                    </motion.button>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.main>
     </div>
   );
 };
