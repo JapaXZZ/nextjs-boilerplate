@@ -119,7 +119,7 @@ const Index = () => {
             transition={{ delay: 0.7, duration: 0.8 }}
             className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-6"
           >
-            A mais avançada plataforma de automação educacional com design premium e tecnologia de ponta
+            Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.
           </motion.p>
 
           <div className="flex flex-wrap justify-center gap-4 text-sm font-medium text-slate-400">
