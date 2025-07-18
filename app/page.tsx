@@ -8,8 +8,8 @@ interface Script {
   id: number;
   title: string;
   description: string;
-  online: boolean; // true = online, false = offline
-  url: string; // link de acesso do script
+  online: boolean;
+  url: string;
 }
 
 const initialScripts: Script[] = [
@@ -40,7 +40,6 @@ export default function Home() {
     }
   }
 
-  // Ícones SVG inline simples para status
   const OnlineIcon = () => (
     <svg
       className="w-5 h-5 text-green-400"
@@ -76,14 +75,14 @@ export default function Home() {
     <>
       <main className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-purple-950 text-gray-300 px-6 py-12 sm:px-12">
         <header className="max-w-7xl mx-auto mb-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <h1 className="text-4xl font-extrabold text-purple-400 select-none tracking-wider">
+          <h1 className="text-5xl font-extrabold text-purple-500 select-none tracking-wide">
             HideXS
           </h1>
-          <nav className="space-x-8 text-gray-500 font-medium hidden sm:flex">
-            <a href="#scripts" className="hover:text-purple-500 transition">
+          <nav className="space-x-8 text-gray-400 font-semibold hidden sm:flex">
+            <a href="#scripts" className="hover:text-purple-400 transition">
               Scripts
             </a>
-            <a href="#about" className="hover:text-purple-500 transition">
+            <a href="#about" className="hover:text-purple-400 transition">
               Sobre
             </a>
           </nav>
@@ -96,29 +95,29 @@ export default function Home() {
           {scripts.map((script) => (
             <motion.div
               key={script.id}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: script.id * 0.12, duration: 0.5 }}
+              transition={{ delay: script.id * 0.1, duration: 0.45 }}
               whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 20px 3px rgba(124, 58, 237, 0.7)",
+                scale: 1.06,
+                boxShadow:
+                  "0 10px 25px -5px rgba(124, 58, 237, 0.6), 0 15px 35px -10px rgba(124, 58, 237, 0.4)",
               }}
-              className="bg-gradient-to-tr from-gray-850 to-gray-900 rounded-3xl p-8 shadow-lg border border-purple-800 flex flex-col justify-between"
+              className="bg-[#1e1e2f] rounded-2xl border border-purple-700 p-7 flex flex-col justify-between shadow-md"
             >
               <div>
-                <h2 className="text-xl font-semibold text-purple-300 mb-2 select-text">
+                <h2 className="text-2xl font-bold text-purple-400 mb-3 select-text truncate">
                   {script.title}
                 </h2>
-                <p className="text-gray-400 mb-5 leading-relaxed select-text">
+                <p className="text-gray-400 mb-6 leading-relaxed select-text line-clamp-3">
                   {script.description}
                 </p>
               </div>
 
               <div className="flex items-center justify-between">
-                {/* Indicador com ícone e texto */}
                 <span
                   className={clsx(
-                    "inline-flex items-center gap-2 px-3 py-1 rounded-full font-semibold text-sm",
+                    "inline-flex items-center gap-2 px-3 py-1 rounded-full font-semibold text-sm select-none",
                     script.online
                       ? "bg-green-700 text-green-300"
                       : "bg-red-700 text-red-300"
@@ -133,14 +132,14 @@ export default function Home() {
                     href={script.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2 bg-purple-600 hover:bg-purple-700 active:bg-purple-800 transition rounded-full font-semibold text-gray-100 shadow-md"
+                    className="px-6 py-2 bg-purple-600 hover:bg-purple-700 active:bg-purple-800 transition rounded-full font-semibold text-gray-100 shadow-sm"
                   >
                     Acessar
                   </a>
 
                   <button
                     onClick={() => handleShare(script)}
-                    className="px-5 py-2 border border-purple-600 hover:border-purple-400 text-purple-400 hover:text-purple-300 transition rounded-full font-semibold shadow-md"
+                    className="px-6 py-2 border border-purple-600 hover:border-purple-400 text-purple-400 hover:text-purple-300 transition rounded-full font-semibold shadow-sm"
                     aria-label={`Compartilhar ${script.title}`}
                   >
                     Compartilhar
@@ -153,12 +152,12 @@ export default function Home() {
 
         <section
           id="about"
-          className="max-w-4xl mx-auto mt-20 text-center text-gray-400 select-text"
+          className="max-w-4xl mx-auto mt-24 text-center text-gray-400 select-text"
         >
-          <h3 className="text-3xl font-bold mb-6 text-purple-400">
+          <h3 className="text-4xl font-extrabold mb-8 text-purple-400">
             Sobre o HideXS
           </h3>
-          <p className="leading-relaxed text-lg max-w-xl mx-auto">
+          <p className="leading-relaxed text-lg max-w-xl mx-auto tracking-wide">
             HideXS é a plataforma ideal para organizar, compartilhar e acompanhar
             seus scripts com status online e offline, tudo em um design dark
             moderno, rápido e sofisticado.
@@ -166,7 +165,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="py-8 text-center text-gray-600 border-t border-purple-800 select-none">
+      <footer className="py-10 text-center text-gray-600 border-t border-purple-800 select-none">
         © {new Date().getFullYear()} HideXS. Todos os direitos reservados.
       </footer>
     </>
