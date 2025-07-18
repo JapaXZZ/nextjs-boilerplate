@@ -49,22 +49,26 @@ const Index = () => {
     }
   }
 
+  function openEmail() {
+    window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
+  }
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 30,
-      scale: 0.9
+      scale: 0.9,
     },
     visible: {
       opacity: 1,
@@ -73,17 +77,17 @@ const Index = () => {
       transition: {
         type: "spring" as const,
         stiffness: 100,
-        damping: 12
-      }
-    }
+        damping: 12,
+      },
+    },
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white overflow-hidden">
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800/20 via-transparent to-transparent" />
       <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
-      
-      <motion.header 
+
+      <motion.header
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -100,7 +104,7 @@ const Index = () => {
             <span className="text-slate-300 font-medium">Plataforma Premium</span>
           </motion.div>
 
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -108,8 +112,8 @@ const Index = () => {
           >
             HideXS
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
@@ -119,14 +123,20 @@ const Index = () => {
           </motion.p>
 
           <div className="flex flex-wrap justify-center gap-4 text-sm font-medium text-slate-400">
-            <span className="px-4 py-2 bg-slate-800 rounded-full border border-slate-700">Total: {stats.total}</span>
-            <span className="px-4 py-2 bg-slate-800 rounded-full border border-emerald-700 text-emerald-400">Online: {stats.online}</span>
-            <span className="px-4 py-2 bg-slate-800 rounded-full border border-red-700 text-red-400">Offline: {stats.offline}</span>
+            <span className="px-4 py-2 bg-slate-800 rounded-full border border-slate-700">
+              Total: {stats.total}
+            </span>
+            <span className="px-4 py-2 bg-slate-800 rounded-full border border-emerald-700 text-emerald-400">
+              Online: {stats.online}
+            </span>
+            <span className="px-4 py-2 bg-slate-800 rounded-full border border-red-700 text-red-400">
+              Offline: {stats.offline}
+            </span>
           </div>
         </div>
       </motion.header>
 
-      <motion.main 
+      <motion.main
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -149,19 +159,21 @@ const Index = () => {
               <motion.div
                 key={script.id}
                 variants={itemVariants}
-                whileHover={{ 
+                whileHover={{
                   y: -8,
-                  transition: { type: "spring" as const, stiffness: 300, damping: 20 }
+                  transition: { type: "spring" as const, stiffness: 300, damping: 20 },
                 }}
                 onHoverStart={() => setHoveredCard(script.id)}
                 onHoverEnd={() => setHoveredCard(null)}
                 className="group relative"
               >
-                <div className={cn(
-                  "absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl opacity-0 blur transition-opacity duration-500",
-                  hoveredCard === script.id && "opacity-30"
-                )} />
-                
+                <div
+                  className={cn(
+                    "absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl opacity-0 blur transition-opacity duration-500",
+                    hoveredCard === script.id && "opacity-30"
+                  )}
+                />
+
                 <div className="relative bg-slate-900/90 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 h-full flex flex-col">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
@@ -174,17 +186,21 @@ const Index = () => {
                         {script.category}
                       </span>
                     </div>
-                    
-                    <div className={cn(
-                      "flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold",
-                      script.online 
-                        ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30" 
-                        : "bg-red-500/20 text-red-400 border border-red-500/30"
-                    )}>
-                      <div className={cn(
-                        "w-2 h-2 rounded-full",
-                        script.online ? "bg-emerald-400" : "bg-red-400"
-                      )} />
+
+                    <div
+                      className={cn(
+                        "flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold",
+                        script.online
+                          ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+                          : "bg-red-500/20 text-red-400 border border-red-500/30"
+                      )}
+                    >
+                      <div
+                        className={cn(
+                          "w-2 h-2 rounded-full",
+                          script.online ? "bg-emerald-400" : "bg-red-400"
+                        )}
+                      />
                       {script.online ? "Online" : "Offline"}
                     </div>
                   </div>
@@ -205,7 +221,7 @@ const Index = () => {
                       <span>↗</span>
                       Acessar
                     </motion.a>
-                    
+
                     <motion.button
                       onClick={() => handleShare(script)}
                       whileHover={{ scale: 1.02 }}
@@ -222,6 +238,22 @@ const Index = () => {
           </div>
         </div>
       </motion.main>
+
+      <footer className="relative z-10 py-12 text-center border-t border-slate-800/50 px-6 max-w-7xl mx-auto">
+        <p className="text-slate-400 mb-4">
+          Desenvolvido por <span className="font-semibold text-white">JapaXZZ</span>.
+        </p>
+        <p className="text-slate-400 mb-6 max-w-xl mx-auto">
+          Agradecimentos especiais a todos os colaboradores e usuários da plataforma HideXS.
+        </p>
+        <button
+          onClick={openEmail}
+          className="inline-block px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-semibold transition-colors duration-300 shadow-md shadow-emerald-500/30"
+          aria-label="Enviar email para suporte"
+        >
+          Contatar Suporte
+        </button>
+      </footer>
     </div>
   );
 };
