@@ -1,17 +1,52 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Share2 } from 'lucide-react';
 
 const scripts = [
-  { nome: 'Tarefa SP', desc: 'Ferramenta para concluir as tarefas' },
-  { nome: 'Redação SP', desc: 'Ferramenta para concluir as redações' },
-  { nome: 'Khanware v3.1.1', desc: 'Ferramenta para concluir o Khan' },
-  { nome: 'Speak', desc: 'Ferramenta para concluir o Speak' },
-  { nome: 'Leia SP', desc: 'Ferramenta para concluir o Leia SP' },
-  { nome: 'Matific', desc: 'Ferramenta para concluir o Matific' },
-  { nome: 'Alura', desc: 'Ferramenta para concluir o Alura' },
-  { nome: 'Expansão Noturno', desc: 'Ferramenta para concluir o Expansão' },
+  {
+    nome: 'Tarefa SP',
+    desc: 'Ferramenta para concluir as tarefas',
+    status: 'online',
+  },
+  {
+    nome: 'Redação SP',
+    desc: 'Ferramenta para concluir as redações',
+    status: 'offline',
+  },
+  {
+    nome: 'Khanware v3.1.1',
+    desc: 'Ferramenta para concluir o Khan',
+    status: 'online',
+  },
+  {
+    nome: 'Speak',
+    desc: 'Ferramenta para concluir o Speak',
+    status: 'online',
+  },
+  {
+    nome: 'Leia SP',
+    desc: 'Ferramenta para concluir o Leia SP',
+    status: 'offline',
+  },
+  {
+    nome: 'Matific',
+    desc: 'Ferramenta para concluir o Matific',
+    status: 'online',
+  },
+  {
+    nome: 'Alura',
+    desc: 'Ferramenta para concluir o Alura',
+    status: 'online',
+  },
+  {
+    nome: 'Expansão Noturno',
+    desc: 'Ferramenta para concluir o Expansão',
+    status: 'online',
+  },
 ];
+
+// ⚙️ Se quiser mudar o status de online para offline, altere o campo `status` para 'offline' ou 'online' no array acima.
 
 export default function Home() {
   return (
@@ -34,13 +69,39 @@ export default function Home() {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none" />
 
-            <h2 className="text-2xl font-bold text-purple-300 mb-2 group-hover:text-purple-100 transition">
-              {item.nome}
-            </h2>
-            <p className="text-gray-300">{item.desc}</p>
-            <div className="mt-4">
-              <button className="bg-purple-700 hover:bg-purple-600 text-white text-sm px-4 py-2 rounded-xl transition-all duration-300 shadow-md hover:shadow-purple-600/40">
+            <div className="flex justify-between items-center mb-3">
+              <h2 className="text-2xl font-bold text-purple-300 group-hover:text-purple-100 transition">
+                {item.nome}
+              </h2>
+              <span
+                className={`text-sm font-semibold ${
+                  item.status === 'online' ? 'text-green-400' : 'text-red-500'
+                }`}
+              >
+                {item.status === 'online' ? '🟢 Online' : '🔴 Offline'}
+              </span>
+            </div>
+
+            <p className="text-gray-300 mb-4">{item.desc}</p>
+
+            <div className="flex gap-3">
+              <button
+                className={`${
+                  item.status === 'online'
+                    ? 'bg-purple-700 hover:bg-purple-600'
+                    : 'bg-gray-600 cursor-not-allowed'
+                } text-white text-sm px-4 py-2 rounded-xl transition-all duration-300 shadow-md`}
+                disabled={item.status !== 'online'}
+              >
                 Acessar Script
+              </button>
+
+              <button
+                onClick={() => navigator.share?.({ title: item.nome, text: item.desc })}
+                className="bg-white/10 hover:bg-white/20 p-2 rounded-xl text-white transition-all duration-300 flex items-center justify-center"
+                title="Compartilhar"
+              >
+                <Share2 size={18} />
               </button>
             </div>
           </motion.div>
