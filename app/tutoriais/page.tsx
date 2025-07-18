@@ -1,119 +1,96 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 const scripts = [
-  { id: 1, title: "Tarefas SP", video: "https://www.youtube.com/embed/VIDEO_ID_1" },
-  { id: 2, title: "Redação SP", video: "https://www.youtube.com/embed/VIDEO_ID_2" },
-  { id: 3, title: "Khanware v3.1.1", video: "https://www.youtube.com/embed/VIDEO_ID_3" },
-  { id: 4, title: "Speak", video: "https://www.youtube.com/embed/VIDEO_ID_4" },
-  { id: 5, title: "Leia SP", video: "https://www.youtube.com/embed/VIDEO_ID_5" },
-  { id: 6, title: "Matific", video: "https://www.youtube.com/embed/VIDEO_ID_6" },
-  { id: 7, title: "Alura", video: "https://www.youtube.com/embed/VIDEO_ID_7" },
-  { id: 8, title: "Expansão Noturno", video: "https://www.youtube.com/embed/VIDEO_ID_8" },
+  { title: "Tarefas SP", url: "https://www.youtube.com/embed/TAREFA" },
+  { title: "Redação SP", url: "https://www.youtube.com/embed/REDACAO" },
+  { title: "Khanware v3.1.1", url: "https://www.youtube.com/embed/KHANWARE" },
+  { title: "Speak", url: "https://www.youtube.com/embed/SPEAK" },
+  { title: "Leia SP", url: "https://www.youtube.com/embed/LEIA" },
+  { title: "Matific", url: "https://www.youtube.com/embed/MATIFIC" },
+  { title: "Alura", url: "https://www.youtube.com/embed/ALURA" },
+  { title: "Expansão Noturno", url: "https://www.youtube.com/embed/EXPANSAO" },
 ];
 
-const options = [
-  { id: "celular", label: "Para celular", emoji: "📱" },
-  { id: "pc", label: "Para computador", emoji: "🖥️" },
-  { id: "ios", label: "Para iOS", emoji: "🍎" },
-];
+const TutorialPage = () => {
+  const [selected, setSelected] = useState<"celular" | "computador" | "ios" | null>(null);
 
-export default function Page() {
-  const [selected, setSelected] = useState<string | null>(null);
-  const router = useRouter();
+  const titlesToRemove =
+    selected === "ios"
+      ? ["Tarefas SP", "Redação SP", "Alura", "Expansão Noturno", "Matific", "Khanware v3.1.1"]
+      : ["Tarefas SP", "Redação SP", "Alura", "Expansão Noturno"];
+
+  const filteredScripts = selected
+    ? scripts.filter((s) => !titlesToRemove.includes(s.title))
+    : scripts;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white p-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="flex items-center justify-between mb-10">
-          <button
-            onClick={() => router.push("/")}
-            className="text-purple-400 hover:text-purple-300 transition-colors font-semibold flex items-center gap-2"
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white px-4 pb-20 pt-10">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-8">
+          <a
+            href="/"
+            className="inline-flex items-center gap-2 text-purple-300 hover:text-white transition-colors font-medium"
           >
-            ⬅ Voltar para Início
+            ← Voltar ao Início
+          </a>
+        </div>
+
+        <h1 className="text-4xl font-bold text-purple-400 mb-6">Tutoriais</h1>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+          <button
+            onClick={() => setSelected("celular")}
+            className={`rounded-2xl px-6 py-4 bg-slate-800 border border-purple-700 hover:bg-purple-700 transition-colors font-semibold text-white shadow-md ${
+              selected === "celular" ? "bg-purple-700" : ""
+            }`}
+          >
+            Para Celular
           </button>
-          <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 select-none">
-            Tutoriais
-          </h1>
-          <div style={{ width: 100 }} /> {/* Spacer to balance flex */}
+          <button
+            onClick={() => setSelected("computador")}
+            className={`rounded-2xl px-6 py-4 bg-slate-800 border border-purple-700 hover:bg-purple-700 transition-colors font-semibold text-white shadow-md ${
+              selected === "computador" ? "bg-purple-700" : ""
+            }`}
+          >
+            Para Computador
+          </button>
+          <button
+            onClick={() => setSelected("ios")}
+            className={`rounded-2xl px-6 py-4 bg-slate-800 border border-purple-700 hover:bg-purple-700 transition-colors font-semibold text-white shadow-md ${
+              selected === "ios" ? "bg-purple-700" : ""
+            }`}
+          >
+            Para iOS
+          </button>
         </div>
 
-        {/* Opções estilo ApostilaDestroyer */}
-        <div className="flex gap-8 justify-center mb-12 flex-wrap">
-          {options.map(({ id, label, emoji }) => {
-            const isActive = selected === id;
-            return (
-              <button
-                key={id}
-                onClick={() => setSelected(isActive ? null : id)}
-                className={`
-                  cursor-pointer select-none rounded-lg px-8 py-6
-                  text-center
-                  border-2
-                  transition-all duration-300
-                  flex flex-col items-center gap-2
-                  font-bold text-lg
-                  ${isActive
-                    ? "border-purple-500 bg-gradient-to-tr from-purple-700/30 to-purple-700/10 text-purple-300 shadow-[0_0_10px_3px_rgba(139,92,246,0.4)]"
-                    : "border-purple-700 text-purple-500 hover:border-purple-500 hover:text-purple-300"}
-                  w-44
-                  shadow-sm
-                `}
-              >
-                <span className="text-4xl">{emoji}</span>
-                {label}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Mostrar todos */}
-        {selected && (
-          <div className="text-center mb-10">
-            <button
-              onClick={() => setSelected(null)}
-              className="px-6 py-3 rounded-full bg-purple-700 hover:bg-purple-600 transition-colors shadow-lg text-white font-semibold"
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredScripts.map((script) => (
+            <motion.div
+              key={script.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50"
             >
-              🔄 Mostrar Todos
-            </button>
-          </div>
-        )}
-
-        {/* Conteúdo dos vídeos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-          {(selected
-            ? scripts
-            : scripts
-          ).map(({ id, title, video }) => {
-            // Se filtrasse por plataforma, aqui aplicaria filtro. Agora mostra todos sempre.
-            // Para simular filtro, poderia usar "selected" para filtrar, mas aqui exibe todos.
-            if (selected && selected !== "celular" && selected !== "pc" && selected !== "ios") return null;
-
-            return (
-              <div
-                key={id}
-                className="bg-slate-900 rounded-2xl border border-purple-700 shadow-purple-900/50 shadow-lg overflow-hidden"
-              >
-                <h2 className="px-6 py-4 text-purple-300 font-semibold text-xl border-b border-purple-700 select-none">
-                  {title}
-                </h2>
-                <div className="aspect-video">
-                  <iframe
-                    src={video}
-                    title={title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
-                </div>
+              <h2 className="text-xl font-bold text-white mb-4">{script.title}</h2>
+              <div className="aspect-w-16 aspect-h-9">
+                <iframe
+                  src={script.url}
+                  title={`Tutorial ${script.title}`}
+                  allowFullScreen
+                  className="w-full h-60 rounded-lg border border-slate-700"
+                />
               </div>
-            );
-          })}
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default TutorialPage;
