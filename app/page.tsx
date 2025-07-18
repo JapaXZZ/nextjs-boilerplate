@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const scripts = [
   { title: 'Tarefa SP', description: 'Ferramenta para concluir as tarefas' },
@@ -17,7 +16,7 @@ const scripts = [
 function Card({ title, description }: { title: string; description: string }) {
   return (
     <div className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 transition-all duration-300 rounded-2xl shadow-md p-6 cursor-pointer select-none">
-      <h3 className="text-white text-xl font-semibold mb-3">{title}</h3>
+      <h4 className="text-white text-xl font-semibold mb-3">{title}</h4>
       <p className="text-zinc-400 leading-relaxed">{description}</p>
     </div>
   );
@@ -129,17 +128,13 @@ export default function Home() {
         <h3 className="text-4xl font-bold mb-12 text-white text-center">Scripts Disponíveis</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {scripts.map(({ title, description }, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
+              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 transition-all duration-300 rounded-2xl shadow-md p-6 cursor-pointer select-none"
             >
-              <div className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 transition-all duration-300 rounded-2xl shadow-md p-6 cursor-pointer select-none">
-                <h4 className="text-white text-xl font-semibold mb-3">{title}</h4>
-                <p className="text-zinc-400 leading-relaxed">{description}</p>
-              </div>
-            </motion.div>
+              <h4 className="text-white text-xl font-semibold mb-3">{title}</h4>
+              <p className="text-zinc-400 leading-relaxed">{description}</p>
+            </div>
           ))}
         </div>
       </section>
