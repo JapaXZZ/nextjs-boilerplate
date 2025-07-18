@@ -1,46 +1,48 @@
-import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { ButtonHTMLAttributes, forwardRef } from "react";
+import clsx from "clsx";
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-2xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
-  {
-    variants: {
-      variant: {
-        default: "bg-primary text-white hover:bg-primary/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 px-3 rounded-md",
-        lg: "h-11 px-8 rounded-md",
-        icon: "h-10 w-10",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  }
-);
+type Variant = "default" | "outline" | "ghost" | "link";
+type Size = "default" | "sm" | "lg" | "icon";
 
-export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: Variant;
+  size?: Size;
+  className?: string;
+}
+
+const variantClasses: Record<Variant, string> = {
+  default: "bg-primary text-white hover:bg-primary/90",
+  outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+  ghost: "hover:bg-accent hover:text-accent-foreground",
+  link: "text-primary underline-offset-4 hover:underline",
+};
+
+const sizeClasses: Record<Size, string> = {
+  default: "h-10 px-4 py-2 rounded-2xl",
+  sm: "h-9 px-3 rounded-md",
+  lg: "h-11 px-8 rounded-md",
+  icon: "h-10 w-10",
+};
+
+const baseClasses =
+  "inline-flex items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50";
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => {
+  (
+    { className, variant = "default", size = "default", ...props },
+    ref
+  ) => {
     return (
       <button
-        className={cn(buttonVariants({ variant, size }), className)}
+        className={clsx(baseClasses, variantClasses[variant], sizeClasses[size], className)}
         ref={ref}
         {...props}
       />
     );
   }
 );
+
 Button.displayName = "Button";
 
-export { Button, buttonVariants };
+export { Button };
