@@ -83,8 +83,8 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-950 via-purple-900 to-black text-white overflow-hidden">
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-800/20 via-transparent to-transparent" />
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white overflow-hidden">
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800/20 via-transparent to-transparent" />
       <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
 
       <motion.header
@@ -122,50 +122,44 @@ const Index = () => {
             Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.
           </motion.p>
 
-          {/* Estatísticas com ícones */}
-          <div className="mt-12 flex justify-center gap-8 max-w-3xl mx-auto text-center">
-            <div className="flex flex-col items-center bg-purple-900/90 p-6 rounded-3xl shadow-lg shadow-purple-800/80 border border-purple-700 w-36">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-12 w-12 mb-3 text-purple-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M3 12h18M3 17h18" />
-              </svg>
-              <span className="text-purple-300 uppercase font-semibold mb-1">Total de Scripts</span>
-              <span className="text-4xl font-extrabold text-white">{stats.total}</span>
+          {/* Estatísticas reformuladas */}
+          <div className="mt-12 flex justify-center gap-8 max-w-md mx-auto">
+            <div className="flex items-center gap-3 bg-slate-800/70 rounded-lg px-5 py-3 border border-purple-700 shadow-lg shadow-purple-900/50">
+              <div className="p-3 rounded-full bg-purple-600/80 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 7h18M3 12h18M3 17h18" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-xs uppercase text-purple-400">Total de Scripts</p>
+                <p className="text-2xl font-bold text-white">{stats.total}</p>
+              </div>
             </div>
-            <div className="flex flex-col items-center bg-purple-900/90 p-6 rounded-3xl shadow-lg shadow-purple-700/70 border border-purple-600 w-36">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-12 w-12 mb-3 text-green-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-              </svg>
-              <span className="text-purple-300 uppercase font-semibold mb-1">Online</span>
-              <span className="text-4xl font-extrabold text-green-400">{stats.online}</span>
+
+            <div className="flex items-center gap-3 bg-slate-800/70 rounded-lg px-5 py-3 border border-purple-700 shadow-lg shadow-purple-900/50">
+              <div className="p-3 rounded-full bg-green-600/80 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12l2 2 4-4" />
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-xs uppercase text-green-400">Online</p>
+                <p className="text-2xl font-bold text-green-400">{stats.online}</p>
+              </div>
             </div>
-            <div className="flex flex-col items-center bg-purple-900/90 p-6 rounded-3xl shadow-lg shadow-red-700/70 border border-red-600 w-36">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-12 w-12 mb-3 text-red-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-              <span className="text-purple-300 uppercase font-semibold mb-1">Offline</span>
-              <span className="text-4xl font-extrabold text-red-400">{stats.offline}</span>
+
+            <div className="flex items-center gap-3 bg-slate-800/70 rounded-lg px-5 py-3 border border-purple-700 shadow-lg shadow-purple-900/50">
+              <div className="p-3 rounded-full bg-red-600/80 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="6" y1="18" x2="18" y2="6" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-xs uppercase text-red-400">Offline</p>
+                <p className="text-2xl font-bold text-red-400">{stats.offline}</p>
+              </div>
             </div>
           </div>
         </div>
