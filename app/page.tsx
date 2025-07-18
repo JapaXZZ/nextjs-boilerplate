@@ -40,49 +40,18 @@ export default function Home() {
     }
   }
 
-  const OnlineIcon = () => (
-    <svg
-      className="w-5 h-5 text-green-400"
-      fill="currentColor"
-      viewBox="0 0 20 20"
-      aria-hidden="true"
-    >
-      <circle cx="10" cy="10" r="10" />
-    </svg>
-  );
-
-  const OfflineIcon = () => (
-    <svg
-      className="w-5 h-5 text-red-500"
-      fill="currentColor"
-      viewBox="0 0 20 20"
-      aria-hidden="true"
-    >
-      <circle cx="10" cy="10" r="10" />
-      <line
-        x1="5"
-        y1="5"
-        x2="15"
-        y2="15"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-
   return (
     <>
-      <main className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-purple-950 text-gray-300 px-6 py-12 sm:px-12">
+      <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-950 text-gray-200 px-6 py-12 sm:px-12 font-sans">
         <header className="max-w-7xl mx-auto mb-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <h1 className="text-5xl font-extrabold text-purple-500 select-none tracking-wide">
+          <h1 className="text-5xl font-extrabold select-none tracking-tight text-white">
             HideXS
           </h1>
           <nav className="space-x-8 text-gray-400 font-semibold hidden sm:flex">
-            <a href="#scripts" className="hover:text-purple-400 transition">
+            <a href="#scripts" className="hover:text-white transition">
               Scripts
             </a>
-            <a href="#about" className="hover:text-purple-400 transition">
+            <a href="#about" className="hover:text-white transition">
               Sobre
             </a>
           </nav>
@@ -90,26 +59,25 @@ export default function Home() {
 
         <section
           id="scripts"
-          className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10"
+          className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
         >
           {scripts.map((script) => (
             <motion.div
               key={script.id}
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: script.id * 0.1, duration: 0.45 }}
+              transition={{ delay: script.id * 0.1, duration: 0.4 }}
               whileHover={{
-                scale: 1.06,
-                boxShadow:
-                  "0 10px 25px -5px rgba(124, 58, 237, 0.6), 0 15px 35px -10px rgba(124, 58, 237, 0.4)",
+                scale: 1.05,
+                boxShadow: "0 8px 20px rgba(0,0,0,0.8)",
               }}
-              className="bg-[#1e1e2f] rounded-2xl border border-purple-700 p-7 flex flex-col justify-between shadow-md"
+              className="bg-gray-800 rounded-3xl border border-gray-700 p-7 flex flex-col justify-between shadow-lg"
             >
               <div>
-                <h2 className="text-2xl font-bold text-purple-400 mb-3 select-text truncate">
+                <h2 className="text-2xl font-semibold text-white mb-3 truncate select-text">
                   {script.title}
                 </h2>
-                <p className="text-gray-400 mb-6 leading-relaxed select-text line-clamp-3">
+                <p className="text-gray-300 mb-6 leading-relaxed select-text line-clamp-3">
                   {script.description}
                 </p>
               </div>
@@ -119,11 +87,16 @@ export default function Home() {
                   className={clsx(
                     "inline-flex items-center gap-2 px-3 py-1 rounded-full font-semibold text-sm select-none",
                     script.online
-                      ? "bg-green-700 text-green-300"
-                      : "bg-red-700 text-red-300"
+                      ? "bg-green-700 text-green-200"
+                      : "bg-red-700 text-red-200"
                   )}
                 >
-                  {script.online ? <OnlineIcon /> : <OfflineIcon />}
+                  <span
+                    className={clsx(
+                      "w-3 h-3 rounded-full",
+                      script.online ? "bg-green-400" : "bg-red-400"
+                    )}
+                  />
                   {script.online ? "Online" : "Offline"}
                 </span>
 
@@ -132,14 +105,14 @@ export default function Home() {
                     href={script.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-2 bg-purple-600 hover:bg-purple-700 active:bg-purple-800 transition rounded-full font-semibold text-gray-100 shadow-sm"
+                    className="px-6 py-2 bg-gray-700 hover:bg-gray-600 active:bg-gray-800 transition rounded-full font-semibold text-white shadow-sm"
                   >
                     Acessar
                   </a>
 
                   <button
                     onClick={() => handleShare(script)}
-                    className="px-6 py-2 border border-purple-600 hover:border-purple-400 text-purple-400 hover:text-purple-300 transition rounded-full font-semibold shadow-sm"
+                    className="px-6 py-2 border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-gray-100 transition rounded-full font-semibold shadow-sm"
                     aria-label={`Compartilhar ${script.title}`}
                   >
                     Compartilhar
@@ -154,7 +127,7 @@ export default function Home() {
           id="about"
           className="max-w-4xl mx-auto mt-24 text-center text-gray-400 select-text"
         >
-          <h3 className="text-4xl font-extrabold mb-8 text-purple-400">
+          <h3 className="text-4xl font-extrabold mb-8 text-white">
             Sobre o HideXS
           </h3>
           <p className="leading-relaxed text-lg max-w-xl mx-auto tracking-wide">
@@ -165,7 +138,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="py-10 text-center text-gray-600 border-t border-purple-800 select-none">
+      <footer className="py-10 text-center text-gray-600 border-t border-gray-700 select-none">
         © {new Date().getFullYear()} HideXS. Todos os direitos reservados.
       </footer>
     </>
