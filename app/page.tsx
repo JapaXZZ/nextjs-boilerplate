@@ -97,9 +97,9 @@ const Index = () => {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-slate-900/60 backdrop-blur-md border border-slate-700/60 rounded-full shadow-lg shadow-emerald-700/20"
+            className="inline-flex items-center gap-3 mb-8 px-6 py-3 bg-slate-900/60 backdrop-blur-md border border-slate-700/60 rounded-full shadow-lg shadow-purple-700/30"
           >
-            <span className="text-emerald-400">⚡</span>
+            <span className="text-purple-400">⚡</span>
             <span className="text-slate-300 font-medium">Plataforma Premium</span>
           </motion.div>
 
@@ -107,30 +107,25 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-7xl md:text-8xl font-extrabold mb-6 bg-gradient-to-r from-emerald-400 via-slate-200 to-slate-400 bg-clip-text text-transparent select-none"
+            className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-purple-500 via-purple-400 to-purple-600 bg-clip-text text-transparent select-none"
           >
             HideXS
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-6"
-          >
-            Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.
-          </motion.p>
-
-          <div className="flex flex-wrap justify-center gap-4 text-sm font-medium text-slate-400">
-            <span className="px-4 py-2 bg-slate-900 rounded-full border border-slate-700 shadow-inner shadow-black/30">
-              Total: {stats.total}
-            </span>
-            <span className="px-4 py-2 bg-slate-900 rounded-full border border-emerald-700 text-emerald-400 shadow-md shadow-emerald-600/50">
-              Online: {stats.online}
-            </span>
-            <span className="px-4 py-2 bg-slate-900 rounded-full border border-red-700 text-red-400 shadow-md shadow-red-600/50">
-              Offline: {stats.offline}
-            </span>
+          {/* Novo layout para estatísticas */}
+          <div className="flex justify-center gap-8 max-w-md mx-auto text-center">
+            <div className="bg-slate-900/90 rounded-2xl p-6 flex-1 shadow-lg shadow-purple-900/50 border border-purple-700">
+              <p className="text-purple-400 font-semibold text-lg mb-1">Total de Scripts</p>
+              <p className="text-3xl font-bold text-white">{stats.total}</p>
+            </div>
+            <div className="bg-slate-900/90 rounded-2xl p-6 flex-1 shadow-lg shadow-purple-700/40 border border-purple-500">
+              <p className="text-purple-300 font-semibold text-lg mb-1">Online</p>
+              <p className="text-3xl font-bold text-purple-400">{stats.online}</p>
+            </div>
+            <div className="bg-slate-900/90 rounded-2xl p-6 flex-1 shadow-lg shadow-purple-700/40 border border-purple-500">
+              <p className="text-purple-300 font-semibold text-lg mb-1">Offline</p>
+              <p className="text-3xl font-bold text-purple-400">{stats.offline}</p>
+            </div>
           </div>
         </div>
       </motion.header>
@@ -148,9 +143,9 @@ const Index = () => {
             transition={{ delay: 0.9, duration: 0.6 }}
             className="flex items-center gap-3 mb-12"
           >
-            <span className="text-emerald-400 text-xl">💻</span>
-            <h2 className="text-3xl font-extrabold text-slate-100">Scripts Disponíveis</h2>
-            <div className="flex-1 h-px bg-gradient-to-r from-slate-700 to-transparent" />
+            <span className="text-purple-400 text-xl">💻</span>
+            <h2 className="text-3xl font-extrabold text-purple-400">Scripts Disponíveis</h2>
+            <div className="flex-1 h-px bg-gradient-to-r from-purple-700 to-transparent" />
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -168,20 +163,20 @@ const Index = () => {
               >
                 <div
                   className={cn(
-                    "absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",
+                    "absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",
                     hoveredCard === script.id && "opacity-40"
                   )}
                 />
 
-                <div className="relative bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-black/50">
+                <div className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
-                        <h3 className="text-xl font-extrabold text-white group-hover:text-emerald-400 transition-colors duration-300 select-none">
+                        <h3 className="text-xl font-extrabold text-white group-hover:text-purple-400 transition-colors duration-300 select-none">
                           {script.title}
                         </h3>
                       </div>
-                      <span className="inline-block px-3 py-1 bg-slate-800 text-slate-300 text-xs font-medium rounded-full select-none">
+                      <span className="inline-block px-3 py-1 bg-slate-800 text-purple-300 text-xs font-medium rounded-full select-none">
                         {script.category}
                       </span>
                     </div>
@@ -190,14 +185,14 @@ const Index = () => {
                       className={cn(
                         "flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none",
                         script.online
-                          ? "bg-emerald-500/30 text-emerald-400 border border-emerald-500/40 shadow-md shadow-emerald-500/40"
+                          ? "bg-purple-500/30 text-purple-400 border border-purple-500/40 shadow-md shadow-purple-500/40"
                           : "bg-red-500/30 text-red-400 border border-red-500/40 shadow-md shadow-red-500/40"
                       )}
                     >
                       <div
                         className={cn(
                           "w-2 h-2 rounded-full",
-                          script.online ? "bg-emerald-400" : "bg-red-400"
+                          script.online ? "bg-purple-400" : "bg-red-400"
                         )}
                       />
                       {script.online ? "Online" : "Offline"}
@@ -215,7 +210,7 @@ const Index = () => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-emerald-700 to-emerald-600 hover:from-emerald-600 hover:to-emerald-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-emerald-600/40"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-700 to-purple-600 hover:from-purple-600 hover:to-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/40"
                     >
                       <span>↗</span>
                       Acessar
@@ -247,7 +242,7 @@ const Index = () => {
         </p>
         <button
           onClick={openEmail}
-          className="inline-block px-6 py-3 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl font-semibold transition-colors duration-300 shadow-md shadow-emerald-600/40"
+          className="inline-block px-6 py-3 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-colors duration-300 shadow-md shadow-purple-600/40"
           aria-label="Enviar email para suporte"
         >
           Contatar Suporte
