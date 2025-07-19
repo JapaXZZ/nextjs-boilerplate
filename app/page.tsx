@@ -255,8 +255,7 @@ return (
   </motion.main>  
 
 <div className="w-full max-w-2xl mx-auto p-4">
-  {/* Aviso Educacional */}
-  <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-xl shadow mb-6">
+  <div className="bg-purple-100 border-l-4 border-purple-500 text-purple-800 p-4 rounded-xl shadow mb-6">
     <p className="font-bold text-lg">⚠️ Aviso Educacional</p>
     <p className="text-sm mt-1">
       O <strong>HideXS</strong> é uma ferramenta educativa desenvolvida para auxiliar os estudantes.
