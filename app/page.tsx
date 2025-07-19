@@ -27,7 +27,7 @@ const initialScripts: Script[] = [
 
 const apostilas = [
   {
-    id: 1,
+    id: 99999,
     title: "Apostilas",
     description: "Material completo com gabarito de todas as séries",
     url: "https://apostiladestroyer.netlify.app/",
@@ -40,18 +40,18 @@ const Index = () => {
   const router = useRouter();
 
   const stats = useMemo(() => {
-    const total = scripts.length;
+    const total = scripts.length + apostilas.length;
     const online = scripts.filter((s) => s.online).length;
     const offline = total - online;
     return { total, online, offline };
   }, [scripts]);
 
-  function handleShare(script: Script) {
+  function handleShare(item: Script | typeof apostilas[0]) {
     if (navigator.share) {
       navigator
         .share({
-          title: script.title,
-          text: script.description,
+          title: item.title,
+          text: item.description,
           url: window.location.href,
         })
         .catch(() => alert("Não foi possível compartilhar."));
@@ -84,6 +84,8 @@ const Index = () => {
       transition: { type: "spring" as const, stiffness: 100, damping: 12 },
     },
   };
+
+  const isScript = (obj: any): obj is Script => "category" in obj && typeof obj.category === "string";
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white overflow-x-hidden">
@@ -240,16 +242,15 @@ const Index = () => {
                       <span>↗</span>
                       Acessar
                     </motion.a>
-                    {"online" in item && (
-                      <motion.button
-                        onClick={() => handleShare(item)}
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                        className="px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-xl transition-all duration-300 shadow-md shadow-black/40"
-                      >
-                        <span>📤</span>
-                      </motion.button>
-                    )}
+                    <motion.button
+                      onClick={() => handleShare(item)}
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-xl transition-all duration-300 shadow-md shadow-black/40"
+                      aria-label={`Compartilhar ${item.title}`}
+                    >
+                      <span>📤</span>
+                    </motion.button>
                   </div>
                 </div>
               </motion.div>
@@ -268,6 +269,7 @@ const Index = () => {
         <button
           onClick={openEmail}
           className="inline-block px-6 py-3 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-colors duration-300 shadow-md shadow-purple-600/40"
+          aria-label="Enviar email para suporte"
         >
           Contatar Suporte
         </button>
