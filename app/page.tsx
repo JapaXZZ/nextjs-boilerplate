@@ -143,7 +143,9 @@ className="relative z-10 pt-12 pb-12 px-4"
       <li>Os scripts temporariamente indisponíveis serão reativados até o dia 23 de julho.</li>  
     </ul>  
   </div>  
-</div>  <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6">
+</div>   
+
+ <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6">
 
   <h3 className="text-lg font-semibold text-white mb-1">Estatísticas</h3>    
   <p className="text-xs text-slate-400 mb-4">Última atualização: 19/07/2025</p>    
@@ -162,7 +164,9 @@ className="relative z-10 pt-12 pb-12 px-4"
       <span className="text-2xl font-bold text-red-400 font-mono">{stats.offline}</span>    
     </div>    
   </div>    
-</div>  <motion.main
+</div>
+
+<motion.main
 variants={containerVariants}
 initial="hidden"
 animate="visible"
