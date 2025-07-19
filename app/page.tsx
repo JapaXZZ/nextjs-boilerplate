@@ -136,14 +136,18 @@ return (
         Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.  
       </motion.p>  
 
-<div className="w-full max-w-2xl mx-auto p-4">
-  <div className="bg-purple-100 border-l-4 border-purple-600 text-purple-900 p-4 rounded-xl shadow mb-6">
-    <p className="font-bold text-lg">📢 Notificações do Desenvolvedor</p>
-    <ul className="list-disc pl-5 mt-2 space-y-1 text-sm">
-      <li>Novos scripts adicionados toda semana!</li>
-      <li>Relate bugs ou sugestões via nosso canal oficial.</li>
-      <li>Evite o uso excessivo para prevenir banimento de contas.</li>
-      <li>Fique atento: atualizações automáticas a cada 48h.</li>
+
+  <div className="w-full max-w-2xl mx-auto p-4">
+  <div className="bg-white border border-purple-300 text-gray-800 p-5 rounded-2xl shadow-md mb-6">
+    <div className="flex items-center gap-2 mb-2">
+      <span className="text-purple-600 text-xl">📢</span>
+      <h2 className="text-lg font-semibold text-purple-700">Notificações do Desenvolvedor</h2>
+    </div>
+    <ul className="list-inside list-disc text-sm text-gray-700 space-y-1">
+      <li>Novos scripts adicionados semanalmente.</li>
+      <li>Relate bugs ou sugestões no nosso canal oficial.</li>
+      <li>Evite uso abusivo para manter sua conta segura.</li>
+      <li>Atualizações automáticas a cada 48 horas.</li>
     </ul>
   </div>
 </div>
