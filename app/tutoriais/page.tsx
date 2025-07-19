@@ -30,7 +30,7 @@ const Tutoriais = () => {
       icon: Apple,
       label: "iOS (iPhone/iPad)",
       description: "Tutoriais para dispositivos Apple",
-      scripts: ["Speak"],
+      scripts: ["Speak", "Khan"],
       color: "from-purple-500 to-purple-600"
     }
   ];
@@ -39,20 +39,42 @@ const Tutoriais = () => {
     Speak: {
       title: "Speak",
       description: "Sistema de síntese de voz avançado para melhor acessibilidade",
-      videoId: "cxmwZZx8zFpjiQnE",
-      duration: "5:32"
+      videoId: {
+        celular: "oHprujfOFvg",
+        computador: "-2IXE9U3rnc",
+        ios: "ZV345iQXOOk",
+      },
+      duration: {
+        celular: "1:41",
+        computador: "1:50",
+        ios: "1:40",
+      }
     },
     Khan: {
       title: "Khan Academy",
       description: "Automação completa para plataforma Khan Academy",
-      videoId: "dQw4w9WgXcQ",
-      duration: "8:45"
+      videoId: {
+        celular: "-TXGbjiX0Do",
+        computador: "HX8fZe0U9CA",
+        ios: "8tltf0gFQ-k",
+      },
+      duration: {
+        celular: "3:04",
+        computador: "1:14",
+        ios: "2:00",
+      }
     },
     Matific: {
       title: "Matific",
       description: "Assistente inteligente para plataforma Matific",
-      videoId: "dQw4w9WgXcQ",
-      duration: "6:12"
+      videoId: {
+        celular: "wQc4KsTsH1Q",
+        computador: "U2oUFHb7pGQ",
+      },
+      duration: {
+        celular: "2:40",
+        computador: "2:50",
+      }
     }
   };
 
@@ -126,7 +148,7 @@ const Tutoriais = () => {
                           <div className="lg:w-2/5 relative">
                             <div className="aspect-video bg-pro-bg-primary relative overflow-hidden">
                               <iframe
-                                src={`https://www.youtube.com/embed/${info.videoId}?modestbranding=1&rel=0`}
+                                src={`https://www.youtube.com/embed/${info.videoId[device.id as keyof typeof info.videoId]}?modestbranding=1&rel=0`}
                                 title={`Tutorial ${info.title} - ${device.label}`}
                                 className="w-full h-full"
                                 frameBorder="0"
@@ -155,7 +177,7 @@ const Tutoriais = () => {
                             <div className="flex items-center justify-between">
                               <div className="flex items-center text-pro-text-muted text-sm">
                                 <Play className="h-4 w-4 mr-2" />
-                                {info.duration}
+                                {info.duration[device.id as keyof typeof info.duration]}
                               </div>
 
                               <div className="flex items-center text-pro-accent-primary text-sm font-medium">
