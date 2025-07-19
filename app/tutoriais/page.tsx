@@ -39,7 +39,7 @@ const Tutoriais = () => {
     Speak: {
       title: "Speak",
       description: "Sistema de síntese de voz avançado para melhor acessibilidade",
-      videoId: "dQw4w9WgXcQ",
+      videoId: "cxmwZZx8zFpjiQnE",
       duration: "5:32"
     },
     Khan: {
