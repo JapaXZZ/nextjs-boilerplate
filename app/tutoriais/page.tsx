@@ -78,6 +78,10 @@ const Tutoriais = () => {
     }
   };
 
+function openEmail() {
+window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
+}
+
   return (
     <div className="min-h-screen bg-pro-gradient">
       {/* Navigation Header */}
@@ -204,9 +208,13 @@ const Tutoriais = () => {
           <p className="text-pro-text-muted mb-6">
             Entre em contato conosco se tiver dúvidas sobre algum tutorial
           </p>
-          <Button className="bg-accent-gradient hover:opacity-90 transition-opacity text-white font-medium">
-            Falar com Suporte
-          </Button>
+          <button  
+      onClick={openEmail}  
+      className="inline-block px-6 py-3 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-colors duration-300 shadow-md shadow-purple-600/40"  
+      aria-label="Enviar email para suporte"  
+    >  
+      Contatar Suporte  
+    </button>  
         </div>
       </div>
     </div>
