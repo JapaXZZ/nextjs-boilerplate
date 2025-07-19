@@ -153,15 +153,15 @@ return (
   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">  
     <div className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3">  
       <span className="text-white text-sm">Total</span>  
-      <span className="text-2xl font-bold text-purple-400 font-mono">{stats.total}</span>  
+      <span className="text-4xl font-bold text-purple-400 font-mono">{stats.total}</span>  
     </div>  
     <div className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3">  
       <span className="text-white text-sm">Online</span>  
-      <span className="text-2xl font-bold text-green-400 font-mono">{stats.online}</span>  
+      <span className="text-4xl font-bold text-green-400 font-mono">{stats.online}</span>  
     </div>  
     <div className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3">  
       <span className="text-white text-sm">Offline</span>  
-      <span className="text-2xl font-bold text-red-400 font-mono">{stats.offline}</span>  
+      <span className="text-4xl font-bold text-red-400 font-mono">{stats.offline}</span>  
     </div>  
   </div>  
 </div>
