@@ -138,7 +138,7 @@ return (
 
 
   <div className="w-full max-w-2xl mx-auto p-4">
-  <div className="bg-purple-100 border-l-4 border-purple-600 text-purple-900 p-4 rounded-xl shadow mb-6">
+  <div className="bg-gray-900 border-l-4 border-purple-600 text-white p-4 rounded-xl shadow mb-6">
     <p className="font-bold text-lg">📢 Notificações</p>
     <ul className="list-disc pl-5 mt-2 space-y-1 text-sm">
       <li>Os scripts temporariamente indisponíveis serão reativados até o dia 23 de julho.</li>
