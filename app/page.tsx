@@ -138,23 +138,17 @@ return (
 
 
   <div className="w-full max-w-2xl mx-auto p-4">
-  <div className="bg-white border border-purple-300 text-gray-800 p-5 rounded-2xl shadow-md mb-6">
-    <div className="flex items-center gap-2 mb-2">
-      <span className="text-purple-600 text-xl">📢</span>
-      <h2 className="text-lg font-semibold text-purple-700">Notificações do Desenvolvedor</h2>
-    </div>
-    <ul className="list-inside list-disc text-sm text-gray-700 space-y-1">
-      <li>Novos scripts adicionados semanalmente.</li>
-      <li>Relate bugs ou sugestões no nosso canal oficial.</li>
-      <li>Evite uso abusivo para manter sua conta segura.</li>
-      <li>Atualizações automáticas a cada 48 horas.</li>
+  <div className="bg-purple-100 border-l-4 border-purple-600 text-purple-900 p-4 rounded-xl shadow mb-6">
+    <p className="font-bold text-lg">📢 Notificações</p>
+    <ul className="list-disc pl-5 mt-2 space-y-1 text-sm">
+      <li>Os scripts temporariamente indisponíveis serão reativados até o dia 23 de julho.</li>
     </ul>
   </div>
 </div>
 
       <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6">  
         <h3 className="text-lg font-semibold text-white mb-1">Estatísticas</h3>  
-        <p className="text-xs text-slate-400 mb-4">Última atualização: 18/07/2025</p>  
+        <p className="text-xs text-slate-400 mb-4">Última atualização: 19/07/2025</p>  
         <div className="h-px bg-slate-700 mb-4" />  
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">  
           <div className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3">  
