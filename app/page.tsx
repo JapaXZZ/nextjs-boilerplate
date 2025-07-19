@@ -136,6 +136,18 @@ return (
         Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.  
       </motion.p>  
 
+<div className="w-full max-w-2xl mx-auto p-4">
+  <div className="bg-purple-100 border-l-4 border-purple-600 text-purple-900 p-4 rounded-xl shadow mb-6">
+    <p className="font-bold text-lg">📢 Notificações do Desenvolvedor</p>
+    <ul className="list-disc pl-5 mt-2 space-y-1 text-sm">
+      <li>Novos scripts adicionados toda semana!</li>
+      <li>Relate bugs ou sugestões via nosso canal oficial.</li>
+      <li>Evite o uso excessivo para prevenir banimento de contas.</li>
+      <li>Fique atento: atualizações automáticas a cada 48h.</li>
+    </ul>
+  </div>
+</div>
+
       <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6">  
         <h3 className="text-lg font-semibold text-white mb-1">Estatísticas</h3>  
         <p className="text-xs text-slate-400 mb-4">Última atualização: 18/07/2025</p>  
