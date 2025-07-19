@@ -146,27 +146,25 @@ return (
   </div>
 </div>
 
-      <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6">  
-        <h3 className="text-lg font-semibold text-white mb-1">Estatísticas</h3>  
-        <p className="text-xs text-slate-400 mb-4">Última atualização: 19/07/2025</p>  
-        <div className="h-px bg-slate-700 mb-4" />  
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">  
-          <div className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3">  
-            <span className="text-white text-sm">Total</span>  
-            <span className="text-xl font-bold text-purple-400">{stats.total}</span>  
-          </div>  
-          <div className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3">  
-            <span className="text-white text-sm">Online</span>  
-            <span className="text-xl font-bold text-green-400">{stats.online}</span>  
-          </div>  
-          <div className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3">  
-            <span className="text-white text-sm">Offline</span>  
-            <span className="text-xl font-bold text-red-400">{stats.offline}</span>  
-          </div>  
-        </div>  
-      </div>  
+     <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6">  
+  <h3 className="text-lg font-semibold text-white mb-1">Estatísticas</h3>  
+  <p className="text-xs text-slate-400 mb-4">Última atualização: 19/07/2025</p>  
+  <div className="h-px bg-slate-700 mb-4" />  
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">  
+    <div className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3">  
+      <span className="text-white text-sm">Total</span>  
+      <span className="text-2xl font-bold text-purple-400 font-mono">{stats.total}</span>  
     </div>  
-  </motion.header>  
+    <div className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3">  
+      <span className="text-white text-sm">Online</span>  
+      <span className="text-2xl font-bold text-green-400 font-mono">{stats.online}</span>  
+    </div>  
+    <div className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3">  
+      <span className="text-white text-sm">Offline</span>  
+      <span className="text-2xl font-bold text-red-400 font-mono">{stats.offline}</span>  
+    </div>  
+  </div>  
+</div>
 
   <motion.main  
     variants={containerVariants}  
