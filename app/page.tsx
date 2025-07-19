@@ -90,7 +90,6 @@ const Index = () => {
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800/20 via-transparent to-transparent" />
       <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
 
-      {/* Topo com botão de Tutoriais */}
       <header className="relative z-10 flex justify-between items-center px-4 pt-6 max-w-7xl mx-auto">
         <h1 className="text-xl font-bold text-purple-400 select-none">🚀 HideXS</h1>
         <button
@@ -177,57 +176,61 @@ const Index = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {scripts.map((script) => (
+            {[...scripts, ...apostilas].map((item) => (
               <motion.div
-                key={script.id}
+                key={item.id}
                 variants={itemVariants}
                 whileHover={{
                   y: -8,
                   transition: { type: "spring", stiffness: 300, damping: 20 },
                 }}
-                onHoverStart={() => setHoveredCard(script.id)}
+                onHoverStart={() => setHoveredCard(item.id)}
                 onHoverEnd={() => setHoveredCard(null)}
                 className="group relative"
               >
                 <div
                   className={cn(
                     "absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",
-                    hoveredCard === script.id && "opacity-40"
+                    hoveredCard === item.id && "opacity-40"
                   )}
                 />
                 <div className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <h3 className="text-xl font-extrabold text-white group-hover:text-purple-400 transition-colors duration-300 select-none">
-                        {script.title}
+                        {item.title}
                       </h3>
-                      <span className="inline-block mt-1 px-3 py-1 bg-slate-800 text-purple-300 text-xs font-medium rounded-full select-none">
-                        {script.category}
-                      </span>
-                    </div>
-                    <div
-                      className={cn(
-                        "flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none",
-                        script.online
-                          ? "bg-purple-500/30 text-purple-400 border border-purple-500/40"
-                          : "bg-red-500/30 text-red-400 border border-red-500/40"
+                      {"category" in item && (
+                        <span className="inline-block mt-1 px-3 py-1 bg-slate-800 text-purple-300 text-xs font-medium rounded-full select-none">
+                          {item.category}
+                        </span>
                       )}
-                    >
+                    </div>
+                    {"online" in item && (
                       <div
                         className={cn(
-                          "w-2 h-2 rounded-full",
-                          script.online ? "bg-purple-400" : "bg-red-400"
+                          "flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none",
+                          item.online
+                            ? "bg-purple-500/30 text-purple-400 border border-purple-500/40"
+                            : "bg-red-500/30 text-red-400 border border-red-500/40"
                         )}
-                      />
-                      {script.online ? "Online" : "Offline"}
-                    </div>
+                      >
+                        <div
+                          className={cn(
+                            "w-2 h-2 rounded-full",
+                            item.online ? "bg-purple-400" : "bg-red-400"
+                          )}
+                        />
+                        {item.online ? "Online" : "Offline"}
+                      </div>
+                    )}
                   </div>
                   <p className="text-purple-300 text-sm leading-relaxed mb-6 flex-1 select-text">
-                    {script.description}
+                    {item.description}
                   </p>
                   <div className="flex gap-3">
                     <motion.a
-                      href={script.url}
+                      href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.03 }}
@@ -237,15 +240,16 @@ const Index = () => {
                       <span>↗</span>
                       Acessar
                     </motion.a>
-                    <motion.button
-                      onClick={() => handleShare(script)}
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
-                      className="px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-xl transition-all duration-300 shadow-md shadow-black/40"
-                      aria-label={`Compartilhar ${script.title}`}
-                    >
-                      <span>📤</span>
-                    </motion.button>
+                    {"online" in item && (
+                      <motion.button
+                        onClick={() => handleShare(item)}
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-xl transition-all duration-300 shadow-md shadow-black/40"
+                      >
+                        <span>📤</span>
+                      </motion.button>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -264,7 +268,6 @@ const Index = () => {
         <button
           onClick={openEmail}
           className="inline-block px-6 py-3 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-colors duration-300 shadow-md shadow-purple-600/40"
-          aria-label="Enviar email para suporte"
         >
           Contatar Suporte
         </button>
