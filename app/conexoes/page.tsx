@@ -147,7 +147,7 @@ export default function Conexoes() {
             >
               <Card className="bg-slate-800/50 backdrop-blur-sm border-slate-700/50 hover:border-emerald-500/30 transition-all duration-300 overflow-hidden">
                 <CardHeader className="pb-4">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between overflow-x-auto gap-3">
                     <CardTitle className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">
                       {network.name}
                     </CardTitle>
@@ -182,23 +182,24 @@ export default function Conexoes() {
                   {/* Password Display */}
                   <div className="p-4 bg-slate-900/50 rounded-xl border border-slate-700/30">
                     <p className="text-sm text-slate-400 mb-2">Senha:</p>
-                    <div className="flex items-center justify-between">
-                      <code className="text-lg font-mono text-emerald-400 bg-slate-800/50 px-3 py-2 rounded-lg break-words w-full sm:w-auto">
-                        {network.password}
+                    <div className="flex items-center justify-between overflow-x-auto gap-3">
+                     <code className="text-lg font-mono text-emerald-400 bg-slate-800/50 px-3 py-2 rounded-lg break-all max-w-[calc(100%-100px)] sm:max-w-full">
+
+            {network.password}
                       </code>
-                      <Button
-                        onClick={() =>
-                          copyToClipboard(network.password, network.name, network.id)
-                        }
-                        variant="outline"
-                        size="sm"
-                        className={cn(
-                          "min-w-[80px] transition-all duration-300",
-                          copiedId === network.id
-                            ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
-                            : "hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/30"
-                        )}
-                      >
+                     <Button
+  onClick={() =>
+    copyToClipboard(network.password, network.name, network.id)
+  }
+  variant="outline"
+  size="sm"
+  className={cn(
+    "min-w-[80px] shrink-0 transition-all duration-300",
+    copiedId === network.id
+      ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
+      : "hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/30"
+  )}
+>
                         {copiedId === network.id ? (
                           <span className="flex items-center gap-2">
                             ✓ <span className="hidden sm:inline">Copiado</span>
