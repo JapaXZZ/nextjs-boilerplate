@@ -21,7 +21,18 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
     );
   }
 );
-
 Card.displayName = "Card";
 
-export { Card };
+const CardHeader = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => (
+  <div className={cn("mb-4", className)} {...props} />
+);
+
+const CardTitle = ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
+  <h3 className={cn("text-xl font-semibold leading-none tracking-tight", className)} {...props} />
+);
+
+const CardContent = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => (
+  <div className={cn("pt-0", className)} {...props} />
+);
+
+export { Card, CardHeader, CardTitle, CardContent };
