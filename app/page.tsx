@@ -4,6 +4,7 @@ import { useState, useMemo, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface Script {
   id: number;
