@@ -223,6 +223,49 @@ const Index = () => {
         </div>
       </motion.header>
 
+<motion.div
+  key="apostilas"
+  variants={itemVariants}
+  whileHover={{
+    y: -8,
+    transition: { type: "spring", stiffness: 300, damping: 20 },
+  }}
+  className="group relative"
+>
+  <div className="absolute inset-0 bg-gradient-to-br from-purple-700/30 via-purple-800/10 to-transparent rounded-2xl animate-pulse blur-md group-hover:opacity-30 opacity-10 transition-opacity duration-300" />
+  <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-black border border-purple-700/60 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50 overflow-hidden">
+    <div className="absolute top-0 right-0 p-2">
+      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-purple-400 to-purple-600 animate-ping" />
+    </div>
+    <div className="flex items-start justify-between mb-4">
+      <div className="flex-1">
+        <h3 className="text-2xl font-extrabold text-white drop-shadow-sm group-hover:text-purple-300 transition-colors duration-300 select-none">
+          📚 Apostilas
+        </h3>
+        <span className="inline-block mt-2 px-3 py-1 bg-purple-900/60 text-purple-200 text-xs font-medium rounded-full select-none border border-purple-700/40">
+          Material Exclusivo
+        </span>
+      </div>
+    </div>
+    <p className="text-purple-300 text-sm leading-relaxed mb-6 flex-1 select-text">
+      Material completo com gabarito de todas as séries. Acesse conteúdos prontos para estudo e revisão.
+    </p>
+    <div className="flex gap-3">
+      <motion.a
+        href="https://apostiladestroyer.netlify.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
+        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-700 to-purple-600 hover:from-purple-600 hover:to-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/40"
+      >
+        <span>↗</span>
+        Acessar
+      </motion.a>
+    </div>
+  </div>
+</motion.div>
+
       <motion.main
         variants={containerVariants}
         initial="hidden"
@@ -318,51 +361,6 @@ const Index = () => {
           </div>
         </div>
       </motion.main>
-
-<motion.div
-  key="apostilas"
-  variants={itemVariants}
-  whileHover={{
-    y: -8,
-    transition: { type: "spring", stiffness: 300, damping: 20 },
-  }}
-  className="group relative"
->
-  <div className="absolute inset-0 bg-gradient-to-br from-purple-700/30 via-purple-800/10 to-transparent rounded-2xl animate-pulse blur-md group-hover:opacity-30 opacity-10 transition-opacity duration-300" />
-  <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-black border border-purple-700/60 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50 overflow-hidden">
-    <div className="absolute top-0 right-0 p-2">
-      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-purple-400 to-purple-600 animate-ping" />
-    </div>
-    <div className="flex items-start justify-between mb-4">
-      <div className="flex-1">
-        <h3 className="text-2xl font-extrabold text-white drop-shadow-sm group-hover:text-purple-300 transition-colors duration-300 select-none">
-          📚 Apostilas
-        </h3>
-        <span className="inline-block mt-2 px-3 py-1 bg-purple-900/60 text-purple-200 text-xs font-medium rounded-full select-none border border-purple-700/40">
-          Material Exclusivo
-        </span>
-      </div>
-    </div>
-    <p className="text-purple-300 text-sm leading-relaxed mb-6 flex-1 select-text">
-      Material completo com gabarito de todas as séries. Acesse conteúdos prontos para estudo e revisão.
-    </p>
-    <div className="flex gap-3">
-      <motion.a
-        href="https://apostiladestroyer.netlify.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97 }}
-        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-700 to-purple-600 hover:from-purple-600 hover:to-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/40"
-      >
-        <span>↗</span>
-        Acessar
-      </motion.a>
-    </div>
-  </div>
-</motion.div>
-
-
 
       <div className="w-full max-w-2xl mx-auto p-4">
         <div className="bg-purple-100 border-l-4 border-purple-500 text-purple-800 p-4 rounded-xl shadow mb-6">
