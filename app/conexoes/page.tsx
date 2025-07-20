@@ -22,15 +22,15 @@ export default function Conexoes() {
   const wifiNetworks: WifiNetwork[] = [
     {
       id: "1",
-      name: "WiFi Premium Pro",
-      password: "SuperSegura2024!",
+      name: "SEDUC-MAQ",
+      password: "E#F*Z9YI$L7H00LN2cnykZr!z",
       strength: "strong",
       isSecure: true,
     },
     {
       id: "2",
-      name: "Rede Secundária",
-      password: "MinhaRede123",
+      name: "Seduc_Prov_Equipamentos",
+      password: "Prov_$educ",
       strength: "medium",
       isSecure: true,
     },
@@ -125,7 +125,7 @@ export default function Conexoes() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed"
           >
-            Acesse nossas redes Wi-Fi premium com senhas seguras e conexão estável
+            Acesse as redes Wi-Fi SEDUC com senhas seguras e conexão estável
           </motion.p>
         </motion.div>
 
