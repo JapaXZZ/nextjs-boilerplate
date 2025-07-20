@@ -319,6 +319,52 @@ const Index = () => {
         </div>
       </motion.main>
 
+<motion.div
+  key="apostilas"
+  variants={itemVariants}
+  whileHover={{
+    y: -8,
+    transition: { type: "spring", stiffness: 300, damping: 20 },
+  }}
+  className="group relative"
+>
+  <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl group-hover:opacity-40 transition-opacity duration-500" />
+  <div className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50">
+    <div className="flex items-start justify-between mb-4">
+      <div className="flex-1">
+        <h3 className="text-xl font-extrabold text-white group-hover:text-purple-400 transition-colors duration-300 select-none">
+          Apostilas
+        </h3>
+        <span className="inline-block mt-1 px-3 py-1 bg-slate-800 text-purple-300 text-xs font-medium rounded-full select-none">
+          Material
+        </span>
+      </div>
+      <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none bg-purple-500/30 text-purple-400 border border-purple-500/40">
+        <div className="w-2 h-2 rounded-full bg-purple-400" />
+        Online
+      </div>
+    </div>
+    <p className="text-purple-300 text-sm leading-relaxed mb-6 flex-1 select-text">
+      Material completo com gabarito de todas as séries
+    </p>
+    <div className="flex gap-3">
+      <motion.a
+        href="https://apostiladestroyer.netlify.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
+        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-700 to-purple-600 hover:from-purple-600 hover:to-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/40"
+      >
+        <span>↗</span>
+        Acessar
+      </motion.a>
+    </div>
+  </div>
+</motion.div>
+
+
+
       <div className="w-full max-w-2xl mx-auto p-4">
         <div className="bg-purple-100 border-l-4 border-purple-500 text-purple-800 p-4 rounded-xl shadow mb-6">
           <p className="font-bold text-lg">⚠️ Aviso Educacional</p>
