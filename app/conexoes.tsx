@@ -36,25 +36,17 @@ export default function Conexoes() {
   ];
 
   const copyToClipboard = async (text: string, networkName: string, id: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopiedId(id);
-      
-      toast({
-        title: "✨ Senha copiada!",
-        description: `A senha da rede "${networkName}" foi copiada com sucesso.`,
-        duration: 3000,
-      });
+  try {
+    await navigator.clipboard.writeText(text);
+    setCopiedId(id);
 
-      setTimeout(() => setCopiedId(null), 2000);
-    } catch (err) {
-      toast({
-        title: "❌ Erro ao copiar",
-        description: "Não foi possível copiar a senha. Tente novamente.",
-        variant: "destructive"
-      });
-    }
-  };
+    toast(`✨ Senha da rede "${networkName}" copiada com sucesso!`);
+
+    setTimeout(() => setCopiedId(null), 2000);
+  } catch (err) {
+    toast("❌ Não foi possível copiar a senha. Tente novamente.");
+  }
+};
 
   const getStrengthColor = (strength: string) => {
     switch (strength) {
