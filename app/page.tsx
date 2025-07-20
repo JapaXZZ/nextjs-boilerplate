@@ -127,7 +127,7 @@ const Index = () => {
       <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
 
       <header className="relative z-10 flex justify-between items-center px-4 pt-6 max-w-7xl mx-auto">
-        <h1 className="text-xl font-bold text-purple-400 select-none">🚀 HideXS</h1>
+        
         <button
           onClick={() => router.push("/tutoriais")}
           className="px-4 py-2 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-all duration-300 shadow-md shadow-purple-600/40"
