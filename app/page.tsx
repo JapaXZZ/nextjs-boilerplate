@@ -328,24 +328,23 @@ const Index = () => {
   }}
   className="group relative"
 >
-  <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl group-hover:opacity-40 transition-opacity duration-500" />
-  <div className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50">
+  <div className="absolute inset-0 bg-gradient-to-br from-purple-700/30 via-purple-800/10 to-transparent rounded-2xl animate-pulse blur-md group-hover:opacity-30 opacity-10 transition-opacity duration-300" />
+  <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-black border border-purple-700/60 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50 overflow-hidden">
+    <div className="absolute top-0 right-0 p-2">
+      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-purple-400 to-purple-600 animate-ping" />
+    </div>
     <div className="flex items-start justify-between mb-4">
       <div className="flex-1">
-        <h3 className="text-xl font-extrabold text-white group-hover:text-purple-400 transition-colors duration-300 select-none">
-          Apostilas
+        <h3 className="text-2xl font-extrabold text-white drop-shadow-sm group-hover:text-purple-300 transition-colors duration-300 select-none">
+          📚 Apostilas
         </h3>
-        <span className="inline-block mt-1 px-3 py-1 bg-slate-800 text-purple-300 text-xs font-medium rounded-full select-none">
-          Material
+        <span className="inline-block mt-2 px-3 py-1 bg-purple-900/60 text-purple-200 text-xs font-medium rounded-full select-none border border-purple-700/40">
+          Material Exclusivo
         </span>
-      </div>
-      <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none bg-purple-500/30 text-purple-400 border border-purple-500/40">
-        <div className="w-2 h-2 rounded-full bg-purple-400" />
-        Online
       </div>
     </div>
     <p className="text-purple-300 text-sm leading-relaxed mb-6 flex-1 select-text">
-      Material completo com gabarito de todas as séries
+      Material completo com gabarito de todas as séries. Acesse conteúdos prontos para estudo e revisão.
     </p>
     <div className="flex gap-3">
       <motion.a
