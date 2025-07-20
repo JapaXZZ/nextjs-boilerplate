@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface Script {
@@ -120,32 +120,10 @@ const Index = () => {
     window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
   }
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { type: "spring" as const, stiffness: 100, damping: 12 },
-    },
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black text-white overflow-x-hidden">
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800/20 via-transparent to-transparent" />
       <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
-      {/* Topo com botão de Tutoriais */}
 
       <header className="relative z-10 flex justify-between items-center px-4 pt-6 max-w-7xl mx-auto">
         <h1 className="text-xl font-bold text-purple-400 select-none">🚀 HideXS</h1>
@@ -224,7 +202,6 @@ const Index = () => {
       </motion.header>
 
       <motion.main
-        variants={containerVariants}
         initial="hidden"
         animate="visible"
         className="relative z-10 px-4 pb-20"
@@ -242,57 +219,141 @@ const Index = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {scripts.map((script) => (
-              <motion.div
-                key={script.id}
-                variants={itemVariants}
-                whileHover={{
-                  y: -8,
-                  transition: { type: "spring", stiffness: 300, damping: 20 },
-                }}
-                onHoverStart={() => setHoveredCard(script.id)}
-                onHoverEnd={() => setHoveredCard(null)}
-                className="group relative"
-              >
-                <div
-                  className={cn(
+            {scripts.map((script) => {
+              const ref = useRef(null);
+              const isInView = useInView(ref, { once: true });
+
+              return (
+                <motion.div
+                  key={script.id}
+                  ref={ref}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  whileHover={{
+                    y: -8,
+                    transition: { type: "spring", stiffness: 300, damping: 20 },
+                  }}
+                  onHoverStart={() => setHoveredCard(script.id)}
+                  onHoverEnd={() => setHoveredCard(null)}
+                  className="group relative"
+                >
+                 <div className={cn(
                     "absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",
                     hoveredCard === script.id && "opacity-40"
-                  )}
-                />
-                <div className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-extrabold text-white group-hover:text-purple-400 transition-colors duration-300 select-none">
-                        {script.title}
-                      </h3>
-                      <span className="inline-block mt-1 px-3 py-1 bg-slate-800 text-purple-300 text-xs font-medium rounded-full select-none">
-                        {script.category}
-                      </span>
-                    </div>
-                    <div
-                      className={cn(
+                  )} />
+                  <div className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex-1">
+                        <h3 className="text-xl font-extrabold text-white group-hover:text-purple-400 transition-colors duration-300 select-none">
+                          {script.title}
+                        </h3>
+                        <span className="inline-block mt-1 px-3 py-1 bg-slate-800 text-purple-300 text-xs font-medium rounded-full select-none">
+                          {script.category}
+                        </span>
+                      </div>
+                      <div className={cn(
                         "flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none",
                         script.online
                           ? "bg-purple-500/30 text-purple-400 border border-purple-500/40"
                           : "bg-red-500/30 text-red-400 border border-red-500/40"
-                      )}
-                    >
-                      <div
-                        className={cn(
+                      )}>
+                        <div className={cn(
                           "w-2 h-2 rounded-full",
                           script.online ? "bg-purple-400" : "bg-red-400"
-                        )}
-                      />
-                      {script.online ? "Online" : "Offline"}
+                        )} />
+                        {script.online ? "Online" : "Offline"}
+                      </div>
+                    </div>
+                    <p className="text-purple-300 text-sm leading-relaxed mb-6 flex-1 select-text">
+                      {script.description}
+                    </p>
+                    <div className="flex gap-3">
+                      <motion.a
+                        href={script.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-700 to-purple-600 hover:from-purple-600 hover:to-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/40"
+                      >
+                        <span>↗</span>
+                        Acessar
+                      </motion.a>
+                      <motion.button
+                        onClick={() => handleShare(script)}
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-xl transition-all duration-300 shadow-md shadow-black/40"
+                        aria-label={`Compartilhar ${script.title}`}
+                      >
+                        <span>📤</span>
+                      </motion.button>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Título das apostilas */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="col-span-full flex items-center gap-3 mt-12 mb-6"
+          >
+            <span className="text-purple-400 text-xl">📘</span>
+            <h2 className="text-2xl font-bold text-purple-400">Apostilas Disponíveis</h2>
+            <div className="flex-1 h-px bg-gradient-to-r from-purple-700 to-transparent" />
+          </motion.div>
+
+          {/* Card Apostilas com animação ao rolar */}
+          {(() => {
+            const ref = useRef(null);
+            const isInView = useInView(ref, { once: true });
+
+            return (
+              <motion.div
+                ref={ref}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                whileHover={{
+                  y: -8,
+                  transition: { type: "spring", stiffness: 300, damping: 20 },
+                }}
+                className="group relative"
+              >
+                <div className={cn(
+                  "absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",
+                  hoveredCard === -1 && "opacity-40"
+                )} />
+                <div
+                  onMouseEnter={() => setHoveredCard(-1)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                  className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-extrabold text-white group-hover:text-purple-400 transition-colors duration-300 select-none">
+                        Apostilas
+                      </h3>
+                      <span className="inline-block mt-1 px-3 py-1 bg-slate-800 text-purple-300 text-xs font-medium rounded-full select-none">
+                        Material
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none bg-purple-500/30 text-purple-400 border border-purple-500/40">
+                      <div className="w-2 h-2 rounded-full bg-purple-400" />
+                      Online
                     </div>
                   </div>
                   <p className="text-purple-300 text-sm leading-relaxed mb-6 flex-1 select-text">
-                    {script.description}
+                    Material completo com gabarito de todas as séries.
                   </p>
                   <div className="flex gap-3">
                     <motion.a
-                      href={script.url}
+                      href="https://apostiladestroyer.netlify.app/"
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.03 }}
@@ -302,85 +363,13 @@ const Index = () => {
                       <span>↗</span>
                       Acessar
                     </motion.a>
-                    <motion.button
-                      onClick={() => handleShare(script)}
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
-                      className="px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-xl transition-all duration-300 shadow-md shadow-black/40"
-                      aria-label={`Compartilhar ${script.title}`}
-                    >
-                      <span>📤</span>
-                    </motion.button>
                   </div>
                 </div>
               </motion.div>
-            ))}
-          </div>
+            );
+          })()}
         </div>
       </motion.main>
-
-<motion.div
-  initial={{ opacity: 0, x: -20 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ delay: 0.3, duration: 0.6 }}
-  className="col-span-full flex items-center gap-3 mt-12 mb-6"
->
-  <span className="text-purple-400 text-xl">📘</span>
-  <h2 className="text-2xl font-bold text-purple-400">Apostilas Disponíveis</h2>
-  <div className="flex-1 h-px bg-gradient-to-r from-purple-700 to-transparent" />
-</motion.div>
-
-{/* Card Apostilas */}
-<motion.div
-  key="apostilas"
-  variants={itemVariants}
-  whileHover={{
-    y: -8,
-    transition: { type: "spring", stiffness: 300, damping: 20 },
-  }}
-  className="group relative"
->
-  <div className={cn(
-    "absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",
-    hoveredCard === -1 && "opacity-40"
-  )} />
-  <div
-    onMouseEnter={() => setHoveredCard(-1)}
-    onMouseLeave={() => setHoveredCard(null)}
-    className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50"
-  >
-    <div className="flex items-start justify-between mb-4">
-      <div className="flex-1">
-        <h3 className="text-xl font-extrabold text-white group-hover:text-purple-400 transition-colors duration-300 select-none">
-          Apostilas
-        </h3>
-        <span className="inline-block mt-1 px-3 py-1 bg-slate-800 text-purple-300 text-xs font-medium rounded-full select-none">
-          Material
-        </span>
-      </div>
-      <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none bg-purple-500/30 text-purple-400 border border-purple-500/40">
-        <div className="w-2 h-2 rounded-full bg-purple-400" />
-        Online
-      </div>
-    </div>
-    <p className="text-purple-300 text-sm leading-relaxed mb-6 flex-1 select-text">
-      Material completo com gabarito de todas as séries.
-    </p>
-    <div className="flex gap-3">
-      <motion.a
-        href="https://apostiladestroyer.netlify.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97 }}
-        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-700 to-purple-600 hover:from-purple-600 hover:to-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/40"
-      >
-        <span>↗</span>
-        Acessar
-      </motion.a>
-    </div>
-  </div>
-</motion.div>
 
       <div className="w-full max-w-2xl mx-auto p-4">
         <div className="bg-purple-100 border-l-4 border-purple-500 text-purple-800 p-4 rounded-xl shadow mb-6">
