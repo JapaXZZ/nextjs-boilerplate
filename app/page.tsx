@@ -152,6 +152,20 @@ const Index = () => {
             <span className="text-slate-300 font-medium">Plataforma Premium</span>
           </motion.div>
 
+<motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="flex justify-center gap-4 mb-8"
+          >
+            <Link
+              to="/conexoes"
+              className="px-6 py-3 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 hover:border-blue-400/50 text-blue-400 hover:text-blue-300 rounded-xl transition-all duration-300 font-medium backdrop-blur-sm"
+            >
+              📡 Ver Conexões Wi-Fi
+            </Link>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
