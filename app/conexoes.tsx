@@ -25,58 +25,58 @@ export default function Conexoes() {
       name: "WiFi Premium Pro",
       password: "SuperSegura2024!",
       strength: "strong",
-      isSecure: true
+      isSecure: true,
     },
     {
-      id: "2", 
+      id: "2",
       name: "Rede Secundária",
       password: "MinhaRede123",
       strength: "medium",
-      isSecure: true
-    }
+      isSecure: true,
+    },
   ];
 
-  const copyToClipboard = async (text: string, networkName: string, id: string) => {
+  const copyToClipboard = async (
+    text: string,
+    networkName: string,
+    id: string
+  ) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopiedId(id);
 
-      toast({
-        title: "✨ Senha copiada!",
-        description: `A senha da rede "${networkName}" foi copiada com sucesso.`,
-        duration: 3000,
-      });
+      toast(`✨ Senha da rede "${networkName}" foi copiada com sucesso!`);
 
       setTimeout(() => setCopiedId(null), 2000);
     } catch (err) {
-      toast({
-        title: "❌ Erro ao copiar",
-        description: "Não foi possível copiar a senha. Tente novamente.",
-        variant: "destructive"
-      });
+      toast("❌ Não foi possível copiar a senha. Tente novamente.");
     }
   };
 
   const getStrengthColor = (strength: string) => {
     switch (strength) {
-      case "strong": return "text-emerald-400";
-      case "medium": return "text-yellow-400"; 
-      case "weak": return "text-red-400";
-      default: return "text-slate-400";
+      case "strong":
+        return "text-emerald-400";
+      case "medium":
+        return "text-yellow-400";
+      case "weak":
+        return "text-red-400";
+      default:
+        return "text-slate-400";
     }
   };
 
   const getStrengthBars = (strength: string) => {
     const bars = [];
     const levels = strength === "strong" ? 3 : strength === "medium" ? 2 : 1;
-    
+
     for (let i = 0; i < 3; i++) {
       bars.push(
-        <div 
+        <div
           key={i}
           className={cn(
             "w-2 h-3 rounded-full transition-all duration-300",
-            i < levels 
+            i < levels
               ? getStrengthColor(strength).replace("text-", "bg-")
               : "bg-slate-700"
           )}
@@ -91,7 +91,7 @@ export default function Conexoes() {
       {/* Background Effects */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
       <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-transparent to-blue-500/10" />
-      
+
       <div className="relative z-10 container mx-auto px-4 py-16">
         {/* Header */}
         <motion.div
@@ -109,7 +109,7 @@ export default function Conexoes() {
             <span className="text-blue-400 text-xl">📡</span>
             <span className="text-slate-300 font-medium">Conexões Wi-Fi</span>
           </motion.div>
-          
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ export default function Conexoes() {
           >
             Redes Disponíveis
           </motion.h1>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -163,14 +163,21 @@ export default function Conexoes() {
                       )}
                     </div>
                   </div>
-                  <p className={cn(
-                    "text-sm font-medium capitalize",
-                    getStrengthColor(network.strength)
-                  )}>
-                    Sinal {network.strength === "strong" ? "Forte" : network.strength === "medium" ? "Médio" : "Fraco"}
+                  <p
+                    className={cn(
+                      "text-sm font-medium capitalize",
+                      getStrengthColor(network.strength)
+                    )}
+                  >
+                    Sinal{" "}
+                    {network.strength === "strong"
+                      ? "Forte"
+                      : network.strength === "medium"
+                      ? "Médio"
+                      : "Fraco"}
                   </p>
                 </CardHeader>
-                
+
                 <CardContent className="space-y-4">
                   {/* Password Display */}
                   <div className="p-4 bg-slate-900/50 rounded-xl border border-slate-700/30">
@@ -180,13 +187,15 @@ export default function Conexoes() {
                         {network.password}
                       </code>
                       <Button
-                        onClick={() => copyToClipboard(network.password, network.name, network.id)}
+                        onClick={() =>
+                          copyToClipboard(network.password, network.name, network.id)
+                        }
                         variant="outline"
                         size="sm"
                         className={cn(
                           "min-w-[80px] transition-all duration-300",
-                          copiedId === network.id 
-                            ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30" 
+                          copiedId === network.id
+                            ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
                             : "hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/30"
                         )}
                       >
