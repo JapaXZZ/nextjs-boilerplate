@@ -183,7 +183,7 @@ export default function Conexoes() {
                   <div className="p-4 bg-slate-900/50 rounded-xl border border-slate-700/30">
                     <p className="text-sm text-slate-400 mb-2">Senha:</p>
                     <div className="flex items-center justify-between">
-                      <code className="text-lg font-mono text-emerald-400 bg-slate-800/50 px-3 py-2 rounded-lg flex-1 mr-3">
+                      <code className="text-lg font-mono text-emerald-400 bg-slate-800/50 px-3 py-2 rounded-lg break-words w-full sm:w-auto">
                         {network.password}
                       </code>
                       <Button
