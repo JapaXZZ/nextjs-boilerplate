@@ -31,7 +31,7 @@ export default function Conexoes() {
       id: "2",
       name: "Seduc_Prov_Equipamentos",
       password: "Prov_$educ",
-      strength: "medium",
+      strength: "strong",
       isSecure: true,
     },
   ];
@@ -252,13 +252,13 @@ export default function Conexoes() {
               <div className="flex items-start gap-3">
                 <span className="text-emerald-400 mt-1">•</span>
                 <p className="text-slate-300">
-                  <strong className="text-white">Rede Principal:</strong> Use para atividades que exigem maior velocidade
+                  <strong className="text-white">SEDUC-MAQ:</strong> Ideal para o cotidiano na escola
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <span className="text-blue-400 mt-1">•</span>
                 <p className="text-slate-300">
-                  <strong className="text-white">Rede Secundária:</strong> Ideal para dispositivos IoT e backup
+                  <strong className="text-white">Seduc_Prov_Equipamentos:</strong> Use para atividades que exigem maior velocidade 
                 </p>
               </div>
               <div className="flex items-start gap-3">
