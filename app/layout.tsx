@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -24,9 +25,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${mono.variable} antialiased`}
-      >
+      <body className={`${inter.variable} ${mono.variable} antialiased`}>
+        <Toaster richColors position="top-right" />
         {children}
       </body>
     </html>
