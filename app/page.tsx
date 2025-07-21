@@ -393,7 +393,7 @@ const Index = () => {
           Desenvolvido por <span className="font-semibold text-white">JapaXZZ</span>.
         </p>
         <p className="text-purple-300 mb-4">
-          Apoio de <span className="font-semibold text-white">TH Rafa</span>.
+          Apoio de <span className="font-semibold text-white">TH RAFAz</span>.
         </p>
         <p className="text-purple-300 mb-6 max-w-xl mx-auto">
           Agradecimentos especiais a todos os colaboradores e usuários da plataforma HideXS.
