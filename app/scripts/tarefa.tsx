@@ -4,9 +4,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { toast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 const TaskApp = () => {
+  const { toast } = useToast();
   const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("offline");
   const [lastUpdate] = useState("Atualização recente");
   const [scriptId] = useState("4a92d3bb7e2159f674c2091d");
