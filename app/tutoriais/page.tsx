@@ -83,7 +83,7 @@ window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
 }
 
   return (
-    <div className="min-h-screen bg-pro-gradient">
+    <div className="min-h-screen bg-gradient-to-br from-black via-slate-950 to-black text-white overflow-x-hidden">
       {/* Navigation Header */}
       <header className="sticky top-0 z-50 bg-pro-bg-secondary/95 backdrop-blur-xl border-b border-pro-border-primary">
         <div className="container mx-auto px-6 py-4">
