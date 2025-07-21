@@ -127,6 +127,7 @@ const Index = () => {
       <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
 
       <header className="relative z-10 flex justify-between items-center px-4 pt-6 max-w-7xl mx-auto">
+</header>
 
 <motion.header
         initial={{ opacity: 0, y: -50 }}
