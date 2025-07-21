@@ -390,11 +390,29 @@ const Index = () => {
 
       <footer className="relative z-10 py-12 text-center border-t border-purple-800/60 px-4 max-w-7xl mx-auto select-none">
         <p className="text-purple-300 mb-4">
-          Desenvolvido por <span className="font-semibold text-white">JapaXZZ</span>.
-        </p>
-        <p className="text-purple-300 mb-4">
-          Apoio de <span className="font-semibold text-white">TH RAFAz</span>.
-        </p>
+  Apoio de{" "}
+  <a
+    href="https://www.instagram.com/018_japaaa?igsh=bG4wN2FtNXJ0Z2E2"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="font-semibold text-white hover:underline"
+  >
+    JapaXZZ
+  </a>
+  .
+</p>
+<p className="text-purple-300 mb-4">
+  Apoio de{" "}
+  <a
+    href="https://www.instagram.com/joao.r.cs?igsh=dHplNmR0eHU1OWV3"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="font-semibold text-white hover:underline"
+  >
+    @joao.r.cs
+  </a>
+  .
+</p>
         <p className="text-purple-300 mb-6 max-w-xl mx-auto">
           Agradecimentos especiais a todos os colaboradores e usuários da plataforma HideXS.
         </p>
