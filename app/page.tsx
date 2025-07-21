@@ -126,7 +126,9 @@ const Index = () => {
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800/20 via-transparent to-transparent" />
       <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
 
- <motion.header
+      <header className="relative z-10 flex justify-between items-center px-4 pt-6 max-w-7xl mx-auto">
+
+<motion.header
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.30, ease: "easeOut" }}
@@ -147,8 +149,6 @@ const Index = () => {
   📡 Ver Conexões Wi-Fi
 </Link>
           </motion.div>
-
-      <header className="relative z-10 flex justify-between items-center px-4 pt-6 max-w-7xl mx-auto">
         
         <button
           onClick={() => router.push("/tutoriais")}
