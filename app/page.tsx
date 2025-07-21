@@ -139,7 +139,7 @@ const Index = () => {
       <motion.header
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.15, ease: "easeOut" }}
+        transition={{ duration: 0.30, ease: "easeOut" }}
         className="relative z-10 pt-12 pb-12 px-4"
       >
         <div className="max-w-7xl mx-auto text-center">
@@ -170,7 +170,7 @@ const Index = () => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.15 }}
+            transition={{ delay: 0.5, duration: 0.30 }}
             className="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent select-none"
           >
             HideXS
@@ -179,7 +179,7 @@ const Index = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.15 }}
+            transition={{ delay: 0.7, duration: 0.30 }}
             className="text-lg md:text-xl text-purple-300 max-w-3xl mx-auto leading-relaxed mb-10"
           >
             Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.
