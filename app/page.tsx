@@ -164,7 +164,7 @@ const Index = () => {
             transition={{ delay: 0.5, duration: 0.30 }}
             className="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent select-none"
           >
-            HideXS
+            TaskSP
           </motion.h1>
 
           <motion.p
@@ -381,7 +381,7 @@ const Index = () => {
         <div className="bg-purple-100 border-l-4 border-purple-500 text-purple-800 p-4 rounded-xl shadow mb-6">
           <p className="font-bold text-lg">⚠️ Aviso Educacional</p>
           <p className="text-sm mt-1">
-            O <strong>HideXS</strong> é uma ferramenta educativa desenvolvida para auxiliar os estudantes.
+            O <strong>TaskSP</strong> é uma ferramenta educativa desenvolvida para auxiliar os estudantes.
             Use com responsabilidade e sempre priorize o aprendizado real. Recomendamos usar nossos scripts
             como complemento aos seus estudos ou quando não houver tempo suficiente, não como substituto.
           </p>
@@ -414,7 +414,7 @@ const Index = () => {
   .
 </p>
         <p className="text-purple-300 mb-6 max-w-xl mx-auto">
-          Agradecimentos especiais a todos os colaboradores e usuários da plataforma HideXS.
+          Agradecimentos especiais a todos os colaboradores e usuários da plataforma TaskSP.
         </p>
         <button
           onClick={openEmail}
