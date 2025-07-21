@@ -126,43 +126,42 @@ const Index = () => {
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800/20 via-transparent to-transparent" />
       <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
 
-      <header className="relative z-10 flex justify-between items-center px-4 pt-6 max-w-7xl mx-auto">
-</header>
+      {/* Fechei esse header que estava aberto */}
+      <header className="relative z-10 flex justify-between items-center px-4 pt-6 max-w-7xl mx-auto" />
 
-<motion.header
+      <motion.header
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.30, ease: "easeOut" }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
         className="relative z-10 pt-12 pb-12 px-4"
       >
         <div className="max-w-7xl mx-auto text-center">
 
-<motion.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
             className="flex justify-center gap-4 mb-8"
           >
             <Link
-  href="/conexoes"
-  className="px-6 py-3 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 hover:border-blue-400/50 text-blue-400 hover:text-blue-300 rounded-xl transition-all duration-300 font-medium backdrop-blur-sm"
->
-  📡 Ver Conexões Wi-Fi
-</Link>
+              href="/conexoes"
+              className="px-6 py-3 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 hover:border-blue-400/50 text-blue-400 hover:text-blue-300 rounded-xl transition-all duration-300 font-medium backdrop-blur-sm"
+            >
+              📡 Ver Conexões Wi-Fi
+            </Link>
           </motion.div>
-        
-        <button
-          onClick={() => router.push("/tutoriais")}
-          className="px-4 py-2 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-all duration-300 shadow-md shadow-purple-600/40"
-        >
-          Tutoriais
-        </button>
-      </header>
+
+          <button
+            onClick={() => router.push("/tutoriais")}
+            className="px-4 py-2 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-all duration-300 shadow-md shadow-purple-600/40"
+          >
+            Tutoriais
+          </button>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.30 }}
+            transition={{ delay: 0.5, duration: 0.3 }}
             className="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent select-none"
           >
             TaskSP
@@ -171,7 +170,7 @@ const Index = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.30 }}
+            transition={{ delay: 0.7, duration: 0.3 }}
             className="text-lg md:text-xl text-purple-300 max-w-3xl mx-auto leading-relaxed mb-10"
           >
             Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.
@@ -245,10 +244,12 @@ const Index = () => {
                   onHoverEnd={() => setHoveredCard(null)}
                   className="group relative"
                 >
-                 <div className={cn(
-                    "absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",
-                    hoveredCard === script.id && "opacity-40"
-                  )} />
+                  <div
+                    className={cn(
+                      "absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",
+                      hoveredCard === script.id && "opacity-40"
+                    )}
+                  />
                   <div className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
@@ -259,16 +260,20 @@ const Index = () => {
                           {script.category}
                         </span>
                       </div>
-                      <div className={cn(
-                        "flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none",
-                        script.online
-                          ? "bg-purple-500/30 text-purple-400 border border-purple-500/40"
-                          : "bg-red-500/30 text-red-400 border border-red-500/40"
-                      )}>
-                        <div className={cn(
-                          "w-2 h-2 rounded-full",
-                          script.online ? "bg-purple-400" : "bg-red-400"
-                        )} />
+                      <div
+                        className={cn(
+                          "flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none",
+                          script.online
+                            ? "bg-purple-500/30 text-purple-400 border border-purple-500/40"
+                            : "bg-red-500/30 text-red-400 border border-red-500/40"
+                        )}
+                      >
+                        <div
+                          className={cn(
+                            "w-2 h-2 rounded-full",
+                            script.online ? "bg-purple-400" : "bg-red-400"
+                          )}
+                        />
                         {script.online ? "Online" : "Offline"}
                       </div>
                     </div>
@@ -332,10 +337,12 @@ const Index = () => {
                 }}
                 className="group relative"
               >
-                <div className={cn(
-                  "absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",
-                  hoveredCard === -1 && "opacity-40"
-                )} />
+                <div
+                  className={cn(
+                    "absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",
+                    hoveredCard === -1 && "opacity-40"
+                  )}
+                />
                 <div
                   onMouseEnter={() => setHoveredCard(-1)}
                   onMouseLeave={() => setHoveredCard(null)}
@@ -389,41 +396,10 @@ const Index = () => {
         </div>
       </div>
 
-      <footer className="relative z-10 py-12 text-center border-t border-purple-800/60 px-4 max-w-7xl mx-auto select-none">
-        <p className="text-purple-300 mb-4">
-  Desenvolvido por{" "}
-  <a
-    href="https://www.instagram.com/018_japaaa?igsh=bG4wN2FtNXJ0Z2E2"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="font-semibold text-white hover:underline"
-  >
-    JapaXZZ
-  </a>
-  .
-</p>
-<p className="text-purple-300 mb-4">
-  Apoio de{" "}
-  <a
-    href="https://www.instagram.com/joao.r.cs?igsh=dHplNmR0eHU1OWV3"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="font-semibold text-white hover:underline"
-  >
-    @joao.r.cs
-  </a>
-  .
-</p>
-        <p className="text-purple-300 mb-6 max-w-xl mx-auto">
-          Agradecimentos especiais a todos os colaboradores e usuários da plataforma TaskSP.
+     <footer className="relative z-10 py-12 text-center border-t border-purple-800/60 px-4 max-w-7xl mx-auto select-none">
+        <p className="text-purple-400 text-sm">
+          Apoio de <a href="https://twitch.tv/THRafa" target="_blank" rel="noopener noreferrer" className="font-semibold text-white hover:underline">TH Rafa</a>.
         </p>
-        <button
-          onClick={openEmail}
-          className="inline-block px-6 py-3 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-colors duration-300 shadow-md shadow-purple-600/40"
-          aria-label="Enviar email para suporte"
-        >
-          Contatar Suporte
-        </button>
       </footer>
     </div>
   );
