@@ -1,5 +1,3 @@
-"use client";
-
 import { toast as sonner } from "sonner";
 
 type ToastOptions = {
@@ -8,12 +6,16 @@ type ToastOptions = {
   type?: "success" | "error" | "info";
 };
 
-export function toast(message: string, options?: ToastOptions) {
-  const { title, description, type = "info" } = options || {};
+export function useToast() {
+  function toast(message: string, options?: ToastOptions) {
+    const { title, description, type = "info" } = options || {};
 
-  return sonner(message, {
-    description: description || "",
-    ...(title && { title }),
-    ...(type && { className: `toast-${type}` }),
-  });
+    return sonner(message, {
+      description: description || "",
+      ...(title && { title }),
+      ...(type && { className: `toast-${type}` }),
+    });
+  }
+
+  return { toast };
 }
