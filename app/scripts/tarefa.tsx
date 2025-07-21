@@ -16,19 +16,21 @@ const TaskApp = () => {
   const [executionTime] = useState("2.3s");
 
   const copyToClipboard = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      toast("Texto copiado para a área de transferência", {
-        title: "Copiado!",
-        type: "success",
-      });
-    } catch {
-      toast("Não foi possível copiar o texto", {
-        title: "Erro",
-        type: "error",
-      });
-    }
-  };
+  try {
+    await navigator.clipboard.writeText(text);
+    toast({
+      title: "Copiado!",
+      description: "Texto copiado para a área de transferência",
+      status: "success",
+    });
+  } catch {
+    toast({
+      title: "Erro",
+      description: "Não foi possível copiar o texto",
+      status: "error",
+    });
+  }
+};
 
   const openUrl = () => {
     window.open(url, "_blank");
