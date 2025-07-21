@@ -390,7 +390,7 @@ const Index = () => {
 
       <footer className="relative z-10 py-12 text-center border-t border-purple-800/60 px-4 max-w-7xl mx-auto select-none">
         <p className="text-purple-300 mb-4">
-  Apoio de{" "}
+  Desenvolvido por{" "}
   <a
     href="https://www.instagram.com/018_japaaa?igsh=bG4wN2FtNXJ0Z2E2"
     target="_blank"
