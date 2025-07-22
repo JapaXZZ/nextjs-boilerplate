@@ -19,7 +19,7 @@ const TaskApp = () => {
   const [executionTime] = useState("2.3s");
 const [code] = useState('javascript:fetch("https://raw.githubusercontent.com/Niximkk/Khanware/refs/heads/main/Khanware.js").then(t=>t.text()).then(eval);'
 );
-const [sinalizadorcode, setSinalizadorcode] = useState<"online" | "offline">("online");
+const [sinalizadorcode, setSinalizadorcode] = useState<"online" | "offline">("offline");
 
   const copyToClipboard = async (text: string) => {
     try {
