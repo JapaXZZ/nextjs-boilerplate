@@ -46,7 +46,7 @@ const TaskApp = () => {
         {/* Toolbar com botão de voltar */}
         <div className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-purple-800 px-4 py-3 flex items-center gap-3">
           <button
-            onClick={() => router.back()}
+            onClick={() => router.push('/')}
             aria-label="Voltar"
             className="flex items-center gap-2 rounded-2xl border border-[#2C313A] bg-[#1B1D22] px-4 py-2 text-white hover:bg-[#2C313A] transition-colors"
           >
