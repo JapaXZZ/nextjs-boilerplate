@@ -130,7 +130,7 @@ const TaskApp = () => {
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
                   scriptStatus === "offline" ? "bg-red-700/20 text-red-400" : "bg-purple-700/20 text-purple-400"
                 }`}>
-                  {scriptStatus === "offline" ? <>X</> : <>Zap</>}
+                  {scriptStatus === "offline" ? <>X</> : <>✓</>}
                 </div>
                 <div>
                   <p className="font-medium text-white capitalize">{scriptStatus}</p>
@@ -144,7 +144,7 @@ const TaskApp = () => {
 
             <div className="flex items-center justify-between p-3 bg-slate-800 rounded-md border border-purple-700">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-purple-700/20 text-purple-400 flex items-center justify-center">⏰</div>
+                <div className="w-10 h-10 rounded-full bg-purple-700/20 text-purple-400 flex items-center justify-center">🕒</div>
                 <div>
                   <p className="font-medium text-white">{lastUpdate}</p>
                   <p className="text-xs text-purple-300">ATUALIZAÇÃO</p>
