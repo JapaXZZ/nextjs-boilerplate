@@ -61,13 +61,15 @@ const TaskApp = () => {
         {/* Título */}
         <div className="text-center space-y-4 mb-4">
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-purple-800 to-purple-900 rounded-4xl blur-xl opacity-20 animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-purple-800 to-purple-900 rounded-3xl blur-xl opacity-20 animate-pulse"></div>
 
-            <div className="relative flex items-center justify-center gap-3 p-4 bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-4xl shadow-lg shadow-purple-900/50">
-              <div className="p-3 bg-purple-700/20 rounded-full"></div>
+            <div
+              style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
+              className="relative flex items-center justify-center gap-3 p-4 backdrop-blur-md border rounded-3xl shadow-lg shadow-purple-900/50"
+            >
               <div>
                 <h1 className="text-2xl font-bold text-white select-none">
-                  TAREFAS SP
+                  Tarefa SP
                 </h1>
                 <div className="h-1 w-20 bg-purple-700 rounded-full mx-auto mt-2"></div>
               </div>
@@ -81,7 +83,10 @@ const TaskApp = () => {
         </p>
 
         {/* Card URL */}
-        <Card className="bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-4xl p-6 shadow-lg shadow-purple-900/50 hover:border-purple-600 transition-all duration-300">
+        <Card
+          style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
+          className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-purple-900/50 hover:border-[#2C313A] transition-all duration-300 border"
+        >
           <CardHeader className="pb-3">
             <CardTitle className="text-lg text-white flex items-center gap-2">
               URL
@@ -110,7 +115,10 @@ const TaskApp = () => {
         </Card>
 
         {/* Card Informações */}
-        <Card className="bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-4xl p-6 shadow-lg shadow-purple-900/50 hover:border-purple-600 transition-all duration-300">
+        <Card
+          style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
+          className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-purple-900/50 hover:border-[#2C313A] transition-all duration-300 border"
+        >
           <CardHeader className="pb-3">
             <CardTitle className="text-lg text-white flex items-center gap-2">
               Informações do Script
