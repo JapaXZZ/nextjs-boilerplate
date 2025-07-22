@@ -54,21 +54,25 @@ const TaskApp = () => {
   };
 
   return (
-        <div className="min-h-screen bg-gradient-to-br from-black via-slate-950 to-black text-white overflow-x-hidden">
-      <div className="max-w-md mx-auto space-y-6">
-        <div className="text-center space-y-4 mb-8">
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-primary rounded-full blur-xl opacity-20 animate-pulse-glow"></div>
-            <div className="relative flex items-center justify-center gap-3 p-6 bg-gradient-card rounded-2xl border border-border shadow-glow">
-              <div className="p-3 bg-primary/20 rounded-full"></div>
-              <div>
-                <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                  TAREFAS SP
-                </h1>
-                <div className="h-1 w-20 bg-gradient-primary rounded-full mx-auto mt-2"></div>
-              </div>
-            </div>
+       <div className="min-h-screen bg-black text-white overflow-x-hidden">
+  <div className="max-w-md mx-auto space-y-6">
+    <div className="text-center space-y-4 mb-8">
+      <div className="relative">
+        {/* Fundo roxo com blur e opacidade */}
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-purple-800 to-purple-900 rounded-full blur-xl opacity-20 animate-pulse"></div>
+        
+        {/* Card principal */}
+        <div className="relative flex items-center justify-center gap-3 p-6 bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl shadow-lg shadow-purple-900/50">
+          <div className="p-3 bg-purple-700/20 rounded-full"></div>
+          <div>
+            <h1 className="text-4xl font-bold text-white select-none">
+              TAREFAS SP
+            </h1>
+            <div className="h-1 w-20 bg-purple-700 rounded-full mx-auto mt-2"></div>
           </div>
+        </div>
+      </div>
+    </div>
           <p className="text-muted-foreground text-lg font-medium px-4">
             Ferramenta para concluir suas tarefas!
           </p>
