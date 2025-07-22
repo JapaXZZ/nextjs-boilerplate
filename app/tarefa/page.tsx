@@ -63,6 +63,7 @@ export default function VoltarButton() {
   );
 }
 
+</div>
 <div className="h-14"></div>
 
       <div className="max-w-md mx-auto space-y-6">
