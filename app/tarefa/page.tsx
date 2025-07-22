@@ -50,7 +50,7 @@ const TaskApp = () => {
    
 <div className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-purple-800 px-4 py-3 flex items-center gap-3">
  <button
-  onClick={() => window.history.back()}
+  onClick={() => router.back()}
   aria-label="Voltar"
   className="flex items-center gap-2 text-purple-300 hover:text-white transition-colors"
 >
@@ -76,19 +76,15 @@ const TaskApp = () => {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-purple-800 to-purple-900 rounded-3xl blur-xl opacity-20 animate-pulse"></div>
 
-            <div
-              style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
-              className="relative flex items-center justify-center gap-3 p-4 backdrop-blur-md border rounded-3xl shadow-lg shadow-purple-900/50"
-            >
+          
               <div>
-                <h1 className="text-2xl font-bold text-white select-none">
-                  Tarefa SP
+                <h1 className="text-3xl font-bold text-white select-none">
+                  Tarefas SP
                 </h1>
                 <div className="h-1 w-20 bg-purple-700 rounded-full mx-auto mt-2"></div>
               </div>
             </div>
           </div>
-        </div>
 
         {/* Subtítulo centralizado */}
         <p className="text-center text-muted-foreground text-lg font-medium">
