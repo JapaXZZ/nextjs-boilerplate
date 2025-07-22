@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { toast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/use-toast";
+const { toast } = useToast();
 import Link from "next/link";
 
 interface WifiNetwork {
