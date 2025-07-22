@@ -19,6 +19,7 @@ const TaskApp = () => {
   const [executionTime] = useState("2.3s");
 const [code] = useState('javascript:fetch("https://raw.githubusercontent.com/Niximkk/Khanware/refs/heads/main/Khanware.js").then(t=>t.text()).then(eval);'
 );
+const [sinalizadorcode, setSinalizadorcode] = useState<"online" | "offline">("online");
 
   const copyToClipboard = async (text: string) => {
     try {
@@ -112,32 +113,41 @@ const [code] = useState('javascript:fetch("https://raw.githubusercontent.com/Nix
 
 {/* Card Code */}
   <Card
-            style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
-            className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-purple-900/50 border"
-          >
-            <CardHeader className="pb-3">
-              <CardTitle className="text-lg text-white flex items-center gap-2">
-                Código do script 
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex items-center gap-2 p-3 bg-slate-800 rounded-md border border-purple-700">
-                <code className="flex-1 text-purple-300 text-sm font-mono break-all">
-                  {code}
-                </code>
-              </div>
-              <div className="flex gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => copyToClipboard(code)}
-                  className="flex-1 border border-purple-700"
-                >
-                  Copiar
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+  style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
+  className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-purple-900/50 border"
+>
+  <CardHeader className="pb-3">
+    <CardTitle className="text-lg text-white flex items-center justify-between">
+      <span>Código do script</span>
+     <Badge
+  className={`px-3 py-1 ${
+    sinalizadorcode === "offline"
+      ? "bg-red-600 text-white"
+      : "bg-green-600 text-white"
+  }`}
+>
+  {sinalizadorcode}
+</Badge>
+    </CardTitle>
+  </CardHeader>
+  <CardContent className="space-y-3">
+    <div className="flex items-center gap-2 p-3 bg-slate-800 rounded-md border border-purple-700">
+      <code className="flex-1 text-purple-300 text-sm font-mono break-all">
+        {code}
+      </code>
+    </div>
+    <div className="flex gap-2">
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={() => copyToClipboard(code)}
+        className="flex-1 border border-purple-700"
+      >
+        Copiar
+      </Button>
+    </div>
+  </CardContent>
+</Card>
 
           {/* Card Informações */}
           <Card
