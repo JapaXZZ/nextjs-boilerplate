@@ -29,7 +29,7 @@ const initialScripts: Script[] = [
     title: "Redação SP",
     description: "Sistema inteligente para geração de redações",
     online: false,
-    url: "https://redacao.cupiditys.lol/",
+    url: "/redacao",
     category: "Web",
   },
   {
@@ -37,7 +37,7 @@ const initialScripts: Script[] = [
     title: "Khanware v3.1.1",
     description: "Script completo para automação da plataforma Khan Academy",
     online: true,
-    url: "https://khanware.space/",
+    url: "/khan",
     category: "BookMark",
   },
   {
@@ -45,7 +45,7 @@ const initialScripts: Script[] = [
     title: "Speak",
     description: "Ferramenta de automação para a plataforma Speak",
     online: true,
-    url: "https://speakify.cupiditys.lol/",
+    url: "/speak",
     category: "BookMark",
   },
   {
@@ -53,7 +53,7 @@ const initialScripts: Script[] = [
     title: "Leia SP",
     description: "Sistema automatizado para concluir questões dos livros",
     online: false,
-    url: "https://leiasp.cupiditys.lol/",
+    url: "/leiasp",
     category: "BookMark",
   },
   {
@@ -61,7 +61,7 @@ const initialScripts: Script[] = [
     title: "Matific",
     description: "Automação avançada para exercícios matemáticos",
     online: false,
-    url: "https://matific.cupiditys.lol/",
+    url: "/matific",
     category: "BookMark",
   },
   {
@@ -69,7 +69,7 @@ const initialScripts: Script[] = [
     title: "Alura",
     description: "Ferramenta para concluir a plataforma Alura",
     online: true,
-    url: "https://crimsonstrauss.xyz/alura",
+    url: "/alura",
     category: "Web",
   },
   {
@@ -77,7 +77,7 @@ const initialScripts: Script[] = [
     title: "Expansão Noturno",
     description: "Sistema para automatização das tarefas da plataforma Expansão Noturno",
     online: false,
-    url: "https://crimsonstrauss.xyz/expansao.html",
+    url: "/expansao",
     category: "Web",
   },
 ];
