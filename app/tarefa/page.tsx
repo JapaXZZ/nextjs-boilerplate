@@ -8,7 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const TaskApp = () => {
   const { toast } = useToast();
-  const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("online");
+  const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("offline");
   const [lastUpdate] = useState("21/07/2025");
   const [scriptId] = useState("4a92d3bb7e2159f674c2091d");
   const [url] = useState("https://taskitos.cupiditys.lol/");
