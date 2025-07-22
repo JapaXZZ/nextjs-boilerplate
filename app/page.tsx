@@ -21,7 +21,7 @@ const initialScripts: Script[] = [
     title: "Tarefa SP",
     description: "Ferramenta avançada para automação e conclusão de tarefas",
     online: false,
-    url: "/scripts/tarefa",
+    url: "app/scripts/tarefa",
     category: "Web",
   },
   {
