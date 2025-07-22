@@ -45,26 +45,28 @@ const TaskApp = () => {
     });
   };
 
-  const refreshScript = () => {
-    toast("Script sendo atualizado", {
-      title: "Atualizando...",
-      type: "info",
-    });
-  };
-
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-black text-white px-4 overflow-x-hidden">
+      {/* Toolbar com botão de voltar */}
+      <div className="py-4">
+        <button
+          onClick={() => window.history.back()}
+          className="text-sm text-purple-300 hover:text-purple-500 transition"
+        >
+          ← Voltar
+        </button>
+      </div>
+
       <div className="max-w-md mx-auto space-y-6">
-        <div className="text-center space-y-4 mb-8">
+        {/* Título */}
+        <div className="text-center space-y-4 mb-4">
           <div className="relative">
-            {/* Fundo roxo com blur e opacidade */}
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-purple-800 to-purple-900 rounded-full blur-xl opacity-20 animate-pulse"></div>
-            
-            {/* Card principal */}
-            <div className="relative flex items-center justify-center gap-3 p-6 bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-4xl shadow-lg shadow-purple-900/50">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-purple-800 to-purple-900 rounded-4xl blur-xl opacity-20 animate-pulse"></div>
+
+            <div className="relative flex items-center justify-center gap-3 p-4 bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-4xl shadow-lg shadow-purple-900/50">
               <div className="p-3 bg-purple-700/20 rounded-full"></div>
               <div>
-                <h1 className="text-4xl font-bold text-white select-none">
+                <h1 className="text-2xl font-bold text-white select-none">
                   TAREFAS SP
                 </h1>
                 <div className="h-1 w-20 bg-purple-700 rounded-full mx-auto mt-2"></div>
@@ -72,10 +74,13 @@ const TaskApp = () => {
             </div>
           </div>
         </div>
-        <p className="text-muted-foreground text-lg font-medium px-4">
+
+        {/* Subtítulo centralizado */}
+        <p className="text-center text-muted-foreground text-lg font-medium">
           Ferramenta para concluir suas tarefas!
         </p>
 
+        {/* Card URL */}
         <Card className="bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-4xl p-6 shadow-lg shadow-purple-900/50 hover:border-purple-600 transition-all duration-300">
           <CardHeader className="pb-3">
             <CardTitle className="text-lg text-white flex items-center gap-2">
@@ -89,7 +94,12 @@ const TaskApp = () => {
               </code>
             </div>
             <div className="flex gap-2">
-              <Button variant="ghost" size="sm" onClick={() => copyToClipboard(url)} className="flex-1">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => copyToClipboard(url)}
+                className="flex-1 border border-purple-700"
+              >
                 Copiar
               </Button>
               <Button variant="glow" size="sm" onClick={openUrl} className="flex-1">
@@ -99,6 +109,7 @@ const TaskApp = () => {
           </CardContent>
         </Card>
 
+        {/* Card Informações */}
         <Card className="bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-4xl p-6 shadow-lg shadow-purple-900/50 hover:border-purple-600 transition-all duration-300">
           <CardHeader className="pb-3">
             <CardTitle className="text-lg text-white flex items-center gap-2">
@@ -131,20 +142,9 @@ const TaskApp = () => {
                   <p className="text-xs text-purple-300">ATUALIZAÇÃO</p>
                 </div>
               </div>
-              <Button variant="ghost" size="sm" onClick={refreshScript}>
-                Atualizar
-              </Button>
             </div>
 
-            <div className="p-3 bg-slate-800 rounded-md border border-purple-700">
-              <div className="flex items-center justify-between mb-2">
-                <p className="text-xs text-purple-300 font-medium">ID DO SCRIPT</p>
-                <Button variant="ghost" size="sm" onClick={() => copyToClipboard(scriptId)}>
-                  Copiar
-                </Button>
-              </div>
-              <code className="text-xs text-purple-300 font-mono break-all">{scriptId}</code>
-            </div>
+            {/* Removido bloco do ID do Script */}
           </CardContent>
         </Card>
       </div>
