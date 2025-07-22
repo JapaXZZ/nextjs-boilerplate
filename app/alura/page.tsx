@@ -12,8 +12,8 @@ const TaskApp = () => {
   const { toast } = useToast();
   const router = useRouter();
 
-  const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("online");
-  const [lastUpdate] = useState("21/07/2025");
+  const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("false");
+  const [lastUpdate] = useState("22/07/2025");
   const [url] = useState("https://crimsonstrauss.xyz/alura");
   const [tasksCompleted] = useState(127);
   const [executionTime] = useState("2.3s");
