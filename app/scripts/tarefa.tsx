@@ -25,11 +25,11 @@ const TaskApp = () => {
   type: "success",
 });
   } catch {
-    toast({
-      title: "Erro",
-      description: "Não foi possível copiar o texto",
-      status: "error",
-    });
+   toast("Erro", {
+  title: "Erro",
+  description: "Não foi possível copiar o texto",
+  type: "error",
+});
   }
 };
 
