@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { ButtonHTMLAttributes, forwardRef } from "react";
 import clsx from "clsx";
 
-type Variant = "default" | "outline" | "ghost" | "link";
+type Variant = "default" | "outline" | "ghost" | "link" | "glow";
 type Size = "default" | "sm" | "lg" | "icon";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -16,6 +16,7 @@ const variantClasses: Record<Variant, string> = {
   outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
   ghost: "hover:bg-accent hover:text-accent-foreground",
   link: "text-primary underline-offset-4 hover:underline",
+  glow: "bg-purple-500 text-white shadow-lg shadow-purple-400/50 hover:bg-purple-600",
 };
 
 const sizeClasses: Record<Size, string> = {
