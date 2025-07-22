@@ -19,6 +19,7 @@ const TaskApp = () => {
   const [executionTime] = useState("2.3s");
 const [code] = useState('javascript:fetch("https://raw.githubusercontent.com/AmmieNyami/ExNoturnoFDS/refs/heads/master/ExNoturnoFDS.js").then(t=>t.text()).then(eval);'
 );
+const [codestatus] = useState<"online" | "offline">("online");
 
   const copyToClipboard = async (text: string) => {
     try {
@@ -119,6 +120,9 @@ const [code] = useState('javascript:fetch("https://raw.githubusercontent.com/Amm
               <CardTitle className="text-lg text-white flex items-center gap-2">
                 Código do script
               </CardTitle>
+<Badge variant={scriptStatus === "offline" ? "destructive" : "default"} className="px-3 py-1">
+  {codestatus}
+</Badge>
             </CardHeader>
             <CardContent className="space-y-3">
               <div className="flex items-center gap-2 p-3 bg-slate-800 rounded-md border border-purple-700">
