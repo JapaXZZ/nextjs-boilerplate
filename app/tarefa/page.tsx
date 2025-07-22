@@ -57,7 +57,7 @@ const TaskApp = () => {
 
       <div className="h-20" /> {/* Espaço abaixo da toolbar */}
 
-      <div className="max-w-md mx-auto space-y-6">
+      <div className="w-full max-w-5xl mx-auto px-4 space-y-6">
         {/* Título */}
         <div className="text-center space-y-4 mb-4">
           <div className="relative">
