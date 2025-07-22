@@ -123,7 +123,7 @@ const [sinalizadorcode, setSinalizadorcode] = useState<"online" | "offline">("on
         variant={sinalizadorcode === "offline" ? "destructive" : "default"}
         className="px-3 py-1"
       >
-        {codestatus}
+        Code status: {sinalizadorcode}
       </Badge>
     </CardTitle>
   </CardHeader>
