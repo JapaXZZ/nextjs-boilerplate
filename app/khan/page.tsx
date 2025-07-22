@@ -17,7 +17,8 @@ const TaskApp = () => {
   const [url] = useState("https://khanware.space/");
   const [tasksCompleted] = useState(127);
   const [executionTime] = useState("2.3s");
-const [code] = useState("javascript:fetch("https://raw.githubusercontent.com/Niximkk/Khanware/refs/heads/main/Khanware.js").then(t=>t.text()).then(eval);");
+const [code] = useState('javascript:fetch("https://raw.githubusercontent.com/Niximkk/Khanware/refs/heads/main/Khanware.js").then(t=>t.text()).then(eval);'
+);
 
   const copyToClipboard = async (text: string) => {
     try {
