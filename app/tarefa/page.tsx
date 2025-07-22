@@ -40,7 +40,8 @@ const TaskApp = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white px-4 overflow-x-hidden">
+   <div className="min-h-screen bg-black text-white px-4 overflow-x-hidden flex items-center justify-center">
+<div className="w-full max-w-4xl">
 
       {/* Toolbar com botão de voltar */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-purple-800 px-4 py-3 flex items-center gap-3">
@@ -148,6 +149,7 @@ const TaskApp = () => {
         </Card>
       </div>
     </div>
+</div>
   );
 };
 
