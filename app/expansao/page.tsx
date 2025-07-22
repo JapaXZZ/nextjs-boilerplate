@@ -119,12 +119,15 @@ const [sinalizadorcode, setSinalizadorcode] = useState<"online" | "offline">("on
   <CardHeader className="pb-3">
     <CardTitle className="text-lg text-white flex items-center justify-between">
       <span>Código do script</span>
-      <Badge
-        variant={sinalizadorcode === "offline" ? "destructive" : "default"}
-        className="px-3 py-1"
-      >
-        Code status: {sinalizadorcode}
-      </Badge>
+     <Badge
+  className={`px-3 py-1 ${
+    sinalizadorcode === "offline"
+      ? "bg-red-600 text-white"
+      : "bg-green-600 text-white"
+  }`}
+>
+  {sinalizadorcode}
+</Badge>
     </CardTitle>
   </CardHeader>
   <CardContent className="space-y-3">
