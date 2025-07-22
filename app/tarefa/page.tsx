@@ -47,15 +47,29 @@ const TaskApp = () => {
 
   return (
     <div className="min-h-screen bg-black text-white px-4 overflow-x-hidden">
-      {/* Toolbar com botão de voltar */}
-      <div className="py-4">
-        <button
-          onClick={() => window.history.back()}
-          className="text-sm text-purple-300 hover:text-purple-500 transition"
-        >
-          ← Voltar
-        </button>
-      </div>
+   
+<div className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-purple-800 px-4 py-3 flex items-center gap-3">
+  <button
+    onClick={() => window.history.back()}
+    aria-label="Voltar"
+    className="flex items-center gap-2 text-purple-300 hover:text-purple-500 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded"
+  >
+   
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-5 w-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+    </svg>
+    <span className="text-sm font-medium select-none">Voltar</span>
+  </button>
+</div>
+
+<div className="h-14"></div>
 
       <div className="max-w-md mx-auto space-y-6">
         {/* Título */}
