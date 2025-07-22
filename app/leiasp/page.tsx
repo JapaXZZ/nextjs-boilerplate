@@ -14,7 +14,7 @@ const TaskApp = () => {
 
   const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("offline");
   const [lastUpdate] = useState("21/07/2025");
-  const [url] = useState("https://taskitos.cupiditys.lol/");
+  const [url] = useState("https://leiasp.cupiditys.lol/");
   const [tasksCompleted] = useState(127);
   const [executionTime] = useState("2.3s");
 
