@@ -19,11 +19,11 @@ const TaskApp = () => {
   const copyToClipboard = async (text: string) => {
   try {
     await navigator.clipboard.writeText(text);
-    toast({
-      title: "Copiado!",
-      description: "Texto copiado para a área de transferência",
-      status: "success",
-    });
+    toast("Copiado!", {
+  title: "Copiado!",
+  description: "Texto copiado para a área de transferência",
+  type: "success",
+});
   } catch {
     toast({
       title: "Erro",
