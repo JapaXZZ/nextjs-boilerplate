@@ -76,9 +76,9 @@ const initialScripts: Script[] = [
     id: 8,
     title: "Expansão Noturno",
     description: "Sistema para automatização das tarefas da plataforma Expansão Noturno",
-    online: false,
+    online: true,
     url: "/expansao",
-    category: "Web",
+    category: "Web/MarkBook",
   },
 ];
 
