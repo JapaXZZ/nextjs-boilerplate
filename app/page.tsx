@@ -359,7 +359,7 @@ const Index = () => {
                   </p>
                   <div className="flex gap-3">
                     <motion.a
-                      href="https://apostiladestroyer.netlify.app/"
+                      href="/apostilas"
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.03 }}
