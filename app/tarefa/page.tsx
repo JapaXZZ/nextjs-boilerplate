@@ -54,7 +54,7 @@ const TaskApp = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background p-4 animate-fade-in">
+        <div className="min-h-screen bg-gradient-to-br from-black via-slate-950 to-black text-white overflow-x-hidden">
       <div className="max-w-md mx-auto space-y-6">
         <div className="text-center space-y-4 mb-8">
           <div className="relative">
@@ -74,77 +74,77 @@ const TaskApp = () => {
           </p>
         </div>
 
-        <Card className="bg-gradient-card shadow-card border-border hover:border-primary/50 transition-all duration-300">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-lg text-foreground flex items-center gap-2">
-              URL
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <div className="flex items-center gap-2 p-3 bg-background/50 rounded-md border border-border">
-              <code className="flex-1 text-primary text-sm font-mono break-all">
-                {url}
-              </code>
-            </div>
-            <div className="flex gap-2">
-              <Button variant="ghost" size="sm" onClick={() => copyToClipboard(url)} className="flex-1">
-                Copiar
-              </Button>
-              <Button variant="glow" size="sm" onClick={openUrl} className="flex-1">
-                Abrir
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+       <Card className="bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 shadow-lg shadow-purple-900/50 hover:border-purple-600 transition-all duration-300">
+  <CardHeader className="pb-3">
+    <CardTitle className="text-lg text-white flex items-center gap-2">
+      URL
+    </CardTitle>
+  </CardHeader>
+  <CardContent className="space-y-3">
+    <div className="flex items-center gap-2 p-3 bg-slate-800 rounded-md border border-purple-700">
+      <code className="flex-1 text-purple-300 text-sm font-mono break-all">
+        {url}
+      </code>
+    </div>
+    <div className="flex gap-2">
+      <Button variant="ghost" size="sm" onClick={() => copyToClipboard(url)} className="flex-1">
+        Copiar
+      </Button>
+      <Button variant="glow" size="sm" onClick={openUrl} className="flex-1">
+        Abrir
+      </Button>
+    </div>
+  </CardContent>
+</Card>
 
-        <Card className="bg-gradient-card shadow-card border-border">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-lg text-foreground flex items-center gap-2">
-              Informações do Script
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center justify-between p-3 bg-background/30 rounded-md border border-border">
-              <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                  scriptStatus === "offline" ? "bg-destructive/20 text-destructive" : "bg-success/20 text-success"
-                }`}>
-                  {scriptStatus === "offline" ? <>X</> : <>Zap</>}
-                </div>
-                <div>
-                  <p className="font-medium text-foreground capitalize">{scriptStatus}</p>
-                  <p className="text-xs text-muted-foreground">STATUS</p>
-                </div>
-              </div>
-              <Badge variant={scriptStatus === "offline" ? "destructive" : "default"} className="px-3 py-1">
-                {scriptStatus}
-              </Badge>
-            </div>
+<Card className="bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 shadow-lg shadow-purple-900/50 hover:border-purple-600 transition-all duration-300">
+  <CardHeader className="pb-3">
+    <CardTitle className="text-lg text-white flex items-center gap-2">
+      Informações do Script
+    </CardTitle>
+  </CardHeader>
+  <CardContent className="space-y-4">
+    <div className="flex items-center justify-between p-3 bg-slate-800 rounded-md border border-purple-700">
+      <div className="flex items-center gap-3">
+        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+          scriptStatus === "offline" ? "bg-red-700/20 text-red-400" : "bg-purple-700/20 text-purple-400"
+        }`}>
+          {scriptStatus === "offline" ? <>X</> : <>Zap</>}
+        </div>
+        <div>
+          <p className="font-medium text-white capitalize">{scriptStatus}</p>
+          <p className="text-xs text-purple-300">STATUS</p>
+        </div>
+      </div>
+      <Badge variant={scriptStatus === "offline" ? "destructive" : "default"} className="px-3 py-1">
+        {scriptStatus}
+      </Badge>
+    </div>
 
-            <div className="flex items-center justify-between p-3 bg-background/30 rounded-md border border-border">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center">⏰</div>
-                <div>
-                  <p className="font-medium text-foreground">{lastUpdate}</p>
-                  <p className="text-xs text-muted-foreground">ATUALIZAÇÃO</p>
-                </div>
-              </div>
-              <Button variant="ghost" size="sm" onClick={refreshScript}>
-                Atualizar
-              </Button>
-            </div>
+    <div className="flex items-center justify-between p-3 bg-slate-800 rounded-md border border-purple-700">
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full bg-purple-700/20 text-purple-400 flex items-center justify-center">⏰</div>
+        <div>
+          <p className="font-medium text-white">{lastUpdate}</p>
+          <p className="text-xs text-purple-300">ATUALIZAÇÃO</p>
+        </div>
+      </div>
+      <Button variant="ghost" size="sm" onClick={refreshScript}>
+        Atualizar
+      </Button>
+    </div>
 
-            <div className="p-3 bg-background/30 rounded-md border border-border">
-              <div className="flex items-center justify-between mb-2">
-                <p className="text-xs text-muted-foreground font-medium">ID DO SCRIPT</p>
-                <Button variant="ghost" size="sm" onClick={() => copyToClipboard(scriptId)}>
-                  Copiar
-                </Button>
-              </div>
-              <code className="text-xs text-muted-foreground font-mono break-all">{scriptId}</code>
-            </div>
-          </CardContent>
-        </Card>
+    <div className="p-3 bg-slate-800 rounded-md border border-purple-700">
+      <div className="flex items-center justify-between mb-2">
+        <p className="text-xs text-purple-300 font-medium">ID DO SCRIPT</p>
+        <Button variant="ghost" size="sm" onClick={() => copyToClipboard(scriptId)}>
+          Copiar
+        </Button>
+      </div>
+      <code className="text-xs text-purple-300 font-mono break-all">{scriptId}</code>
+    </div>
+  </CardContent>
+</Card>
       </div>
     </div>
   );
