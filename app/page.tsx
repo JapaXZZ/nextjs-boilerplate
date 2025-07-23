@@ -171,14 +171,14 @@ const Index = () => {
             <div className="bg-gray-900 border-l-4 border-purple-600 text-white p-4 rounded-xl shadow mb-6">
               <p className="font-bold text-lg">📢 Notificações</p>
               <ul className="list-disc pl-5 mt-2 space-y-1 text-sm">
-                <li>Os scripts temporariamente indisponíveis serão reativados até o dia 23 de julho.</li>
+                <li>Os scripts temporariamente indisponíveis serão reativados entre os dias 23/07 e 31/07!</li>
               </ul>
             </div>
           </div>
 
           <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6">
             <h3 className="text-lg font-semibold text-white mb-1">Estatísticas</h3>
-            <p className="text-xs text-slate-400 mb-4">Última atualização: 22/07/2025</p>
+            <p className="text-xs text-slate-400 mb-4">Última atualização: 23/07/2025</p>
             <div className="h-px bg-slate-700 mb-4" />
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3">
