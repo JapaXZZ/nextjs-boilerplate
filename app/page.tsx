@@ -20,7 +20,7 @@ const initialScripts: Script[] = [
     id: 1,
     title: "Tarefa SP",
     description: "Ferramenta avançada para automação e conclusão de tarefas",
-    online: false,
+    online: true,
     url: "/tarefa",
     category: "Web",
   },
