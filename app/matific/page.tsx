@@ -13,7 +13,7 @@ const TaskApp = () => {
   const router = useRouter();
 
   const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("online");
-  const [lastUpdate] = useState("21/07/2025");
+  const [lastUpdate] = useState("23/07/2025");
   const [url] = useState("https://matific.cupiditys.lol/");
   const [tasksCompleted] = useState(127);
   const [executionTime] = useState("2.3s");
