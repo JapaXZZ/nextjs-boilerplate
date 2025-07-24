@@ -28,7 +28,7 @@ const initialScripts: Script[] = [
     id: 2,
     title: "Redação SP",
     description: "Sistema inteligente para geração de redações",
-    online: false,
+    online: true,
     url: "/redacao",
     category: "Web",
   },
