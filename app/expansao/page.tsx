@@ -12,9 +12,9 @@ const TaskApp = () => {
   const { toast } = useToast();
   const router = useRouter();
 
-  const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("offline");
-  const [lastUpdate] = useState("21/07/2025");
-  const [url] = useState("https://crimsonstrauss.xyz/expansao.html");
+  const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("online");
+  const [lastUpdate] = useState("24/07/2025");
+  const [url] = useState("https://crimsonstrauss.xyz/expansao");
   const [tasksCompleted] = useState(127);
   const [executionTime] = useState("2.3s");
 const [code] = useState('javascript:fetch("https://raw.githubusercontent.com/AmmieNyami/ExNoturnoFDS/refs/heads/master/ExNoturnoFDS.js").then(t=>t.text()).then(eval);'
