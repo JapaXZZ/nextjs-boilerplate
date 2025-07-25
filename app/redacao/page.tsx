@@ -17,6 +17,8 @@ const TaskApp = () => {
   const [url] = useState("https://crimsonstrauss.xyz/eclipseredacao");
   const [tasksCompleted] = useState(127);
   const [executionTime] = useState("2.3s");
+const [code] = useState('javascript:function remove_block(){const e=function(e){return e.stopImmediatePropagation(),!0};document.addEventListener("copy",e,!0),document.addEventListener("cut",e,!0),document.addEventListener("paste",e,!0),alert("Bloqueio Removido!")}remove_block();'
+);
 
   const copyToClipboard = async (text: string) => {
     try {
@@ -107,6 +109,37 @@ const TaskApp = () => {
               </div>
             </CardContent>
           </Card>
+
+ {/* Card Code */}
+   <Card
+            style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
+            className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-purple-900/50 border"
+          >
+            <CardHeader className="pb-3">
+              <CardTitle className="text-lg text-white flex items-center gap-2">
+                Copy and Paste
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="flex items-center gap-2 p-3 bg-slate-800 rounded-md border border-purple-700">
+                <code className="flex-1 text-purple-300 text-sm font-mono break-all">
+                  {code}
+                </code>
+              </div>
+              <div className="flex gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => copyToClipboard(code)}
+                  className="flex-1 border border-purple-700"
+                >
+                  Copiar
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+
 
           {/* Card Informações */}
           <Card
