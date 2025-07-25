@@ -68,7 +68,7 @@ const initialScripts: Script[] = [
     id: 7,
     title: "Alura",
     description: "Ferramenta para concluir a plataforma Alura",
-    online: false,
+    online: true,
     url: "/alura",
     category: "Web",
   },
