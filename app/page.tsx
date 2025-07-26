@@ -239,7 +239,10 @@ const Index = () => {
                     "absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",
                     hoveredCard === script.id && "opacity-40"
                   )} />
-                  <div className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50">
+                  <div
+  style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
+  className="backdrop-blur-md rounded-3xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50 border"
+>
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
                         <h3 className="text-xl font-extrabold text-white group-hover:text-purple-400 transition-colors duration-300 select-none">
@@ -326,11 +329,12 @@ const Index = () => {
                   "absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",
                   hoveredCard === -1 && "opacity-40"
                 )} />
-                <div
-                  onMouseEnter={() => setHoveredCard(-1)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                  className="relative bg-slate-900/95 backdrop-blur-md border border-purple-700 rounded-2xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50"
-                >
+<div
+  onMouseEnter={() => setHoveredCard(-1)}
+  onMouseLeave={() => setHoveredCard(null)}
+  style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
+  className="backdrop-blur-md rounded-3xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50 border"
+>
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <h3 className="text-xl font-extrabold text-white group-hover:text-purple-400 transition-colors duration-300 select-none">
