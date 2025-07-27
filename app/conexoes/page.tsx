@@ -93,6 +93,15 @@ export default function Conexoes() {
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
       <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-transparent to-blue-500/10" />
 
+          <button
+            onClick={() => router.push('/')}
+            aria-label="Voltar"
+            className="flex items-center gap-2 rounded-2xl border border-[#2C313A] bg-[#1B1D22] px-4 py-2 text-white hover:bg-[#2C313A] transition-colors"
+          >
+            <ArrowLeft className="h-5 w-5 text-white" />
+            <span className="text-sm font-medium">Voltar</span>
+          </button>
+
       <div className="relative z-10 container mx-auto px-4 py-16">
         {/* Header */}
         <motion.div
