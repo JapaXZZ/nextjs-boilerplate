@@ -266,7 +266,7 @@ const Index = () => {
       </motion.header>
     </div>
   );
-};
+
 
           {/* Notificações */}
           <div className="w-full max-w-2xl mx-auto p-4">
@@ -308,6 +308,7 @@ const Index = () => {
           </div>
         </div>
       </motion.header>
+};
 
       {/* Main content */}
       <motion.main initial="hidden" animate="visible" className="relative z-10 px-4 pb-20 max-w-7xl mx-auto">
