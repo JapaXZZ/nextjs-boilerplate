@@ -214,6 +214,18 @@ const Index = () => {
           </motion.p>
 
           {/* Caixa de busca */}
+const [searchTerm, setSearchTerm] = useState("");
+const [scripts, setScripts] = useState<Script[]>(initialScripts); // ou o nome correto da sua lista
+
+const filteredScripts = useMemo(() => {
+  if (!searchTerm.trim()) return scripts;
+  return scripts.filter(
+    (script) =>
+      script.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      script.category.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+}, [searchTerm, scripts]);
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
