@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 const { toast } = useToast();
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface WifiNetwork {
   id: string;
