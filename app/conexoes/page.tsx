@@ -94,6 +94,8 @@ export default function Conexoes() {
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
       <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-transparent to-blue-500/10" />
 
+export default function Page() {
+  return (
           <button
             onClick={() => router.push('/')}
             aria-label="Voltar"
@@ -102,6 +104,8 @@ export default function Conexoes() {
             <ArrowLeft className="h-5 w-5 text-white" />
             <span className="text-sm font-medium">Voltar</span>
           </button>
+  );
+}
 
       <div className="relative z-10 container mx-auto px-4 py-16">
         {/* Header */}
