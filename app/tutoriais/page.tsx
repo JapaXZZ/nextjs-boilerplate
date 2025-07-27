@@ -123,7 +123,7 @@ const Tutoriais = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-slate-950 to-black text-white overflow-x-hidden">
+   <div className="min-h-screen bg-gradient-to-br from-black via-slate-950 to-black text-white overflow-x-hidden font-sans selection:bg-purple-700 selection:text-white">
       <header className="sticky top-0 z-50 bg-pro-bg-secondary/95 backdrop-blur-xl border-b border-pro-border-primary">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
