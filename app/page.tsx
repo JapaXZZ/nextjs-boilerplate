@@ -83,20 +83,22 @@ const initialScripts: Script[] = [
 ];
 
 const Index = () => {
-  const [scripts] = useState(initialScripts);
+  // ❌ Removida a linha duplicada abaixo para corrigir erro:
+  // const [scripts] = useState(initialScripts);
+
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-const [searchTerm, setSearchTerm] = useState("");
-const [scripts, setScripts] = useState<Script[]>(initialScripts);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [scripts, setScripts] = useState<Script[]>(initialScripts);
 
-const filteredScripts = useMemo(() => {
-  if (!searchTerm.trim()) return scripts;
-  return scripts.filter(
-    (script) =>
-      script.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      script.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-}, [searchTerm, scripts]);
+  const filteredScripts = useMemo(() => {
+    if (!searchTerm.trim()) return scripts;
+    return scripts.filter(
+      (script) =>
+        script.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        script.category.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [searchTerm, scripts]);
 
   const router = useRouter();
 
@@ -216,18 +218,6 @@ const filteredScripts = useMemo(() => {
           </motion.p>
 
           {/* Caixa de busca */}
-const [searchTerm, setSearchTerm] = useState("");
-const [scripts, setScripts] = useState<Script[]>(initialScripts); // ou o nome correto da sua lista
-
-const filteredScripts = useMemo(() => {
-  if (!searchTerm.trim()) return scripts;
-  return scripts.filter(
-    (script) =>
-      script.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      script.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-}, [searchTerm, scripts]);
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -245,33 +235,38 @@ const filteredScripts = useMemo(() => {
             />
           </motion.div>
 
-{/* 🟠 LISTAGEM DE SCRIPTS FILTRADOS - INÍCIO 🟠 */}
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
-  {filteredScripts.map((script) => (
-    <motion.div
-      key={script.id}
-      onMouseEnter={() => setHoveredCard(script.id)}
-      onMouseLeave={() => setHoveredCard(null)}
-      className={cn(
-        "p-6 rounded-xl bg-slate-900/60 border border-purple-700 cursor-pointer select-none transition-shadow",
-        hoveredCard === script.id ? "shadow-xl shadow-purple-700/50" : "shadow-md shadow-purple-900/20"
-      )}
-      onClick={() => router.push(script.url)}
-      whileHover={{ scale: 1.05 }}
-    >
-      <h2 className="text-xl font-semibold mb-2">{script.title}</h2>
-      <p className="text-sm text-purple-300 mb-3">{script.description}</p>
-      <span
-        className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-          script.online ? "bg-green-600" : "bg-red-600"
-        }`}
-      >
-        {script.online ? "Online" : "Offline"}
-      </span>
-    </motion.div>
-  ))}
-</div>
-{/* 🟠 LISTAGEM DE SCRIPTS FILTRADOS - FIM 🟠 */}
+          {/* 🟠 LISTAGEM DE SCRIPTS FILTRADOS - INÍCIO 🟠 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
+            {filteredScripts.map((script) => (
+              <motion.div
+                key={script.id}
+                onMouseEnter={() => setHoveredCard(script.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+                className={cn(
+                  "p-6 rounded-xl bg-slate-900/60 border border-purple-700 cursor-pointer select-none transition-shadow",
+                  hoveredCard === script.id ? "shadow-xl shadow-purple-700/50" : "shadow-md shadow-purple-900/20"
+                )}
+                onClick={() => router.push(script.url)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <h2 className="text-xl font-semibold mb-2">{script.title}</h2>
+                <p className="text-sm text-purple-300 mb-3">{script.description}</p>
+                <span
+                  className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+                    script.online ? "bg-green-600" : "bg-red-600"
+                  }`}
+                >
+                  {script.online ? "Online" : "Offline"}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+          {/* 🟠 LISTAGEM DE SCRIPTS FILTRADOS - FIM 🟠 */}
+        </div>
+      </motion.header>
+    </div>
+  );
+};
 
           {/* Notificações */}
           <div className="w-full max-w-2xl mx-auto p-4">
