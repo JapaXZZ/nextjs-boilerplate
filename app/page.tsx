@@ -276,7 +276,6 @@ const Index = () => {
                 <li>Os scripts temporariamente indisponíveis serão reativados entre os dias 23/07 e 31/07!</li>
               </ul>
             </div>
-          </div>
 
           {/* Estatísticas */}
           <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6 select-none" role="region" aria-label="Estatísticas dos scripts">
