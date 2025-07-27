@@ -407,7 +407,7 @@ return (
             <div  
               onMouseEnter={() => setHoveredCard(-1)}  
               onMouseLeave={() => setHoveredCard(null)}  
-              style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}  
+              style={{ backgroundColor: "#111827", borderColor: "#2C313A" }}  
               className="backdrop-blur-md rounded-3xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50 border"  
             >  
               <div className="flex items-start justify-between mb-4">  
