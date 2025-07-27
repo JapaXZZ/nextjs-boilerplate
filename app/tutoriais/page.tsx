@@ -22,7 +22,7 @@ const Tutoriais = () => {
       icon: Monitor,
       label: "Computador (Windows/Mac/Linux)",
       description: "Tutoriais para desktops e notebooks",
-      scripts: ["Speak", "Khan", "Matific"],
+      scripts: ["Speak", "Khan", "Matific", "Alura", "Expansão Noturno", "Khanware", "Tarefa SP"],
       color: "from-green-500 to-green-600"
     },
     {
@@ -41,13 +41,13 @@ const Tutoriais = () => {
       description: "Sistema de síntese de voz avançado para melhor acessibilidade",
       videoId: {
         celular: "oHprujfOFvg",
-        computador: "-2IXE9U3rnc",
-        ios: "ZV345iQXOOk",
+        computador: "2Uq6rZL_-ms",
+        ios: "ZV345iQXOOk"
       },
       duration: {
         celular: "1:41",
-        computador: "1:50",
-        ios: "1:40",
+        computador: "2:01",
+        ios: "1:40"
       }
     },
     Khan: {
@@ -56,12 +56,12 @@ const Tutoriais = () => {
       videoId: {
         celular: "-TXGbjiX0Do",
         computador: "HX8fZe0U9CA",
-        ios: "8tltf0gFQ-k",
+        ios: "8tltf0gFQ-k"
       },
       duration: {
         celular: "3:04",
         computador: "1:14",
-        ios: "2:00",
+        ios: "2:00"
       }
     },
     Matific: {
@@ -69,22 +69,61 @@ const Tutoriais = () => {
       description: "Assistente inteligente para plataforma Matific",
       videoId: {
         celular: "wQc4KsTsH1Q",
-        computador: "U2oUFHb7pGQ",
+        computador: "U2oUFHb7pGQ"
       },
       duration: {
         celular: "2:40",
-        computador: "2:50",
+        computador: "2:50"
+      }
+    },
+    Alura: {
+      title: "Alura",
+      description: "Automação simples para uso educacional da plataforma Alura",
+      videoId: {
+        computador: "0_yUWt5avC0"
+      },
+      duration: {
+        computador: "1:18"
+      }
+    },
+    "Expansão Noturno": {
+      title: "Expansão Noturno",
+      description: "Expansão automática e personalizada do conteúdo noturno",
+      videoId: {
+        computador: "-hA9e97sarM"
+      },
+      duration: {
+        computador: "1:16"
+      }
+    },
+    Khanware: {
+      title: "Khanware",
+      description: "Automatizador leve para interações rápidas com a Khan Academy",
+      videoId: {
+        computador: "YFkTsDC483U"
+      },
+      duration: {
+        computador: "1:50"
+      }
+    },
+    "Tarefa SP": {
+      title: "Tarefa SP",
+      description: "Sistema de otimização para a plataforma Tarefa SP",
+      videoId: {
+        computador: "gq5DV7NvCP8"
+      },
+      duration: {
+        computador: "1:20"
       }
     }
   };
 
-function openEmail() {
-window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
-}
+  function openEmail() {
+    window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-slate-950 to-black text-white overflow-x-hidden">
-      {/* Navigation Header */}
       <header className="sticky top-0 z-50 bg-pro-bg-secondary/95 backdrop-blur-xl border-b border-pro-border-primary">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
@@ -96,7 +135,6 @@ window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
               <ArrowLeft className="h-4 w-4 mr-2" />
               Voltar
             </Button>
-
             <div className="text-sm text-pro-text-muted">
               Todos os Tutoriais
             </div>
@@ -105,7 +143,6 @@ window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
       </header>
 
       <div className="container mx-auto px-6 py-12">
-        {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-6xl font-bold text-pro-text-primary mb-6 tracking-tight">
             Central de Tutoriais
@@ -115,14 +152,12 @@ window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
           </p>
         </div>
 
-        {/* All Device Sections */}
         <div className="space-y-16">
           {deviceSections.map((device) => {
             const DeviceIcon = device.icon;
 
             return (
               <section key={device.id} className="animate-fade-in">
-                {/* Device Header */}
                 <div className="flex items-center mb-8">
                   <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${device.color} flex items-center justify-center mr-4`}>
                     <DeviceIcon className="h-6 w-6 text-white" />
@@ -137,7 +172,6 @@ window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
                   </div>
                 </div>
 
-                {/* Tutorials for this device */}
                 <div className="grid gap-6">
                   {device.scripts.map((script) => {
                     const info = scriptInfo[script as keyof typeof scriptInfo];
@@ -148,9 +182,8 @@ window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
                         className="bg-card-gradient border border-pro-border-primary hover:border-pro-accent-primary/50 transition-all duration-300 overflow-hidden group"
                       >
                         <div className="lg:flex">
-                          {/* Video Section */}
                           <div className="lg:w-2/5 relative">
-                            <div className="aspect-video bg-pro-bg-primary relative overflow-hidden">
+                            <div className="aspect-video bg-pro-bg-primary relative overflow-hidden rounded-2xl">
                               <iframe
                                 src={`https://www.youtube.com/embed/${info.videoId[device.id as keyof typeof info.videoId]}?modestbranding=1&rel=0`}
                                 title={`Tutorial ${info.title} - ${device.label}`}
@@ -162,7 +195,6 @@ window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
                             </div>
                           </div>
 
-                          {/* Content Section */}
                           <div className="lg:w-3/5 p-6 flex flex-col justify-center">
                             <div className="mb-4">
                               <div className="flex items-center mb-2">
@@ -200,7 +232,6 @@ window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
           })}
         </div>
 
-        {/* Bottom CTA */}
         <div className="text-center mt-16 py-12 border-t border-pro-border-primary">
           <h3 className="text-xl font-semibold text-pro-text-primary mb-2">
             Precisa de Ajuda?
@@ -208,13 +239,13 @@ window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
           <p className="text-pro-text-muted mb-6">
             Entre em contato conosco se tiver dúvidas sobre algum tutorial
           </p>
-          <button  
-      onClick={openEmail}  
-      className="inline-block px-6 py-3 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-colors duration-300 shadow-md shadow-purple-600/40"  
-      aria-label="Enviar email para suporte"  
-    >  
-      Contatar Suporte  
-    </button>  
+          <button
+            onClick={openEmail}
+            className="inline-block px-6 py-3 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-colors duration-300 shadow-md shadow-purple-600/40"
+            aria-label="Enviar email para suporte"
+          >
+            Contatar Suporte
+          </button>
         </div>
       </div>
     </div>
