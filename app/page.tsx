@@ -453,51 +453,52 @@ return (
     </motion.main>  
 
   {/* Aviso Download*/} 
-<Card className="bg-gradient-to-br from-card to-card/50 border border-border/30 rounded-2xl shadow-2xl shadow-primary/20 p-8 mx-6 text-card-foreground space-y-6 backdrop-blur-sm relative overflow-hidden">
-  {/* Background decoration */}
-  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl"></div>
-  <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-accent/20 to-transparent rounded-full blur-2xl"></div>
-  
-  <div className="relative z-10 space-y-4">
-    <div className="flex items-start gap-4">
-      <div className="p-3 bg-gradient-to-br from-primary to-primary/80 rounded-xl shadow-lg">
-        <svg className="w-8 h-8 text-primary-foreground" fill="currentColor" viewBox="0 0 20 20">
+<div className="flex justify-center items-center min-h-screen p-6">
+  <Card className="bg-[#111827] rounded-3xl p-10 w-full max-w-md text-center space-y-8 animate-scale-in hover:animate-pulse border-0 shadow-2xl shadow-purple-500/20">
+    {/* Icon with purple gradient */}
+    <div className="flex justify-center">
+      <div className="p-6 bg-gradient-to-br from-purple-600 to-purple-800 rounded-full shadow-lg shadow-purple-500/30 animate-fade-in">
+        <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
           <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
         </svg>
       </div>
-      
-      <div className="flex-1 space-y-2">
-        <h2 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-          🚀 Darkz v1.4.0
-        </h2>
-        <p className="text-muted-foreground leading-relaxed">
-          Versão mais completa e poderosa do que o TaskSP. A nova atualização 1.4.0 
-          inclui ferramentas avançadas para maximizar sua produtividade.
-        </p>
-      </div>
     </div>
 
-    <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between pt-2">
-      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-        Versão mais recente • Gratuito
-      </div>
-      
+    {/* Content */}
+    <div className="space-y-4 animate-fade-in">
+      <h2 className="text-3xl font-bold text-purple-400">
+        🚀 Darkz v1.4.0
+      </h2>
+      <p className="text-gray-300 leading-relaxed text-lg">
+        A versão mais completa e poderosa. Ferramentas avançadas para maximizar sua produtividade.
+      </p>
+    </div>
+
+    {/* Status */}
+    <div className="flex justify-center items-center gap-2 text-sm text-gray-400 animate-fade-in">
+      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+      Versão mais recente • Gratuito
+    </div>
+
+    {/* Download Button */}
+    <div className="pt-4">
       <a
         href="https://www.mediafire.com/file/n3laj11fcfwgevu/Darkz_1.4.apk/file"
         target="_blank"
         rel="noopener noreferrer"
+        className="inline-block w-full"
       >
-        <Button className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 transform hover:scale-105">
-          <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+        <Button className="w-full bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 hover:from-purple-500 hover:via-purple-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-2xl shadow-xl shadow-purple-500/30 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/40 animate-fade-in group">
+          <svg className="w-5 h-5 mr-3 group-hover:animate-bounce" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
           </svg>
           Baixar agora
         </Button>
       </a>
     </div>
-  </div>
-</Card>
+  </Card>
+</div>
+
 
 
     {/* Aviso Educacional */}  
