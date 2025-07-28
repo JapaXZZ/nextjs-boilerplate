@@ -6,6 +6,7 @@ import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 interface Script {
 id: number;
