@@ -450,6 +450,28 @@ return (
       })()}  
     </motion.main>  
 
+  {/* Aviso Download*/} 
+<Card className="bg-[#1B1D22] border border-[#2C313A] rounded-3xl shadow-[0_0_30px_#7e22ce40] p-6 w-full text-white space-y-4">
+  <div className="space-y-2">
+    <h2 className="text-2xl font-bold text-purple-400">🚀 Baixe o Darkz v1.4.0</h2>
+    <p className="text-sm text-gray-300">
+      O Darkz é como o TaskSP, só que muito mais completo. A nova versão 1.4.0 traz ainda mais utilidades para o seu dia a dia!
+    </p>
+  </div>
+
+  <div className="flex justify-end">
+    <a
+      href="https://seulink.com/darkz-1.4.0" // substitua pelo link real
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 rounded-xl transition">
+        Baixar agora
+      </Button>
+    </a>
+  </div>
+</Card>
+
     {/* Aviso Educacional */}  
     <div className="w-full max-w-2xl mx-auto p-4">  
       <div  
