@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Card } from "@/components/ui/card";
 
 interface Script {
 id: number;
