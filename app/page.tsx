@@ -453,26 +453,52 @@ return (
     </motion.main>  
 
   {/* Aviso Download*/} 
-<Card className="bg-[#1B1D22] border border-[#2C313A] rounded-3xl shadow-[0_0_30px_#7e22ce40] p-6 w-full text-white space-y-4">
-  <div className="space-y-2">
-    <h2 className="text-2xl font-bold text-purple-400">🚀 Baixe o Darkz v1.4.0</h2>
-    <p className="text-sm text-gray-300">
-      O Darkz é como o TaskSP, só que muito mais completo. A nova versão 1.4.0 traz ainda mais utilidades para o seu dia a dia!
-    </p>
-  </div>
+<Card className="bg-gradient-to-br from-card to-card/50 border border-border/30 rounded-2xl shadow-2xl shadow-primary/20 p-8 mx-6 text-card-foreground space-y-6 backdrop-blur-sm relative overflow-hidden">
+  {/* Background decoration */}
+  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-accent/20 to-transparent rounded-full blur-2xl"></div>
+  
+  <div className="relative z-10 space-y-4">
+    <div className="flex items-start gap-4">
+      <div className="p-3 bg-gradient-to-br from-primary to-primary/80 rounded-xl shadow-lg">
+        <svg className="w-8 h-8 text-primary-foreground" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+        </svg>
+      </div>
+      
+      <div className="flex-1 space-y-2">
+        <h2 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          🚀 Darkz v1.4.0
+        </h2>
+        <p className="text-muted-foreground leading-relaxed">
+          Versão mais completa e poderosa do que o TaskSP. A nova atualização 1.4.0 
+          inclui ferramentas avançadas para maximizar sua produtividade.
+        </p>
+      </div>
+    </div>
 
-  <div className="flex justify-end">
-    <a
-      href="https://seulink.com/darkz-1.4.0" // substitua pelo link real
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 rounded-xl transition">
-        Baixar agora
-      </Button>
-    </a>
+    <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between pt-2">
+      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+        Versão mais recente • Gratuito
+      </div>
+      
+      <a
+        href="https://www.mediafire.com/file/n3laj11fcfwgevu/Darkz_1.4.apk/file"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Button className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 transform hover:scale-105">
+          <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+          Baixar agora
+        </Button>
+      </a>
+    </div>
   </div>
 </Card>
+
 
     {/* Aviso Educacional */}  
     <div className="w-full max-w-2xl mx-auto p-4">  
