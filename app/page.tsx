@@ -216,29 +216,26 @@ return (
         Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.  
       </motion.p>  
 
-      {/* Notificações */}  
-      <div className="w-full max-w-2xl mx-auto p-4">  
-        <div className="bg-gray-900 border-l-4 border-purple-600 text-white p-4 rounded-xl shadow mb-6">  
-          <p className="font-bold text-lg">📢 Notificações</p>  
-          <ul className="list-disc pl-5 mt-2 space-y-1 text-sm">  
-            <li>Os scripts temporariamente indisponíveis serão reativados entre os dias 23/07 e 31/07!</li>  
-          </ul>  
-        </div>  
-      </div>  
-
- <Card className="glass-card p-6 mb-8 hover-glow animate-slide-up">
-          <div className="flex items-start space-x-4">
-            <div className="p-2 rounded-lg bg-yellow-500/20 border border-yellow-500/30">
-              <Bell className="w-5 h-5 text-yellow-400" />
-            </div>
-            <div className="text-left">
-              <h3 className="font-semibold text-yellow-400 mb-2">🔔 Notificações</h3>
-              <p className="text-sm text-muted-foreground">
-                Os scripts temporariamente indisponíveis serão reativados entre os dias 23/07 e 31/07!
-              </p>
-            </div>
-          </div>
-        </Card>
+     
+ {/* Notificações */}  
+  <motion.p  
+        initial={{ opacity: 0, y: 20 }}  
+        animate={{ opacity: 1, y: 0 }}  
+        transition={{ delay: 0.7, duration: 0.3 }}  
+ <Card className="bg-[#111827] p-6 mb-8 rounded-2xl hover-glow animate-slide-up border-0 shadow-none">
+  <div className="flex items-start space-x-4">
+    <div className="p-2 rounded-lg bg-yellow-500/20 border border-yellow-500/30">
+      <Bell className="w-5 h-5 text-yellow-400" />
+    </div>
+    <div className="text-left">
+      <h3 className="font-semibold text-yellow-400 mb-2">Notificações</h3>
+      <p className="text-sm text-muted-foreground">
+        Os scripts temporariamente indisponíveis serão reativados entre os dias 23/07 e 31/07!
+      </p>
+    </div>
+  </div>
+</Card>
+</motion.p>  
 
       {/* Estatísticas */}  
       <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6 select-none" role="region" aria-label="Estatísticas dos scripts">  
