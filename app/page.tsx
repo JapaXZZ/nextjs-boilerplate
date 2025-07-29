@@ -489,20 +489,19 @@ return (
 
     {/* Download Button */}
     <div className="pt-4">
-      <a
-        href="https://www.mediafire.com/file/n3laj11fcfwgevu/Darkz_1.4.apk/file"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block w-full"
-      >
-        <Button className="w-full bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 hover:from-purple-500 hover:via-purple-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-2xl shadow-xl shadow-purple-500/30 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/40 animate-fade-in group">
-          <svg className="w-5 h-5 mr-3 group-hover:animate-bounce" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
-          Baixar agora
-        </Button>
-      </a>
-    </div>
+  <a
+    href="/Darkz_1.4.apk"
+    download
+    className="inline-block w-full"
+  >
+    <Button className="w-full bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 hover:from-purple-500 hover:via-purple-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-2xl shadow-xl shadow-purple-500/30 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/40 animate-fade-in group">
+      <svg className="w-5 h-5 mr-3 group-hover:animate-bounce" fill="currentColor" viewBox="0 0 20 20">
+        <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+      </svg>
+      Baixar agora
+    </Button>
+  </a>
+</div>
   </Card>
 </div>
 
