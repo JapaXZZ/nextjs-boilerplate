@@ -636,7 +636,7 @@ aria-hidden="true"
       </a>  
     </nav>  
    <Link  
-        href=https://saladofuturo.educacao.sp.gov.br/login-alunos" 
+        href="https://saladofuturo.educacao.sp.gov.br/login-alunos" 
         className="px-4 py-2 rounded-lg border border-purple-500 hover:bg-purple-700 hover:text-white transition-colors duration-300"  
         aria-label="Abrir Sala do Futuro"  
       >  
