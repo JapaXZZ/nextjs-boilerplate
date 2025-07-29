@@ -607,43 +607,43 @@ aria-hidden="true"
 </button>
 
 {open && (  
-    <nav  
-      className="absolute top-full right-0 mt-2 w-48 bg-slate-900 border border-purple-700 rounded-lg shadow-lg flex flex-col z-30"  
-      aria-label="Menu móvel"  
+  <nav  
+    className="absolute top-full right-0 mt-2 w-48 bg-slate-900 border border-purple-700 rounded-lg shadow-lg flex flex-col z-30"  
+    aria-label="Menu móvel"  
+  >  
+    <button  
+      onClick={() => {  
+        router.push("/tutoriais");  
+        setOpen(false);  
+      }}  
+      className="px-4 py-3 text-left text-purple-300 hover:bg-purple-700 hover:text-white transition-colors"  
     >  
-      <button  
-        onClick={() => {  
-          router.push("/tutoriais");  
-          setOpen(false);  
-        }}  
-        className="px-4 py-3 text-left text-purple-300 hover:bg-purple-700 hover:text-white transition-colors"  
-      >  
-        Tutoriais  
-      </button>  
-      <Link  
-        href="/conexoes"  
-        onClick={() => setOpen(false)}  
-        className="px-4 py-3 text-purple-300 hover:bg-purple-700 hover:text-white transition-colors"  
-      >  
-        Conexões Wi-Fi  
-      </Link>  
-      <a  
-        href="mailto:darkzsuporte@gmail.com?subject=Suporte TaskSP"  
-        onClick={() => setOpen(false)}  
-        className="px-4 py-3 text-purple-300 hover:bg-purple-700 hover:text-white transition-colors"  
-      >  
-        Contato  
-      </a>  
-    </nav>  
-   <Link  
-        href="https://saladofuturo.educacao.sp.gov.br/login-alunos" 
-        className="px-4 py-2 rounded-lg border border-purple-500 hover:bg-purple-700 hover:text-white transition-colors duration-300"  
-        aria-label="Abrir Sala do Futuro"  
-      >  
-        Sala do Futuro
-      </Link>  
-  )}  
-</>
+      Tutoriais  
+    </button>  
+    <Link  
+      href="/conexoes"  
+      onClick={() => setOpen(false)}  
+      className="px-4 py-3 text-purple-300 hover:bg-purple-700 hover:text-white transition-colors"  
+    >  
+      Conexões Wi-Fi  
+    </Link>  
+    <a  
+      href="mailto:darkzsuporte@gmail.com?subject=Suporte TaskSP"  
+      onClick={() => setOpen(false)}  
+      className="px-4 py-3 text-purple-300 hover:bg-purple-700 hover:text-white transition-colors"  
+    >  
+      Contato  
+    </a>  
+    <Link  
+      href="https://saladofuturo.educacao.sp.gov.br/login-alunos"  
+      onClick={() => setOpen(false)}  
+      className="px-4 py-3 text-purple-300 hover:bg-purple-700 hover:text-white transition-colors"  
+      aria-label="Abrir Sala do Futuro"  
+    >  
+      Sala do Futuro  
+    </Link>  
+  </nav>  
+)}
 
 );
 }
