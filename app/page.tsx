@@ -158,36 +158,40 @@ return (
       </span>  
     </Link>  
 
-    {/* Navegação desktop */}  
-    <nav className="hidden md:flex gap-6 font-semibold text-purple-300">  
-      <button  
-        onClick={() => router.push("/tutoriais")}  
-        className="px-4 py-2 rounded-lg bg-purple-700 hover:bg-purple-600 transition-colors duration-300 shadow-md shadow-purple-600/40"  
-        aria-label="Ir para Tutoriais"  
-      >  
-        Tutoriais  
-      </button>  
-      <Link  
-        href="/conexoes"  
-        className="px-4 py-2 rounded-lg border border-purple-500 hover:bg-purple-700 hover:text-white transition-colors duration-300"  
-        aria-label="Ver conexões Wi-Fi"  
-      >  
-        Conexões Wi-Fi  
-      </Link>  
-      <a  
-        href="mailto:darkzsuporte@gmail.com?subject=Suporte TaskSP"  
-        className="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 transition-colors duration-300 shadow-md shadow-purple-500/40"  
-        aria-label="Contatar suporte via email"  
-      >  
-        Contato  
-      </a>  
-    </nav>  
-  <Link       href="https://saladofuturo.educacao.sp.gov.br/login-alunos"
-        className="px-4 py-2 rounded-lg border border-purple-500 hover:bg-purple-700 hover:text-white transition-colors duration-300"  
-        aria-label="Abrir Sala do Futuro"  
-      >  
-        Sala do Futuro 
-      </Link>  
+   
+  {/* Navegação desktop */}
+  <nav className="hidden md:flex gap-6 font-semibold text-purple-300">
+    <button
+      onClick={() => router.push("/tutoriais")}
+      className="px-4 py-2 rounded-lg bg-purple-700 hover:bg-purple-600 transition-colors duration-300 shadow-md shadow-purple-600/40"
+      aria-label="Ir para Tutoriais"
+    >
+      Tutoriais
+    </button>
+    <Link
+      href="/conexoes"
+      className="px-4 py-2 rounded-lg border border-purple-500 hover:bg-purple-700 hover:text-white transition-colors duration-300"
+      aria-label="Ver conexões Wi-Fi"
+    >
+      Conexões Wi-Fi
+    </Link>
+    <a
+      href="mailto:darkzsuporte@gmail.com?subject=Suporte TaskSP"
+      className="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 transition-colors duration-300 shadow-md shadow-purple-500/40"
+      aria-label="Contatar suporte via email"
+    >
+      Contato
+    </a>
+  </nav>
+
+  <Link
+    href="https://saladofuturo.educacao.sp.gov.br/login-alunos"
+    className="px-4 py-2 rounded-lg border border-purple-500 hover:bg-purple-700 hover:text-white transition-colors duration-300"
+    aria-label="Abrir Sala do Futuro"
+  >
+    Sala do Futuro
+  </Link>
+
 
     {/* Navegação mobile - botão hamburguer */}  
     <MobileMenu router={router} />  
