@@ -366,8 +366,7 @@ return (
                     whileTap={{ scale: 0.97 }}  
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-700 to-purple-600 hover:from-purple-600 hover:to-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/40"  
                     aria-label={`Acessar ${script.title}`}  
-                  >  
-                    <span>↗</span>  
+                  >   
                     Acessar  
                   </motion.a>  
                   <motion.button  
