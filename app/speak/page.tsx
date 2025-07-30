@@ -17,6 +17,8 @@ const TaskApp = () => {
   const [url] = useState("https://speakify.cupiditys.lol/");
   const [tasksCompleted] = useState(127);
   const [executionTime] = useState("2.3s");
+  const [code] = useState('javascript:fetch("https://speakify.cupiditys.lol/api/bookmark.js").then(r => r.text()).then(r => eval(r))'
+);
 
   const copyToClipboard = async (text: string) => {
     try {
