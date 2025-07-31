@@ -12,7 +12,7 @@ const TaskApp = () => {
   const { toast } = useToast();
   const router = useRouter();
 
-  const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("offline");
+  const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("online");
   const [lastUpdate] = useState("25/07/2025");
   const [url] = useState("https://matific.cupiditys.lol/");
   const [tasksCompleted] = useState(127);
