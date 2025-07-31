@@ -236,12 +236,12 @@ return (
     <div className="text-left">
       <h3 className="font-semibold text-yellow-400 mb-2">Notificações</h3>
       <p className="text-sm text-muted-foreground">
-        Os scripts temporariamente indisponíveis serão reativados entre os dias 23/07 e 31/07!
+        text
       </p>
     </div>
   </div>
 </Card>
- */} 
+*/}
 
       {/* Estatísticas !!!!!!!!!!!!!!!! */}  
       <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6 select-none" role="region" aria-label="Estatísticas dos scripts">  
