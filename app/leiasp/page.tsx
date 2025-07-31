@@ -136,16 +136,20 @@ const TaskApp = () => {
   Copiar
 </Button>
 
-{/* "Botão" Arrastar, estilizado como um Button, mas é um div */}
-<div
+<Button
+  variant="glow"
+  size="sm"
   draggable
   onDragStart={(e) => {
     e.dataTransfer.setData("text/plain", code);
+    const img = new Image();
+    img.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==";
+    e.dataTransfer.setDragImage(img, 0, 0);
   }}
-  className="flex-1 border border-purple-700 text-center rounded-md bg-purple-700 text-white px-3 py-1 text-sm cursor-grab hover:bg-purple-800 transition"
+  className="border border-purple-700"
 >
   Arrastar
-</div>
+</Button>
 
 
               </div>
