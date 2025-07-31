@@ -227,7 +227,7 @@ return (
       </motion.p>  
 
      
- {/* Notificações */}  
+ {/* Notificações 
  <Card className="max-w-md mx-auto bg-[#111827] p-6 mb-8 rounded-2xl hover-glow animate-slide-up border-0 shadow-none">
   <div className="flex items-start space-x-4">
     <div className="p-2 rounded-lg bg-yellow-500/20 border border-yellow-500/30">
@@ -241,6 +241,7 @@ return (
     </div>
   </div>
 </Card>
+ */} 
 
       {/* Estatísticas !!!!!!!!!!!!!!!! */}  
       <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6 select-none" role="region" aria-label="Estatísticas dos scripts">  
