@@ -128,41 +128,25 @@ const TaskApp = () => {
               </div>
               <div className="flex gap-2">
                 <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => copyToClipboard(code)}
-                  className="flex-1 border border-purple-700"
-                >
-                  Copiar
-                </Button>
-                <Button
-  variant="glow"
+  variant="outline"
   size="sm"
-  onMouseDown={(e) => {
-    // Cria um elemento invisível para o drag
-    const ghost = document.createElement("div");
-    ghost.style.position = "absolute";
-    ghost.style.top = "-9999px";
-    ghost.style.left = "-9999px";
-    ghost.textContent = code;
-    document.body.appendChild(ghost);
+  onClick={() => copyToClipboard(code)}
+  className="flex-1 border border-purple-700"
+>
+  Copiar
+</Button>
 
-    // Inicia o drag manualmente
-    e.dataTransfer = new DataTransfer();
+{/* "Botão" Arrastar, estilizado como um Button, mas é um div */}
+<div
+  draggable
+  onDragStart={(e) => {
     e.dataTransfer.setData("text/plain", code);
-
-    const dragEvent = new DragEvent("dragstart", {
-      dataTransfer: e.dataTransfer,
-    });
-    ghost.dispatchEvent(dragEvent);
-
-    // Remove o ghost depois
-    setTimeout(() => document.body.removeChild(ghost), 0);
   }}
-  className="border border-purple-700"
+  className="flex-1 border border-purple-700 text-center rounded-md bg-purple-700 text-white px-3 py-1 text-sm cursor-grab hover:bg-purple-800 transition"
 >
   Arrastar
-</Button>
+</div>
+
 
               </div>
             </CardContent>
