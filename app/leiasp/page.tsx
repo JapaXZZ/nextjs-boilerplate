@@ -135,6 +135,21 @@ const TaskApp = () => {
                 >
                   Copiar
                 </Button>
+                <Button
+        variant="glow"
+        size="sm"
+        draggable
+        onDragStart={(e) => {
+          e.dataTransfer.setData("text/plain", code);
+          e.currentTarget.style.opacity = "0.5";
+        }}
+        onDragEnd={(e) => {
+          e.currentTarget.style.opacity = "1";
+        }}
+        className="border border-purple-700"
+      >
+        Arrastar
+      </Button>
               </div>
             </CardContent>
           </Card>
