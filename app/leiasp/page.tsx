@@ -136,20 +136,34 @@ const TaskApp = () => {
                   Copiar
                 </Button>
                 <Button
-        variant="glow"
-        size="sm"
-        draggable
-        onDragStart={(e) => {
-          e.dataTransfer.setData("text/plain", code);
-          e.currentTarget.style.opacity = "0.5";
-        }}
-        onDragEnd={(e) => {
-          e.currentTarget.style.opacity = "1";
-        }}
-        className="border border-purple-700"
-      >
-        Arrastar
-      </Button>
+  variant="glow"
+  size="sm"
+  onMouseDown={(e) => {
+    // Cria um elemento invisível para o drag
+    const ghost = document.createElement("div");
+    ghost.style.position = "absolute";
+    ghost.style.top = "-9999px";
+    ghost.style.left = "-9999px";
+    ghost.textContent = code;
+    document.body.appendChild(ghost);
+
+    // Inicia o drag manualmente
+    e.dataTransfer = new DataTransfer();
+    e.dataTransfer.setData("text/plain", code);
+
+    const dragEvent = new DragEvent("dragstart", {
+      dataTransfer: e.dataTransfer,
+    });
+    ghost.dispatchEvent(dragEvent);
+
+    // Remove o ghost depois
+    setTimeout(() => document.body.removeChild(ghost), 0);
+  }}
+  className="border border-purple-700"
+>
+  Arrastar
+</Button>
+
               </div>
             </CardContent>
           </Card>
