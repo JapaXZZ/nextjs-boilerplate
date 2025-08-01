@@ -38,17 +38,17 @@ export default function Login() {
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="ra" className="text-white font-medium">
-                  RA (Registro Acadêmico)
+                  RA (Registro do Aluno)
                 </Label>
                 <div className="relative">
                   <User className="absolute left-3 top-3 h-4 w-4 text-purple-400" />
                   <Input
                     id="ra"
                     type="text"
-                    placeholder="Ex: 1113949089sp"
+                    placeholder="Digite seu RA"
                     value={ra}
                     onChange={(e) => setRa(e.target.value)}
-                    className="pl-10 bg-[#1f1f2e]/80 border border-purple-700 focus:border-purple-500 focus:ring-purple-500 transition-all duration-200"
+                    className="pl-10 pr-10 bg-black bg-opacity-90 border border-purple-700 focus:border-purple-500 focus:ring-purple-500 text-white transition-all duration-200"
                     required
                   />
                 </div>
@@ -66,7 +66,7 @@ export default function Login() {
                     placeholder="Digite sua senha"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10 pr-10 bg-[#1f1f2e]/80 border border-purple-700 focus:border-purple-500 focus:ring-purple-500 transition-all duration-200"
+                    className="pl-10 pr-10 bg-black bg-opacity-90 border border-purple-700 focus:border-purple-500 focus:ring-purple-500 text-white transition-all duration-200"
                     required
                   />
                   <button
