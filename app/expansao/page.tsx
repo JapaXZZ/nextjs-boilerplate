@@ -154,6 +154,7 @@ const [sinalizadorcode, setSinalizadorcode] = useState<"online" | "offline">("on
 >
   Expansão Arrastar (PC)
 </a>
+      </div>
   </CardContent>
 </Card>
 
