@@ -157,19 +157,6 @@ return (
         TaskSP  
       </span>  
     </Link>  
-
-const LoginButton = () => {
-  const router = useRouter();
-
-  return (
-    <Button
-      onClick={() => router.push("/login")}
-      className="bg-violet-700 hover:bg-violet-800 text-white"
-    >
-      Ir para Login
-    </Button>
-  );
-};
    
   {/* Navegação desktop */}
   <nav className="hidden md:flex gap-6 font-semibold text-purple-300">
@@ -237,6 +224,19 @@ const LoginButton = () => {
       >  
         Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.  
       </motion.p>  
+
+const LoginButton = () => {
+  const router = useRouter();
+
+  return (
+    <Button
+      onClick={() => router.push("/login")}
+      className="bg-violet-700 hover:bg-violet-800 text-white"
+    >
+      Ir para Login
+    </Button>
+  );
+};
 
      
  {/* Notificações */}
