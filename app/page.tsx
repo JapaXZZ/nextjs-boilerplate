@@ -225,19 +225,6 @@ return (
         Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.  
       </motion.p>  
 
-const LoginButton = () => {
-  const router = useRouter();
-
-  return (
-    <button
-      onClick={() => router.push("/login")}
-      className="bg-violet-800 hover:bg-violet-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200"
-    >
-      Ir para Login
-    </button>
-  );
-};
-
      
  {/* Notificações */}
  <Card className="max-w-md mx-auto bg-[#111827] p-6 mb-8 rounded-2xl hover-glow animate-slide-up border-0 shadow-none">
@@ -463,7 +450,7 @@ const LoginButton = () => {
               </p>  
               <div className="flex gap-3">  
                 <motion.a  
-                  href="/apostilas"  
+                  href="/login"  
                   target="_blank"  
                   rel="noopener noreferrer"  
                   whileHover={{ scale: 1.03 }}  
