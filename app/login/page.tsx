@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { User, Lock, LogIn, Eye, EyeOff } from 'lucide-react';
 
-export const Login = () => {
+export default function Login() {
   const [ra, setRa] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -15,7 +15,7 @@ export const Login = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Login attempt:', { ra, password });
-    // Aqui você pode adicionar a lógica de autenticação
+    // Sua lógica aqui
   };
 
   return (
@@ -31,11 +31,9 @@ export const Login = () => {
             <CardTitle className="text-2xl font-bold text-foreground">
               Acesso ao Sistema
             </CardTitle>
-            <CardDescription className="text-muted-foreground">
-              Entre com suas credenciais para acessar
-            </CardDescription>
+            {/* Remova CardDescription se não existir no seu card */}
           </CardHeader>
-          
+
           <form onSubmit={handleSubmit}>
             <CardContent className="space-y-4">
               <div className="space-y-2">
@@ -55,7 +53,7 @@ export const Login = () => {
                   />
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="password" className="text-foreground font-medium">
                   Senha
@@ -81,17 +79,16 @@ export const Login = () => {
                 </div>
               </div>
             </CardContent>
-            
-            <CardFooter>
+
+            {/* Remova CardFooter se não existir no seu card */}
+            <div className="p-4">
               <Button type="submit" className="w-full">
                 Entrar
               </Button>
-            </CardFooter>
+            </div>
           </form>
         </Card>
       </div>
     </div>
   );
-};
-
-export default Login;
+}
