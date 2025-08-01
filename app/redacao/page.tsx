@@ -142,10 +142,8 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
   className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-2 px-4 rounded-lg text-sm inline-block cursor-move select-none"
   title="Arraste para a barra de favoritos"
 >
-  Meu Bookmarklet
+  Redação Arrastar (PC)
 </a>
-
-
               </div>
             </CardContent>
           </Card>
