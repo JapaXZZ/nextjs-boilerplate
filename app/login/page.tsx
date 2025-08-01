@@ -15,64 +15,64 @@ export default function Login() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Login attempt:', { ra, password });
-    // Sua lógica aqui
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+    <div className="min-h-screen flex items-center justify-center bg-black p-4">
       <div className="w-full max-w-md">
-        <Card className="bg-gradient-card border-border shadow-violet backdrop-blur-sm">
+        <Card 
+          className="bg-[#121217] rounded-3xl border border-purple-700 shadow-[0_0_15px_#8b5cf6] backdrop-blur-sm"
+        >
           <CardHeader className="space-y-1 text-center">
             <div className="flex justify-center mb-4">
-              <div className="p-3 rounded-full bg-primary/10 border border-primary/20">
-                <LogIn className="w-8 h-8 text-primary" />
+              <div className="p-3 rounded-full bg-purple-900/30 border border-purple-700">
+                <LogIn className="w-8 h-8 text-purple-400" />
               </div>
             </div>
-            <CardTitle className="text-2xl font-bold text-foreground">
+            <CardTitle className="text-2xl font-bold text-white">
               Acesso ao Sistema
             </CardTitle>
-            {/* Remova CardDescription se não existir no seu card */}
           </CardHeader>
 
           <form onSubmit={handleSubmit}>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="ra" className="text-foreground font-medium">
+                <Label htmlFor="ra" className="text-white font-medium">
                   RA (Registro Acadêmico)
                 </Label>
                 <div className="relative">
-                  <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                  <User className="absolute left-3 top-3 h-4 w-4 text-purple-400" />
                   <Input
                     id="ra"
                     type="text"
                     placeholder="Ex: 1113949089sp"
                     value={ra}
                     onChange={(e) => setRa(e.target.value)}
-                    className="pl-10 bg-input/50 border-border focus:border-primary focus:ring-primary/20 transition-all duration-200"
+                    className="pl-10 bg-[#1f1f2e]/80 border border-purple-700 focus:border-purple-500 focus:ring-purple-500 transition-all duration-200"
                     required
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-foreground font-medium">
+                <Label htmlFor="password" className="text-white font-medium">
                   Senha
                 </Label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                  <Lock className="absolute left-3 top-3 h-4 w-4 text-purple-400" />
                   <Input
                     id="password"
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Digite sua senha"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10 pr-10 bg-input/50 border-border focus:border-primary focus:ring-primary/20 transition-all duration-200"
+                    className="pl-10 pr-10 bg-[#1f1f2e]/80 border border-purple-700 focus:border-purple-500 focus:ring-purple-500 transition-all duration-200"
                     required
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-2.5 text-muted-foreground focus:outline-none"
+                    className="absolute right-3 top-2.5 text-purple-400 focus:outline-none"
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
@@ -80,9 +80,11 @@ export default function Login() {
               </div>
             </CardContent>
 
-            {/* Remova CardFooter se não existir no seu card */}
             <div className="p-4">
-              <Button type="submit" className="w-full">
+              <Button 
+                type="submit" 
+                className="w-full bg-purple-700 hover:bg-purple-800 shadow-[0_0_10px_#8b5cf6] transition"
+              >
                 Entrar
               </Button>
             </div>
