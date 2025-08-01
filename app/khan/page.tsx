@@ -145,20 +145,15 @@ const [sinalizadorcode, setSinalizadorcode] = useState<"online" | "offline">("on
       >
         Copiar
       </Button>
-      <Button
-  variant="glow"
-  size="sm"
+      <a
+  href={`javascript:(function(){${code}})()`}
   draggable
-  onDragStart={(e) => {
-    e.dataTransfer.setData("text/plain", code);
-    const img = new Image();
-    img.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==";
-    e.dataTransfer.setDragImage(img, 0, 0);
-  }}
-  className="border border-purple-700"
+  onClick={(e) => e.preventDefault()}
+  className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-2 px-4 rounded-lg text-sm inline-block cursor-move select-none"
+  title="Arraste para a barra de favoritos"
 >
-  Arrastar
-</Button>
+  Khan Arrastar (PC)
+</a>
     </div>
   </CardContent>
 </Card>
