@@ -123,7 +123,7 @@ alert("Seu navegador não suporta a função de compartilhar.");
 }
 
 function openEmail() {
-window.open("mailto:darkzsuporte@gmail.com?subject=Suporte HideXS", "_blank");
+window.open("mailto:darkzsuporte@gmail.com?subject=Suporte TaskSP", "_blank");
 }
 
 // Para dar foco no input ao abrir (aumentar acessibilidade)
@@ -229,12 +229,12 @@ const LoginButton = () => {
   const router = useRouter();
 
   return (
-    <Button
+    <button
       onClick={() => router.push("/login")}
-      className="bg-violet-700 hover:bg-violet-800 text-white"
+      className="bg-violet-800 hover:bg-violet-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200"
     >
       Ir para Login
-    </Button>
+    </button>
   );
 };
 
