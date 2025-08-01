@@ -140,7 +140,11 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
   size="sm"
   draggable
   onDragStart={(e) => {
-    e.dataTransfer.setData("text/plain", code);
+    const bookmarkletCode = `javascript:(function(){${code}})()`;
+
+    e.dataTransfer.setData("text/uri-list", bookmarkletCode);
+    e.dataTransfer.setData("text/plain", bookmarkletCode);
+
     const img = new Image();
     img.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==";
     e.dataTransfer.setDragImage(img, 0, 0);
@@ -149,6 +153,7 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
 >
   Arrastar
 </Button>
+
               </div>
             </CardContent>
           </Card>
