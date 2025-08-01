@@ -8,6 +8,14 @@ import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Bell } from "lucide-react";
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import { Menu, User } from "lucide-react";
 
 interface Script {
 id: number;
@@ -158,6 +166,43 @@ return (
       </span>  
     </Link>  
 
+const Drawer = () => {
+  const [open, setOpen] = useState(false);
+  const router = useRouter();
+
+  return (
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger asChild>
+        <Button variant="ghost" className="text-violet-400 hover:text-white">
+          <Menu className="w-6 h-6" />
+        </Button>
+      </SheetTrigger>
+
+      <SheetContent
+        side="left"
+        className="bg-[#1a112b] text-white border-none shadow-lg"
+      >
+        <SheetHeader>
+          <SheetTitle className="text-violet-300 text-lg">Menu</SheetTitle>
+        </SheetHeader>
+
+        <div className="mt-6 space-y-4">
+          <Button
+            variant="ghost"
+            className="w-full justify-start text-violet-400 hover:text-white"
+            onClick={() => {
+              setOpen(false);
+              router.push("/login");
+            }}
+          >
+            <User className="mr-2 h-5 w-5" />
+            Conta
+          </Button>
+        </div>
+      </SheetContent>
+    </Sheet>
+  );
+};
    
   {/* Navegação desktop */}
   <nav className="hidden md:flex gap-6 font-semibold text-purple-300">
