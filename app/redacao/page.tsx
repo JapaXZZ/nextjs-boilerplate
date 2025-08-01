@@ -135,37 +135,16 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
                 >
                   Copiar
                 </Button>
-<Button
-  variant="glow"
-  size="sm"
+<a
+  href={`javascript:(function(){${code}})()`}
   draggable
-  onDragStart={(e) => {
-    const title = "Meu Bookmarklet";
-    const bookmarkletCode = `javascript:(function(){${code}})()`;
-
-    const tempLink = document.createElement("a");
-    tempLink.href = bookmarkletCode;
-    tempLink.textContent = title;
-    tempLink.style.position = "absolute";
-    tempLink.style.top = "-9999px";
-    document.body.appendChild(tempLink);
-
-    e.dataTransfer.setData("text/uri-list", bookmarkletCode);
-    e.dataTransfer.setData("text/plain", bookmarkletCode);
-    e.dataTransfer.setData("text/html", tempLink.outerHTML);
-
-    const img = new Image();
-    img.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==";
-    e.dataTransfer.setDragImage(img, 0, 0);
-
-    setTimeout(() => {
-      document.body.removeChild(tempLink);
-    }, 0);
-  }}
-  className="bg-purple-700 hover:bg-purple-800 text-white font-medium py-1 px-4 rounded text-sm"
+  onClick={(e) => e.preventDefault()}
+  className="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-2 px-4 rounded-lg text-sm inline-block cursor-move select-none"
+  title="Arraste para a barra de favoritos"
 >
-  Arrastar
-</Button>
+  Meu Bookmarklet
+</a>
+
 
               </div>
             </CardContent>
