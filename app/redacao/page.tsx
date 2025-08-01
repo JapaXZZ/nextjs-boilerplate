@@ -136,21 +136,24 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
                   Copiar
                 </Button>
              <Button
-               variant="glow"
-               size="sm"
-               draggable
-               onDragStart={(e) => {
-               const bookmarkletCode = `javascript:(function(){${code}})()`;
-               const title = "Redação";
-               e.dataTransfer.setData("text/uri-list", bookmarkletCode);
-               e.dataTransfer.setData("text/plain", bookmarkletCode);
-               e.dataTransfer.setData("text/html", `<a href="${bookmarkletCode}">${title}</a>`);
-               const img = new Image();
-               img.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==";
-               e.dataTransfer.setDragImage(img, 0, 0);
+  variant="glow"
+  size="sm"
+  draggable
+  onDragStart={(e) => {
+    const title = "Meu Bookmarklet";
+    const bookmarkletCode = `javascript:(function(){${code}})()`;
+    const htmlLink = `<a href="${bookmarkletCode}">${title}</a>`;
+
+    e.dataTransfer.setData("text/html", htmlLink);
+    e.dataTransfer.setData("text/uri-list", bookmarkletCode);
+    e.dataTransfer.setData("text/plain", bookmarkletCode);
+
+    const img = new Image();
+    img.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==";
+    e.dataTransfer.setDragImage(img, 0, 0);
   }}
-               className="border border-purple-700"
-                                                   >
+  className="border border-purple-700"
+>
   Arrastar
 </Button>
 
