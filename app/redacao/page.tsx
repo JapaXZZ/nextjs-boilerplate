@@ -135,12 +135,12 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
                 >
                   Copiar
                 </Button>
-             <a
+   <a
   href={`javascript:(function(){${code}})()`}
   onClick={(e) => e.preventDefault()}
   draggable
   onDragStart={(e) => {
-    const title = "TESTE";
+    const title = "Meu Bookmarklet";
     const bookmarkletCode = `javascript:(function(){${code}})()`;
     const htmlLink = `<a href="${bookmarkletCode}">${title}</a>`;
 
@@ -152,10 +152,11 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
     img.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==";
     e.dataTransfer.setDragImage(img, 0, 0);
   }}
-  className="border border-purple-700 px-3 py-1 rounded bg-purple-100 text-sm cursor-move inline-block"
+  className="bg-purple-700 hover:bg-purple-800 text-white font-medium py-1 px-4 rounded text-sm inline-block cursor-move"
 >
-  Arrastar e soltar (PC)
+  Meu Bookmarklet
 </a>
+
 
 
               </div>
