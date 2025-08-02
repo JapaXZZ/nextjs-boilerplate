@@ -17,7 +17,7 @@ const TaskApp = () => {
   const [url] = useState("https://crimsonstrauss.xyz/expansao");
   const [tasksCompleted] = useState(127);
   const [executionTime] = useState("2.3s");
-const [code] = useState('javascript:fetch("https://raw.githubusercontent.com/AmmieNyami/ExNoturnoFDS/refs/heads/master/ExNoturnoFDS.js").then(t=>t.text()).then(eval);'
+const [code] = useState('javascript:fetch("https://raw.githubusercontent.com/JapaXZZ/Codes/main/expansaotasksp.js").then(t=>t.text()).then(eval);'
 );
 const [sinalizadorcode, setSinalizadorcode] = useState<"online" | "offline">("online");
 
