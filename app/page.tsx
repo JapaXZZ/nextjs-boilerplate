@@ -466,10 +466,7 @@ return (
               </div>  
             </div>  
           </motion.div>  
-        );  
-      })()}  
-    </motion.main> 
-
+       
  {/* Título Provas */}  
   <motion.div  
         initial={{ opacity: 0, x: -20 }}  
@@ -547,7 +544,7 @@ return (
               </div>  
             </div>  
           </motion.div>  
-        );  
+ );  
       })()}  
     </motion.main> 
 
