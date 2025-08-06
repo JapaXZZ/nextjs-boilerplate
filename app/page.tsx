@@ -235,7 +235,7 @@ return (
     <div className="text-left">
       <h3 className="font-semibold text-yellow-400 mb-2">Notificações</h3>
       <p className="text-sm text-muted-foreground">
-        Um novo botão de arrastar e soltar para computadores foi adicionado.
+        Fique ligado! Em breve, o script para as provas será disponibilizado.
       </p>
     </div>
   </div>
@@ -245,7 +245,7 @@ return (
       {/* Estatísticas !!!!!!!!!!!!!!!! */}  
       <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6 select-none" role="region" aria-label="Estatísticas dos scripts">  
         <h3 className="text-lg font-semibold text-white mb-1">Estatísticas</h3>  
-        <p className="text-xs text-slate-400 mb-4">Última atualização: 01/08/2025</p>  
+        <p className="text-xs text-slate-400 mb-4">Última atualização: 06/08/2025</p>  
         <div className="h-px bg-slate-700 mb-4" />  
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">  
           <div  
