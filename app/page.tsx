@@ -235,10 +235,10 @@ return (
     <div className="text-left">
       <h3 className="font-semibold text-yellow-400 mb-2">Notificações</h3>
       <p className="text-sm text-muted-foreground">
-        Fique ligado! Em breve, o script para as provas será disponibilizado.
+        • Fique ligado! Em breve, o script para as provas será disponibilizado.
         <br />
         <br />
-        Redação Paulista apresenta instabilidades, por enquanto não utilize.
+        • Redação Paulista apresenta instabilidades, por enquanto não utilize.
       </p>
     </div>
   </div>
