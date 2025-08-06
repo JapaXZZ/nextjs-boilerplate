@@ -514,7 +514,7 @@ return (
               MoonScripts  
             </h3>  
             <span className="inline-block mt-1 px-3 py-1 bg-slate-800 text-indigo-300 text-xs font-medium rounded-full select-none">  
-              Scripts  
+              Web  
             </span>  
           </div>  
           <div  
@@ -526,7 +526,7 @@ return (
           </div>  
         </div>  
         <p className="text-indigo-300 text-sm leading-relaxed mb-6 flex-1 select-text">  
-          Scripts premium e gratuitos para Roblox com suporte ativo.  
+          Web site via login com funções inéditas! 
         </p>  
         <div className="flex gap-3">  
           <motion.a  
