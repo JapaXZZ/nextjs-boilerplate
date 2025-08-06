@@ -628,7 +628,7 @@ const ProvasCard = ({
             aria-label="Status online"
           >
             <div className="w-2 h-2 rounded-full bg-purple-400" />
-            Offline
+            Online
           </div>
         </div>
         <p className="text-purple-300 text-sm leading-relaxed mb-6 flex-1 select-text">
