@@ -549,10 +549,10 @@ return (
 
 
 
-  {/* Aviso Download*/} 
+  {/* Aviso Download 
 <div className="flex flex-col items-center justify-center min-h-screen gap-8 px-4 py-10">
   <Card className="bg-[#111827] rounded-3xl p-10 w-full max-w-md text-center space-y-8 animate-scale-in hover:animate-pulse border-0 shadow-2xl shadow-purple-500/20">
-    {/* Icon with purple gradient */}
+    
     <div className="flex justify-center">
       <div className="p-6 bg-gradient-to-br from-purple-600 to-purple-800 rounded-full shadow-lg shadow-purple-500/30 animate-fade-in">
         <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -561,7 +561,7 @@ return (
       </div>
     </div>
 
-    {/* Content */}
+    
     <div className="space-y-4 animate-fade-in">
       <h2 className="text-3xl font-bold text-purple-400">
         🚀 Darkz v1.4.0
@@ -571,13 +571,12 @@ return (
       </p>
     </div>
 
-    {/* Status */}
+  
     <div className="flex justify-center items-center gap-2 text-sm text-gray-400 animate-fade-in">
       <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
       Versão mais recente • Gratuito
     </div>
 
-    {/* Download Button */}
     <div className="pt-4">
   <a
     href="/Darkz_1.4.apk"
@@ -594,6 +593,7 @@ return (
 </div>
   </Card>
 </div>
+  */}
 
     {/* Aviso Educacional */}  
     <div className="w-full max-w-2xl mx-auto p-4">  
