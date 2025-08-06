@@ -237,6 +237,9 @@ return (
       <p className="text-sm text-muted-foreground">
         Fique ligado! Em breve, o script para as provas será disponibilizado.
       </p>
+ <p className="text-sm text-muted-foreground">
+        Redação Paulista apresenta instabilidades, por enquanto não utilize
+      </p>
     </div>
   </div>
 </Card>
