@@ -83,7 +83,16 @@ online: true,
 url: "/expansao",
 category: "Web/BookMark",
 },
+id: 9,
+title: "Prova Paulista",
+description: "Sistema para automatização das avaliações",
+online: true,
+url: "/prova",
+category: "Web",
+},
 ];
+
+//  <ProvasCard hoveredCard={hoveredCard} setHoveredCard={setHoveredCard} />
 
 const Index = () => {
 const [scripts] = useState(initialScripts);
@@ -466,9 +475,7 @@ return (
           </motion.div>  
             );  
       })()}  
-    </motion.main> 
-
-       <ProvasCard hoveredCard={hoveredCard} setHoveredCard={setHoveredCard} />
+    </motion.main>
  
   {/* Aviso Download 
 <div className="flex flex-col items-center justify-center min-h-screen gap-8 px-4 py-10">
