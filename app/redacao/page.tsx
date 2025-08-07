@@ -13,8 +13,8 @@ const TaskApp = () => {
   const router = useRouter();
 
   const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("online");
-  const [lastUpdate] = useState("31/07/2025");
-  const [url] = useState("https://redacao.moonscripts.cloud/");
+  const [lastUpdate] = useState("06/08/2025");
+  const [url] = useState("https://redacao.cupiditys.lol/");
   const [tasksCompleted] = useState(127);
   const [executionTime] = useState("2.3s");
 const [code] = useState('javascript:function remove_block(){const e=function(e){return e.stopImmediatePropagation(),!0};document.addEventListener("copy",e,!0),document.addEventListener("cut",e,!0),document.addEventListener("paste",e,!0),alert("Bloqueio Removido!")}remove_block();'
