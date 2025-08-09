@@ -478,7 +478,7 @@ return (
       })()}  
     </motion.main>
  
-  {/* Aviso Download 
+  {/* Aviso Download */}
 <div className="flex flex-col items-center justify-center min-h-screen gap-8 px-4 py-10">
   <Card className="bg-[#111827] rounded-3xl p-10 w-full max-w-md text-center space-y-8 animate-scale-in hover:animate-pulse border-0 shadow-2xl shadow-purple-500/20">
     
@@ -493,7 +493,7 @@ return (
     
     <div className="space-y-4 animate-fade-in">
       <h2 className="text-3xl font-bold text-purple-400">
-        🚀 Darkz v1.4.0
+        🚀 TaskSP 1.5
       </h2>
       <p className="text-gray-300 leading-relaxed text-lg">
        Melhor aplicativo para fazer suas tarefas!
@@ -508,7 +508,7 @@ return (
 
     <div className="pt-4">
   <a
-    href="/Darkz_1.4.apk"
+    href="/TaskSP_1.5.apk"
     download
     className="inline-block w-full"
   >
@@ -522,7 +522,6 @@ return (
 </div>
   </Card>
 </div>
-  */}
 
     {/* Aviso Educacional */}  
     <div className="w-full max-w-2xl mx-auto p-4">  
