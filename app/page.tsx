@@ -145,11 +145,7 @@ searchInputRef.current?.focus();
 return (
 <div className="min-h-screen bg-gradient-to-br from-black via-slate-950 to-black text-white overflow-x-hidden font-sans selection:bg-purple-700 selection:text-white">
   {/* Fundo radial */}
-  <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800/20 via-transparent to-transparent" />
-
-  {/* Fundo grid do Uiverse */}
-  <div className="fixed inset-0 bg-black bg-[linear-gradient(0deg,transparent_24%,rgba(114,114,114,0.3)_25%,rgba(114,114,114,0.3)_26%,transparent_27%,transparent_74%,rgba(114,114,114,0.3)_75%,rgba(114,114,114,0.3)_76%,transparent_77%,transparent),linear-gradient(90deg,transparent_24%,rgba(114,114,114,0.3)_25%,rgba(114,114,114,0.3)_26%,transparent_27%,transparent_74%,rgba(114,114,114,0.3)_75%,rgba(114,114,114,0.3)_76%,transparent_77%,transparent)] bg-[size:55px_55px]" />
-</div>
+ <div className="fixed inset-0 bg-black bg-[linear-gradient(0deg,transparent_24%,rgba(114,114,114,0.3)_25%,rgba(114,114,114,0.3)_26%,transparent_27%,transparent_74%,rgba(114,114,114,0.3)_75%,rgba(114,114,114,0.3)_76%,transparent_77%,transparent),linear-gradient(90deg,transparent_24%,rgba(114,114,114,0.3)_25%,rgba(114,114,114,0.3)_26%,transparent_27%,transparent_74%,rgba(114,114,114,0.3)_75%,rgba(114,114,114,0.3)_76%,transparent_77%,transparent)] bg-[size:55px_55px]" />
 
 {/* Cabeçalho fixo */}  
   <header className="fixed top-0 left-0 right-0 z-20 backdrop-blur-md bg-black/60 border-b border-purple-800/40 max-w-7xl mx-auto flex justify-between items-center px-6 py-3">  
