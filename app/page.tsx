@@ -236,7 +236,7 @@ return (
 
      
  {/* Notificações */}
-<Card className="max-w-md mx-auto bg-[#141414] p-6 mb-8 rounded-2xl hover-glow animate-slide-up border-0 shadow-none">
+<Card className="max-w-md mx-auto bg-[#111827] p-6 mb-8 rounded-2xl hover-glow animate-slide-up border-0 shadow-none">
   <div className="flex items-start space-x-4">
     <div className="p-2 rounded-lg bg-yellow-500/20 border border-yellow-500/30">
       <Bell className="w-5 h-5 text-yellow-400" />
@@ -255,7 +255,7 @@ return (
       {/* Estatísticas !!!!!!!!!!!!!!!! */}  
 <div
   className="max-w-md mx-auto border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6 select-none"
-  style={{ backgroundColor: '#141414' }}
+  style={{ backgroundColor: '#111827' }}
   role="region"
   aria-label="Estatísticas dos scripts"
 >
