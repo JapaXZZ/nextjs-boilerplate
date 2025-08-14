@@ -193,7 +193,7 @@ return (
   </nav>
 
   <Link
-    href="https://saladofuturo.educacao.sp.gov.br/login-alunos"
+    href="https://saladofuturo.educacao.sp.gov.br/"
     className="px-4 py-2 rounded-lg border border-green-500 hover:bg-green-700 hover:text-white transition-colors duration-300"
     aria-label="Abrir Sala do Futuro"
   >
@@ -231,12 +231,12 @@ return (
         transition={{ delay: 0.7, duration: 0.3 }}  
         className="text-lg md:text-xl text-green-300 max-w-3xl mx-auto leading-relaxed mb-10"  
       >  
-        Um conjunto de recursos avançados para aprimorar sua vivência no Sala do Futuro.  
+        Um atalho para tudo oque você precisar!  
       </motion.p>  
 
      
  {/* Notificações */}
-<Card className="max-w-md mx-auto bg-[#111827] p-6 mb-8 rounded-2xl hover-glow animate-slide-up border-0 shadow-none">
+<Card className="max-w-md mx-auto bg-[#141414] p-6 mb-8 rounded-2xl hover-glow animate-slide-up border-0 shadow-none">
   <div className="flex items-start space-x-4">
     <div className="p-2 rounded-lg bg-yellow-500/20 border border-yellow-500/30">
       <Bell className="w-5 h-5 text-yellow-400" />
@@ -253,34 +253,39 @@ return (
 
 
       {/* Estatísticas !!!!!!!!!!!!!!!! */}  
-      <div className="max-w-md mx-auto bg-slate-900/80 border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6 select-none" role="region" aria-label="Estatísticas dos scripts">  
-        <h3 className="text-lg font-semibold text-white mb-1">Estatísticas</h3>  
-        <p className="text-xs text-slate-400 mb-4">Última atualização: 14/08/2025</p>  
-        <div className="h-px bg-slate-700 mb-4" />  
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">  
-          <div  
-            className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3"  
-            aria-label={`Total de scripts: ${stats.total}`}  
-          >  
-            <span className="text-white text-sm">Total</span>  
-            <span className="text-2xl font-bold text-green-400 font-mono">{stats.total}</span>  
-          </div>  
-          <div  
-            className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3"  
-            aria-label={`Scripts online: ${stats.online}`}  
-          >  
-            <span className="text-white text-sm">Online</span>  
-            <span className="text-2xl font-bold text-green-400 font-mono">{stats.online}</span>  
-          </div>  
-          <div  
-            className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3"  
-            aria-label={`Scripts offline: ${stats.offline}`}  
-          >  
-            <span className="text-white text-sm">Offline</span>  
-            <span className="text-2xl font-bold text-red-400 font-mono">{stats.offline}</span>  
-          </div>  
-        </div>  
-      </div>  
+<div
+  className="max-w-md mx-auto border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6 select-none"
+  style={{ backgroundColor: '#141414' }}
+  role="region"
+  aria-label="Estatísticas dos scripts"
+>
+  <h3 className="text-lg font-semibold text-white mb-1">Estatísticas</h3>
+  <p className="text-xs text-slate-400 mb-4">Última atualização: 14/08/2025</p>
+  <div className="h-px bg-slate-700 mb-4" />
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <div
+      className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3"
+      aria-label={`Total de scripts: ${stats.total}`}
+    >
+      <span className="text-white text-sm">TOTAL</span>
+      <span className="text-2xl font-bold text-green-400 font-mono">{stats.total}</span>
+    </div>
+    <div
+      className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3"
+      aria-label={`Scripts online: ${stats.online}`}
+    >
+      <span className="text-white text-sm">ONLINE</span>
+      <span className="text-2xl font-bold text-green-400 font-mono">{stats.online}</span>
+    </div>
+    <div
+      className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3"
+      aria-label={`Scripts offline: ${stats.offline}`}
+    >
+      <span className="text-white text-sm">OFFLINE</span>
+      <span className="text-2xl font-bold text-red-400 font-mono">{stats.offline}</span>
+    </div>
+  </div>
+</div> 
     </div>  
   </motion.header>   
 
@@ -715,7 +720,7 @@ aria-hidden="true"
       Contato  
     </a>  
     <Link  
-      href="https://saladofuturo.educacao.sp.gov.br/login-alunos"  
+      href="https://saladofuturo.educacao.sp.gov.br/"  
       onClick={() => setOpen(false)}  
       className="px-4 py-3 text-green-300 hover:bg-green-700 hover:text-white transition-colors"  
       aria-label="Abrir Sala do Futuro"  
