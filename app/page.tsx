@@ -143,7 +143,7 @@ searchInputRef.current?.focus();
 }, []);
 
 return (
-<div className="min-h-screen bg-gradient-to-br from-black via-slate-950 to-black text-white overflow-x-hidden font-sans selection:bg-purple-700 selection:text-white">
+<div className="min-h-screen bg-gradient-to-br from-black via-[#0b0b0b] to-black text-white">
   {/* Fundo radial */}
 <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
 
@@ -153,7 +153,7 @@ return (
     <Link href="/" aria-label="Página inicial TaskSP" className="flex items-center gap-2 select-none">  
       <svg  
         xmlns="http://www.w3.org/2000/svg"  
-        className="h-8 w-8 text-purple-500"  
+        className="h-8 w-8 text-green-500"  
         fill="none"  
         viewBox="0 0 24 24"  
         stroke="currentColor"  
@@ -171,14 +171,14 @@ return (
   <nav className="hidden md:flex gap-6 font-semibold text-purple-300">
     <button
       onClick={() => router.push("/tutoriais")}
-      className="px-4 py-2 rounded-lg bg-purple-700 hover:bg-purple-600 transition-colors duration-300 shadow-md shadow-purple-600/40"
+      className="px-4 py-2 rounded-lg bg-green-700 hover:bg-green-600 transition-colors duration-300 shadow-md shadow-green-600/40"
       aria-label="Ir para Tutoriais"
     >
       Tutoriais
     </button>
     <Link
       href="/conexoes"
-      className="px-4 py-2 rounded-lg border border-purple-500 hover:bg-purple-700 hover:text-white transition-colors duration-300"
+      className="px-4 py-2 rounded-lg border border-green-500 hover:bg-green-700 hover:text-white transition-colors duration-300"
       aria-label="Ver conexões Wi-Fi"
     >
       Conexões Wi-Fi
