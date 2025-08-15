@@ -266,8 +266,8 @@ return (
   role="region"
   aria-label="Estatísticas dos scripts"
 >
-  <h3 className="text-lg font-semibold text-white mb-1">Estatísticas</h3>
-  <p className="text-xs text-slate-400 mb-4">Última atualização: 15/08/2025</p>
+  <h3 className="text-2x1 font-semibold text-white mb-1">Estatísticas</h3>
+  <p className="text-lg text-slate-400 mb-4">Última atualização: 15/08/2025</p>
   <div className="h-px bg-slate-700 mb-4" />
   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
     <div
