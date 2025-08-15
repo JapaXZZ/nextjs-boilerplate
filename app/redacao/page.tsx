@@ -65,7 +65,7 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-green-600 via-green-800 to-green-900 rounded-3xl blur-xl opacity-20 animate-pulse"></div>
               <div>
-                <h1 className="text-2xl font-bold text-white select-none">
+                <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-green-400 via-green-300 to-green-500 bg-clip-text text-transparent select-none">
                   Redação SP
                 </h1>
                 <div className="h-1 w-20 bg-green-700 rounded-full mx-auto mt-2"></div>
