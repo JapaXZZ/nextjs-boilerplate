@@ -91,6 +91,14 @@ online: false,
 url: "/prova",
 category: "Web",
 },
+{
+id: 10,
+title: "Educação Profissional",
+description: "Específico para a plataforma Educação Profissional",
+online: true,
+url: "/educacaoprofissional",
+category: "Web",
+},
 ];
 
 //  <ProvasCard hoveredCard={hoveredCard} setHoveredCard={setHoveredCard} />
