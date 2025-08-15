@@ -249,12 +249,12 @@ return (
     <div className="p-2 rounded-lg bg-yellow-500/20 border border-yellow-500/30">
       <Bell className="w-5 h-5 text-yellow-400" />
     </div>
-    <div className="text-left">
+    <div className="text-center">
       <h3 className="font-semibold text-yellow-400 mb-2">Notificações</h3>
-      <p className="text-sm text-muted-foreground">
-        • Automatização de provas estará disponivel apenas em dias selecionados de avaliações!
-        <br />
-      </p>
+      <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+        <span>• Automatização de provas estará disponível apenas em dias selecionados de avaliações!</span>
+        <span>• Novo script! Educação Profissional, acesse já!</span>
+      </div>
     </div>
   </div>
 </Card>
@@ -268,7 +268,7 @@ return (
   aria-label="Estatísticas dos scripts"
 >
   <h3 className="text-lg font-semibold text-white mb-1">Estatísticas</h3>
-  <p className="text-xs text-slate-400 mb-4">Última atualização: 14/08/2025</p>
+  <p className="text-xs text-slate-400 mb-4">Última atualização: 15/08/2025</p>
   <div className="h-px bg-slate-700 mb-4" />
   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
     <div
