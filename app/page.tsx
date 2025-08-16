@@ -428,7 +428,7 @@ return (
         <div className="flex-1 h-px bg-gradient-to-r from-green-700 to-transparent" />  
       </motion.div>  
 
-       Card Apostilas com animação ao rolar
+       
       {(() => {  
         const ref = useRef(null);  
         const isInView = useInView(ref, { once: true });  
