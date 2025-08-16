@@ -13,8 +13,9 @@ const TaskApp = () => {
   const router = useRouter();
 
   const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("online");
-  const [lastUpdate] = useState("14/08/2025");
+  const [lastUpdate] = useState("16/08/2025");
   const [url] = useState("https://redacao.cupiditys.lol/");
+const [url2] = useState("https://cheetus.bishacks.site/");
   const [tasksCompleted] = useState(127);
   const [executionTime] = useState("2.3s");
 const [code] = useState('javascript:function remove_block(){const e=function(e){return e.stopImmediatePropagation(),!0};document.addEventListener("copy",e,!0),document.addEventListener("cut",e,!0),document.addEventListener("paste",e,!0),alert("Bloqueio Removido!")}remove_block();'
@@ -39,6 +40,10 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
 
   const openUrl = () => {
     window.open(url, "_blank");
+  };
+
+  const openUrl2 = () => {
+    window.open(url2, "_blank");
   };
 
   return (
@@ -104,6 +109,38 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
                   Copiar
                 </Button>
                 <Button variant="glow" size="sm" onClick={openUrl} className="flex-1">
+                  Abrir
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+ {/* Card URL2 */}
+          <Card
+            style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
+            className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-green-900/50 border"
+          >
+            <CardHeader className="pb-3">
+              <CardTitle className="text-lg text-white flex items-center gap-2">
+                URL
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="flex items-center gap-2 p-3 bg-slate-800 rounded-md border border-green-700">
+                <code className="flex-1 text-green-300 text-sm font-mono break-all">
+                  {url2}
+                </code>
+              </div>
+              <div className="flex gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => copyToClipboard(url2)}
+                  className="flex-1 border border-green-700"
+                >
+                  Copiar
+                </Button>
+                <Button variant="glow" size="sm" onClick={openUrl2} className="flex-1">
                   Abrir
                 </Button>
               </div>
