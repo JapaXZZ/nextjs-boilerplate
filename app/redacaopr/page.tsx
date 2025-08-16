@@ -17,6 +17,8 @@ const TaskApp = () => {
   const [url] = useState("https://crimsonstrauss.xyz/redacaopr");
   const [tasksCompleted] = useState(127);
   const [executionTime] = useState("2.3s");
+const [code] = useState('javascript:fetch('https://raw.githubusercontent.com/CrimsonStrauss/Scripts/refs/heads/main/redacaopr.js').then(t=>t.text()).then(eval)'
+);
 
   const copyToClipboard = async (text: string) => {
     try {
@@ -107,6 +109,53 @@ const TaskApp = () => {
               </div>
             </CardContent>
           </Card>
+
+{/* Card Code */}
+  <Card
+  style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
+  className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-green-900/50 border"
+>
+  <CardHeader className="pb-3">
+    <CardTitle className="text-lg text-white flex items-center justify-between">
+      <span>Código do script</span>
+     <Badge
+  className={`px-3 py-1 ${
+    sinalizadorcode === "offline"
+      ? "bg-red-600 text-white"
+      : "bg-green-600 text-white"
+  }`}
+>
+  {sinalizadorcode}
+</Badge>
+    </CardTitle>
+  </CardHeader>
+  <CardContent className="space-y-3">
+    <div className="flex items-center gap-2 p-3 bg-slate-800 rounded-md border border-green-700">
+      <code className="flex-1 text-green-300 text-sm font-mono break-all">
+        {code}
+      </code>
+    </div>
+    <div className="flex gap-2">
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={() => copyToClipboard(code)}
+        className="flex-1 border border-green-700"
+      >
+        Copiar
+      </Button>
+      <a
+  href={`javascript:(function(){${code}})()`}
+  draggable
+  onClick={(e) => e.preventDefault()}
+  className="bg-green-700 hover:bg-green-800 text-white font-semibold py-2 px-4 rounded-lg text-sm inline-block cursor-move select-none"
+  title="Arraste para a barra de favoritos"
+>
+  Redação PR Arrastar (PC)
+</a>
+    </div>
+  </CardContent>
+</Card>
 
           {/* Card Informações */}
           <Card
