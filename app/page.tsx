@@ -99,6 +99,14 @@ online: true,
 url: "/educacaoprofissional",
 category: "Web",
 },
+{
+id: 11,
+title: "Redação Paraná",
+description: "Automatizar a criação de redações para o sistema Paranaense.",
+online: true,
+url: "/redacaopr",
+category: "Web",
+},
 ];
 
 //  <ProvasCard hoveredCard={hoveredCard} setHoveredCard={setHoveredCard} />
