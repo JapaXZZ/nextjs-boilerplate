@@ -480,12 +480,12 @@ return (
               </p>  
               <div className="flex gap-3">  
                 <motion.a  
-                  href="/apostilas"  
+                  href="https://apostiladestroyer.netlify.app/"  
                   target="_blank"  
                   rel="noopener noreferrer"  
                   whileHover={{ scale: 1.03 }}  
                   whileTap={{ scale: 0.97 }}  
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-green-700 to-green-600 hover:from-purple-600 hover:to-green-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-green-600/40"  
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-green-700 to-green-600 hover:from-green-600 hover:to-green-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-green-600/40"  
                   aria-label="Acessar apostilas"  
                 >  
                   <span>↗</span>  
