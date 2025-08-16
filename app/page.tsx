@@ -105,7 +105,7 @@ title: "Redação Paraná",
 description: "Automatizar a criação de redações para o sistema Paranaense.",
 online: true,
 url: "/redacaopr",
-category: "Web",
+category: "Web/BookMark",
 },
 ];
 
