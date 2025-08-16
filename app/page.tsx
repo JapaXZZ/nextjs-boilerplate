@@ -416,6 +416,84 @@ return (
       </div>  
     )}  
 
+{/* Título Apostilas */}
+<motion.div  
+        initial={{ opacity: 0, x: -20 }}  
+        animate={{ opacity: 1, x: 0 }}  
+        transition={{ delay: 0.3, duration: 0.6 }}  
+        className="col-span-full flex items-center gap-3 mt-12 mb-6"  
+      >  
+        <span className="text-green-400 text-xl" aria-hidden="true">📘</span>  
+        <h2 className="text-2xl font-bold text-green-400 select-none">Apostilas Disponíveis</h2>  
+        <div className="flex-1 h-px bg-gradient-to-r from-green-700 to-transparent" />  
+      </motion.div>  
+
+       Card Apostilas com animação ao rolar
+      {(() => {  
+        const ref = useRef(null);  
+        const isInView = useInView(ref, { once: true });  
+
+        return (  
+          <motion.div  
+            ref={ref}  
+            initial={{ opacity: 0, y: 30 }}  
+            animate={isInView ? { opacity: 1, y: 0 } : {}}  
+            transition={{ duration: 0.6, ease: "easeOut" }}  
+            whileHover={{  
+              y: -8,  
+              transition: { type: "spring", stiffness: 300, damping: 20 },  
+            }}  
+            className="group relative max-w-md mx-auto"  
+          >  
+            <div  
+              className={cn(  
+                "absolute -inset-0.5 bg-gradient-to-r from-green-500 to-green-700 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",  
+                hoveredCard === -1 && "opacity-40"  
+              )}  
+              aria-hidden="true"  
+            />  
+            <div  
+              onMouseEnter={() => setHoveredCard(-1)}  
+              onMouseLeave={() => setHoveredCard(null)}  
+              style={{ backgroundColor: "#111827", borderColor: "#2C313A" }}  
+              className="backdrop-blur-md rounded-3xl p-6 h-full flex flex-col shadow-lg shadow-green-900/50 border"  
+            >  
+              <div className="flex items-start justify-between mb-4">  
+                <div className="flex-1">  
+                  <h3 className="text-xl font-extrabold text-white group-hover:text-green-400 transition-colors duration-300 select-none">  
+                    Apostilas  
+                  </h3>  
+                  <span className="inline-block mt-1 px-3 py-1 bg-slate-800 text-green-300 text-xs font-medium rounded-full select-none">  
+                    Material  
+                  </span>  
+                </div>  
+                <div  
+                  className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none bg-green-500/30 text-green-400 border border-green-500/40"  
+                  aria-label="Status online"  
+                >  
+                  <div className="w-2 h-2 rounded-full bg-green-400" />  
+                  Online  
+                </div>  
+              </div>  
+              <p className="text-green-300 text-sm leading-relaxed mb-6 flex-1 select-text">  
+                Material completo com gabarito de todas as séries.  
+              </p>  
+              <div className="flex gap-3">  
+                <motion.a  
+                  href="/apostilas"  
+                  target="_blank"  
+                  rel="noopener noreferrer"  
+                  whileHover={{ scale: 1.03 }}  
+                  whileTap={{ scale: 0.97 }}  
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-green-700 to-green-600 hover:from-purple-600 hover:to-green-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-green-600/40"  
+                  aria-label="Acessar apostilas"  
+                >  
+                  <span>↗</span>  
+                  Acessar  
+                </motion.a>  
+              </div>  
+            </div>  
+          </motion.div>  
         );  
       })()}  
     </motion.main>  
