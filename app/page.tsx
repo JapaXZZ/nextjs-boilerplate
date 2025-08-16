@@ -594,6 +594,7 @@ const ProvasCard = ({
     </motion.div>
   );
 };
+</div>
 
 export default Index;
 
