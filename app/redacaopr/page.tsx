@@ -17,7 +17,7 @@ const TaskApp = () => {
   const [url] = useState("https://crimsonstrauss.xyz/redacaopr");
   const [tasksCompleted] = useState(127);
   const [executionTime] = useState("2.3s");
-const [code] = useState('javascript:fetch('https://raw.githubusercontent.com/CrimsonStrauss/Scripts/refs/heads/main/redacaopr.js').then(t=>t.text()).then(eval)'
+const [code] = useState("javascript:fetch('https://raw.githubusercontent.com/CrimsonStrauss/Scripts/refs/heads/main/redacaopr.js').then(t => t.text()).then(eval)"
 );
 
   const copyToClipboard = async (text: string) => {
