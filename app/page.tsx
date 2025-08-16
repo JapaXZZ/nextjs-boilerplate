@@ -107,14 +107,6 @@ online: true,
 url: "/redacaopr",
 category: "Web/BookMark",
 },
-{
-id: 12,
-title: "Apostilas",
-description: "Livro do Estudante",
-online: true,
-url: "https://apostiladestroyer.netlify.app/",
-category: "Web",
-},
 ];
 
 //  <ProvasCard hoveredCard={hoveredCard} setHoveredCard={setHoveredCard} />
