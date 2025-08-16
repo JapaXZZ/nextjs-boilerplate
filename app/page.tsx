@@ -423,7 +423,90 @@ return (
         })}  
       </div>  
     )}  
- 
+
+    {/* Título Apostilas
+  <motion.div  
+        initial={{ opacity: 0, x: -20 }}  
+        animate={{ opacity: 1, x: 0 }}  
+        transition={{ delay: 0.3, duration: 0.6 }}  
+        className="col-span-full flex items-center gap-3 mt-12 mb-6"  
+      >  
+        <span className="text-purple-400 text-xl" aria-hidden="true">📘</span>  
+        <h2 className="text-2xl font-bold text-purple-400 select-none">Apostilas Disponíveis</h2>  
+        <div className="flex-1 h-px bg-gradient-to-r from-purple-700 to-transparent" />  
+      </motion.div>  
+
+       Card Apostilas com animação ao rolar
+      {(() => {  
+        const ref = useRef(null);  
+        const isInView = useInView(ref, { once: true });  
+
+        return (  
+          <motion.div  
+            ref={ref}  
+            initial={{ opacity: 0, y: 30 }}  
+            animate={isInView ? { opacity: 1, y: 0 } : {}}  
+            transition={{ duration: 0.6, ease: "easeOut" }}  
+            whileHover={{  
+              y: -8,  
+              transition: { type: "spring", stiffness: 300, damping: 20 },  
+            }}  
+            className="group relative max-w-md mx-auto"  
+          >  
+            <div  
+              className={cn(  
+                "absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-purple-700 rounded-2xl opacity-0 blur-xl transition-opacity duration-500",  
+                hoveredCard === -1 && "opacity-40"  
+              )}  
+              aria-hidden="true"  
+            />  
+            <div  
+              onMouseEnter={() => setHoveredCard(-1)}  
+              onMouseLeave={() => setHoveredCard(null)}  
+              style={{ backgroundColor: "#111827", borderColor: "#2C313A" }}  
+              className="backdrop-blur-md rounded-3xl p-6 h-full flex flex-col shadow-lg shadow-purple-900/50 border"  
+            >  
+              <div className="flex items-start justify-between mb-4">  
+                <div className="flex-1">  
+                  <h3 className="text-xl font-extrabold text-white group-hover:text-purple-400 transition-colors duration-300 select-none">  
+                    Apostilas  
+                  </h3>  
+                  <span className="inline-block mt-1 px-3 py-1 bg-slate-800 text-purple-300 text-xs font-medium rounded-full select-none">  
+                    Material  
+                  </span>  
+                </div>  
+                <div  
+                  className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none bg-purple-500/30 text-purple-400 border border-purple-500/40"  
+                  aria-label="Status online"  
+                >  
+                  <div className="w-2 h-2 rounded-full bg-purple-400" />  
+                  Online  
+                </div>  
+              </div>  
+              <p className="text-purple-300 text-sm leading-relaxed mb-6 flex-1 select-text">  
+                Material completo com gabarito de todas as séries.  
+              </p>  
+              <div className="flex gap-3">  
+                <motion.a  
+                  href="/apostilas"  
+                  target="_blank"  
+                  rel="noopener noreferrer"  
+                  whileHover={{ scale: 1.03 }}  
+                  whileTap={{ scale: 0.97 }}  
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-700 to-purple-600 hover:from-purple-600 hover:to-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/40"  
+                  aria-label="Acessar apostilas"  
+                >  
+                  <span>↗</span>  
+                  Acessar  
+                </motion.a>  
+              </div>  
+            </div>  
+          </motion.div>  
+        );  
+      })()}  
+    </motion.main>  
+ */}
+
   {/* Aviso Download */}
 <div className="flex flex-col items-center justify-center min-h-screen gap-8 px-4 py-10">
   <Card className="bg-[#111827] rounded-3xl p-10 w-full max-w-md text-center space-y-8 animate-scale-in hover:animate-pulse border-0 shadow-2xl shadow-green-500/20">
