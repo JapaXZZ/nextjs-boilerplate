@@ -260,7 +260,7 @@ return (
 
      
 {/* Notificações */}
-<Card className="max-w-md mx-auto bg-[#111827] p-6 mb-8 rounded-2xl hover-glow animate-slide-up border-0 shadow-none">
+<Card className="max-w-md mx-auto bg-[#0F0F11] p-6 mb-8 rounded-2xl hover-glow animate-slide-up border-0 shadow-none">
   <div className="flex items-start space-x-4">
     <div className="p-2 rounded-lg bg-yellow-500/20 border border-yellow-500/30">
       <Bell className="w-5 h-5 text-yellow-400" />
@@ -275,10 +275,10 @@ return (
   </div>
 </Card>
 
-      {/* Estatísticas !!!!!!!!!!!!!!!! */}  
+    {/* Estatísticas !!!!!!!!!!!!!!!! */}  
 <div
   className="max-w-md mx-auto border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6 select-none"
-  style={{ backgroundColor: '#111827' }}
+  style={{ backgroundColor: '#0F0F11' }}
   role="region"
   aria-label="Estatísticas dos scripts"
 >
@@ -287,21 +287,21 @@ return (
   <div className="h-px bg-slate-700 mb-4" />
   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
     <div
-      className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3"
+      className="flex flex-col items-center bg-[#171717] rounded-lg p-3"
       aria-label={`Total de scripts: ${stats.total}`}
     >
       <span className="text-white text-sm">TOTAL</span>
       <span className="text-2xl font-bold text-green-400 font-mono">{stats.total}</span>
     </div>
     <div
-      className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3"
+      className="flex flex-col items-center bg-[#171717] rounded-lg p-3"
       aria-label={`Scripts online: ${stats.online}`}
     >
       <span className="text-white text-sm">ONLINE</span>
       <span className="text-2xl font-bold text-green-400 font-mono">{stats.online}</span>
     </div>
     <div
-      className="flex flex-col items-center bg-slate-800/60 rounded-lg p-3"
+      className="flex flex-col items-center bg-[#171717] rounded-lg p-3"
       aria-label={`Scripts offline: ${stats.offline}`}
     >
       <span className="text-white text-sm">OFFLINE</span>
@@ -310,7 +310,7 @@ return (
   </div>
 </div> 
     </div>  
-  </motion.header>   
+  </motion.header>
 
   {/* Main content */}  
   <motion.main initial="hidden" animate="visible" className="relative z-10 px-4 pb-20 max-w-7xl mx-auto">  
@@ -363,7 +363,7 @@ return (
                 aria-hidden="true"  
               />  
               <div  
-                style={{ backgroundColor: "#111827", borderColor: "#2C313A" }}  
+                style={{ backgroundColor: "#0F0F11", borderColor: "#212121" }}  
                 className="backdrop-blur-md rounded-3xl p-6 h-full flex flex-col shadow-lg shadow-green-900/50 border"  
               >  
                 <div className="flex items-start justify-between mb-4">  
@@ -463,7 +463,7 @@ return (
             <div  
               onMouseEnter={() => setHoveredCard(-1)}  
               onMouseLeave={() => setHoveredCard(null)}  
-              style={{ backgroundColor: "#111827", borderColor: "#2C313A" }}  
+              style={{ backgroundColor: "#0F0F11", borderColor: "#212121" }}  
               className="backdrop-blur-md rounded-3xl p-6 h-full flex flex-col shadow-lg shadow-green-900/50 border"  
             >  
               <div className="flex items-start justify-between mb-4">  
@@ -496,7 +496,6 @@ return (
                   className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-green-700 to-green-600 hover:from-green-600 hover:to-green-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-green-600/40"  
                   aria-label="Acessar apostilas"  
                 >  
-                  <span>↗</span>  
                   Acessar  
                 </motion.a>  
               </div>  
