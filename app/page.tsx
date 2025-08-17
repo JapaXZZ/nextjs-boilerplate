@@ -37,7 +37,7 @@ category: "Web",
 },
 {
 id: 3,
-title: "Khanware v3.1.1",
+title: "Khanware v3.1.2",
 description: "Script completo para automação da plataforma Khan Academy",
 online: true,
 url: "/khan",
