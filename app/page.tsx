@@ -407,15 +407,17 @@ return (
                   >   
                     Acessar  
                   </motion.a>  
-                  <motion.button  
-                    onClick={() => handleShare(script)}  
-                    whileHover={{ scale: 1.03 }}  
-                    whileTap={{ scale: 0.97 }}  
-                    className="px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-xl transition-all duration-300 shadow-md shadow-black/40"  
-                    aria-label={`Compartilhar ${script.title}`}  
-                  >  
-                    <span>📤</span>  
-                  </motion.button>  
+                <motion.button  
+  onClick={() => handleShare(script)}  
+  whileHover={{ scale: 1.03 }}  
+  whileTap={{ scale: 0.97 }}  
+  className="px-4 py-3 bg-[#171717] hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-xl transition-all duration-300 shadow-md shadow-black/40"  
+  aria-label={`Compartilhar ${script.title}`}  
+>  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">  
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 12v.01M12 4v.01M20 12v.01M12 20v.01M7.757 7.757l8.486 8.486M7.757 16.243l8.486-8.486" />  
+  </svg>  
+</motion.button>
                 </div>  
               </div>  
             </motion.div>  
