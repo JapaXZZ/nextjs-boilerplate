@@ -67,7 +67,7 @@ const [sinalizadorcode, setSinalizadorcode] = useState<"online" | "offline">("on
               <div className="absolute inset-0 bg-gradient-to-r from-green-600 via-green-800 to-green-900 rounded-3xl blur-xl opacity-20 animate-pulse"></div>
               <div>
                 <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-green-400 via-green-300 to-green-500 bg-clip-text text-transparent select-none">
-                  Khanware v3.1.2
+                  Khan Academy
                 </h1>
                 <div className="h-1 w-20 bg-green-700 rounded-full mx-auto mt-2"></div>
               </div>
@@ -76,7 +76,7 @@ const [sinalizadorcode, setSinalizadorcode] = useState<"online" | "offline">("on
 
           {/* Subtítulo centralizado */}
           <p className="text-center text-muted-foreground text-lg font-medium">
-            Ferramenta para concluir o seu Khan Academy!
+            Ferramenta na versão v3.1.2 para concluir o seu Khan Academy!
           </p>
 
           {/* Card URL */}
