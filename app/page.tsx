@@ -407,15 +407,24 @@ return (
                   >   
                     Acessar  
                   </motion.a>  
-                <motion.button  
+               <motion.button  
   onClick={() => handleShare(script)}  
   whileHover={{ scale: 1.03 }}  
   whileTap={{ scale: 0.97 }}  
   className="px-4 py-3 bg-[#171717] hover:bg-slate-700 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-xl transition-all duration-300 shadow-md shadow-black/40"  
   aria-label={`Compartilhar ${script.title}`}  
 >  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">  
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 12v.01M12 4v.01M20 12v.01M12 20v.01M7.757 7.757l8.486 8.486M7.757 16.243l8.486-8.486" />  
+  <svg  
+    xmlns="http://www.w3.org/2000/svg"  
+    viewBox="0 0 24 24"  
+    fill="none"  
+    className="w-5 h-5"  
+  >  
+    <path d="M9 12C9 13.3807 7.88071 14.5 6.5 14.5C5.11929 14.5 4 13.3807 4 12C4 10.6193 5.11929 9.5 6.5 9.5C7.88071 9.5 9 10.6193 9 12Z" stroke="currentColor" strokeWidth="1.5"/>  
+    <path d="M14 6.5L9 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>  
+    <path d="M14 17.5L9 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>  
+    <path d="M19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5Z" stroke="currentColor" strokeWidth="1.5"/>  
+    <path d="M19 5.5C19 6.88071 17.8807 8 16.5 8C15.1193 8 14 6.88071 14 5.5C14 4.11929 15.1193 3 16.5 3C17.8807 3 19 4.11929 19 5.5Z" stroke="currentColor" strokeWidth="1.5"/>  
   </svg>  
 </motion.button>
                 </div>  
