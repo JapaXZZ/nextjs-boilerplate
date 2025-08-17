@@ -368,7 +368,7 @@ return (
               >  
                 <div className="flex items-start justify-between mb-4">  
                   <div className="flex-1">  
-                    <h3 className="text-3xl font-extrabold text-white group-hover:text-green-400 transition-colors duration-300 select-none">  
+                    <h3 className="text-xl font-extrabold text-white group-hover:text-green-400 transition-colors duration-300 select-none">  
                       {script.title}  
                     </h3>  
                     <span className="inline-block mt-1 px-3 py-1 bg-slate-800 text-green-300 text-xs font-medium rounded-full select-none">  
@@ -519,7 +519,7 @@ return (
 
   {/* Aviso Download */}
 <div className="flex flex-col items-center justify-center min-h-screen gap-8 px-4 py-10">
-  <Card className="bg-[#111827] rounded-3xl p-10 w-full max-w-md text-center space-y-8 animate-scale-in hover:animate-pulse border-0 shadow-2xl shadow-green-500/20">
+  <Card className="bg-[#0F0F11] rounded-3xl p-10 w-full max-w-md text-center space-y-8 animate-scale-in hover:animate-pulse border-0 shadow-2xl shadow-green-500/20">
     
     <div className="flex justify-center">
       <div className="p-6 bg-gradient-to-br from-green-600 to-green-800 rounded-full shadow-lg shadow-green-500/30 animate-fade-in">
@@ -535,7 +535,7 @@ return (
         🚀 TaskSP 1.5
       </h2>
       <p className="text-gray-300 leading-relaxed text-lg">
-       Melhor aplicativo para fazer suas tarefas!'
+       O app que facilita o seu dia a dia, ajudando você a organizar e terminar suas tarefas sem complicação.
       </p>
     </div>
 
