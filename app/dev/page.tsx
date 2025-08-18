@@ -6,7 +6,7 @@ export default function LoginPage(): JSX.Element { const [ra, setRa] = useState(
 
 return ( <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black-500 via-black-600 to-black-700 p-6"> <div className="w-full max-w-md bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-10 relative overflow-hidden"> <div className="absolute -top-12 -right-12 w-40 h-40 bg-red-400 rounded-full blur-3xl opacity-30"></div> <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-red-700 rounded-full blur-3xl opacity-30"></div>
 
-<h1 className="text-3xl font-extrabold mb-2 text-slate-900 dark:text-white text-center">TaskSP</h1>
+<h1 className="text-5xl font-extrabold mb-2 text-slate-900 dark:text-red text-center">TaskSP</h1>
     <p className="text-sm text-slate-500 dark:text-slate-300 mb-8 text-center">Acesse sua conta</p>
 
     <form className="space-y-6" aria-label="Formulário de login">
@@ -33,7 +33,7 @@ return ( <div className="min-h-screen flex items-center justify-center bg-gradie
             onChange={(e) => setPassword(e.target.value)}
             required
             className="block w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 text-sm pr-12 focus:outline-none focus:ring-2 focus:ring-red-500 shadow-sm"
-            placeholder="••••••••"
+            placeholder=""
           />
           <button
             type="button"
@@ -51,7 +51,7 @@ return ( <div className="min-h-screen flex items-center justify-center bg-gradie
           <input type="checkbox" className="rounded border-slate-300 text-red-600 focus:ring-red-500" />
           Lembrar-me
         </label>
-        <a href="#" className="text-red-600 hover:underline">Esqueci a senha</a>
+        <a href="https://sed.educacao.sp.gov.br/" className="text-red-600 hover:underline">Esqueci a senha</a>
       </div>
 
       <button
@@ -61,11 +61,6 @@ return ( <div className="min-h-screen flex items-center justify-center bg-gradie
         Entrar
       </button>
     </form>
-
-    <div className="mt-8 text-center text-sm text-slate-600 dark:text-slate-300">
-      <span>Não tem conta? </span>
-      <a href="#" className="text-red-600 hover:underline">Crie uma conta</a>
-    </div>
   </div>
 </div>
 
