@@ -4,10 +4,10 @@ import React, { useState } from "react";
 
 export default function LoginPage(): JSX.Element { const [ra, setRa] = useState(""); const [password, setPassword] = useState(""); const [showPassword, setShowPassword] = useState(false);
 
-return ( <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-red-500 via-red-600 to-red-700 p-6"> <div className="w-full max-w-md bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-10 relative overflow-hidden"> <div className="absolute -top-12 -right-12 w-40 h-40 bg-red-400 rounded-full blur-3xl opacity-30"></div> <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-red-700 rounded-full blur-3xl opacity-30"></div>
+return ( <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black-500 via-black-600 to-black-700 p-6"> <div className="w-full max-w-md bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-10 relative overflow-hidden"> <div className="absolute -top-12 -right-12 w-40 h-40 bg-red-400 rounded-full blur-3xl opacity-30"></div> <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-red-700 rounded-full blur-3xl opacity-30"></div>
 
 <h1 className="text-3xl font-extrabold mb-2 text-slate-900 dark:text-white text-center">TaskSP</h1>
-    <p className="text-sm text-slate-500 dark:text-slate-300 mb-8 text-center">Acesse sua conta para gerenciar suas tarefas</p>
+    <p className="text-sm text-slate-500 dark:text-slate-300 mb-8 text-center">Acesse sua conta</p>
 
     <form className="space-y-6" aria-label="Formulário de login">
       <div>
