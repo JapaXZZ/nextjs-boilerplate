@@ -6,7 +6,7 @@ export default function LoginPage(): JSX.Element { const [ra, setRa] = useState(
 
 return ( <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black-500 via-black-600 to-black-700 p-6"> <div className="w-full max-w-md bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-10 relative overflow-hidden"> <div className="absolute -top-12 -right-12 w-40 h-40 bg-red-400 rounded-full blur-3xl opacity-30"></div> <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-red-700 rounded-full blur-3xl opacity-30"></div>
 
-<h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-red-400 via-red-300 to-red-500 bg-clip-text text-transparent select-none"  
+<h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-red-400 via-red-300 to-red-500 bg-clip-text text-transparent text-center select-none"  
       >  
         TaskSP  
 </h1>
@@ -36,7 +36,7 @@ return ( <div className="min-h-screen flex items-center justify-center bg-gradie
             onChange={(e) => setPassword(e.target.value)}
             required
             className="block w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 text-sm pr-12 focus:outline-none focus:ring-2 focus:ring-red-500 shadow-sm"
-            placeholder=""
+            placeholder="Senha"
           />
           <button
             type="button"
