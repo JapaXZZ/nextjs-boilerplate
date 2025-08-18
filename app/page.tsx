@@ -386,7 +386,7 @@ return (
                     <div  
                       className={cn(  
                         "w-2 h-2 rounded-full",  
-                        script.online ? "bg-red-400" : "bg-red-400"  
+                        script.online ? "bg-green-400" : "bg-red-400"  
                       )}  
                     />  
                     {script.online ? "Online" : "Offline"}  
