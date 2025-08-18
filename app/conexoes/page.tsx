@@ -61,7 +61,7 @@ export default function Conexoes() {
   const getStrengthColor = (strength: string) => {
     switch (strength) {
       case "strong":
-        return "text-emerald-400";
+        return "text-red-400";
       case "medium":
         return "text-yellow-400";
       case "weak":
@@ -95,7 +95,7 @@ export default function Conexoes() {
     <div className="min-h-screen bg-gradient-to-br from-black via-slate-950 to-black text-white overflow-x-hidden font-sans selection:bg-purple-700 selection:text-white">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-transparent to-blue-500/10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-transparent to-blue-500/10" />
 
       {/* Botão de Voltar */}
       <div className="relative z-10 px-4 pt-6">
@@ -162,10 +162,10 @@ export default function Conexoes() {
               whileHover={{ y: -5 }}
               className="group"
             >
-              <Card className="bg-slate-800/50 backdrop-blur-sm border-slate-700/50 hover:border-emerald-500/30 transition-all duration-300 overflow-hidden">
+              <Card className="bg-slate-800/50 backdrop-blur-sm border-slate-700/50 hover:border-red-500/30 transition-all duration-300 overflow-hidden">
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between overflow-x-auto gap-3">
-                    <CardTitle className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                    <CardTitle className="text-2xl font-bold text-white group-hover:text-red-400 transition-colors">
                       {network.name}
                     </CardTitle>
                     <div className="flex items-center gap-2">
@@ -173,8 +173,8 @@ export default function Conexoes() {
                         {getStrengthBars(network.strength)}
                       </div>
                       {network.isSecure && (
-                        <div className="p-1.5 bg-emerald-500/20 rounded-lg">
-                          <span className="text-emerald-400 text-sm">🔒</span>
+                        <div className="p-1.5 bg-red-500/20 rounded-lg">
+                          <span className="text-red-400 text-sm">🔒</span>
                         </div>
                       )}
                     </div>
@@ -198,7 +198,7 @@ export default function Conexoes() {
                   <div className="p-4 bg-slate-900/50 rounded-xl border border-slate-700/30">
                     <p className="text-sm text-slate-400 mb-2">Senha:</p>
                     <div className="flex items-center justify-between overflow-x-auto gap-3">
-                      <code className="text-lg font-mono text-emerald-400 bg-slate-800/50 px-3 py-2 rounded-lg break-all max-w-[calc(100%-100px)] sm:max-w-full">
+                      <code className="text-lg font-mono text-red-400 bg-slate-800/50 px-3 py-2 rounded-lg break-all max-w-[calc(100%-100px)] sm:max-w-full">
                         {network.password}
                       </code>
                       <Button
@@ -214,8 +214,8 @@ export default function Conexoes() {
                         className={cn(
                           "min-w-[80px] shrink-0 transition-all duration-300",
                           copiedId === network.id
-                            ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
-                            : "hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/30"
+                            ? "bg-red-500/20 text-red-400 border-red-500/30"
+                            : "hover:bg-red-500/10 hover:text-red-400 hover:border-red-500/30"
                         )}
                       >
                         {copiedId === network.id ? (
@@ -233,7 +233,7 @@ export default function Conexoes() {
 
                   <div className="grid grid-cols-3 gap-3 pt-2">
                     <div className="text-center">
-                      <p className="text-2xl font-bold text-emerald-400">5G</p>
+                      <p className="text-2xl font-bold text-red-400">5G</p>
                       <p className="text-xs text-slate-500">Frequência</p>
                     </div>
                     <div className="text-center">
@@ -267,7 +267,7 @@ export default function Conexoes() {
             </CardHeader>
             <CardContent className="space-y-3">
               <div className="flex items-start gap-3">
-                <span className="text-emerald-400 mt-1">•</span>
+                <span className="text-red-400 mt-1">•</span>
                 <p className="text-slate-300">
                   <strong className="text-white">SEDUC-MAQ:</strong> Ideal para o cotidiano na escola
                 </p>
