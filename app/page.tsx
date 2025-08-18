@@ -291,14 +291,14 @@ return (
       aria-label={`Total de scripts: ${stats.total}`}
     >
       <span className="text-white text-sm">TOTAL</span>
-      <span className="text-2xl font-bold text-red-400 font-mono">{stats.total}</span>
+      <span className="text-2xl font-bold text-blue-400 font-mono">{stats.total}</span>
     </div>
     <div
       className="flex flex-col items-center bg-[#171717] rounded-lg p-3"
       aria-label={`Scripts online: ${stats.online}`}
     >
       <span className="text-white text-sm">ONLINE</span>
-      <span className="text-2xl font-bold text-red-400 font-mono">{stats.online}</span>
+      <span className="text-2xl font-bold text-green-400 font-mono">{stats.online}</span>
     </div>
     <div
       className="flex flex-col items-center bg-[#171717] rounded-lg p-3"
@@ -379,7 +379,7 @@ return (
                     className={cn(  
                       "flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none",  
                       script.online  
-                        ? "bg-red-500/30 text-red-400 border border-red-500/40"  
+                        ? "bg-green-500/30 text-green-400 border border-green-500/40"  
                         : "bg-red-500/30 text-red-400 border border-red-500/40"  
                     )}  
                   >  
