@@ -61,7 +61,7 @@ return ( <div className="min-h-screen flex items-center justify-center bg-gradie
         type="submit"
         className="w-full rounded-xl py-3 text-sm font-semibold bg-gradient-to-r from-red-600 to-red-700 text-white hover:opacity-90 shadow-md transition"
       >
-        Entrar
+        Acessar
       </button>
     </form>
   </div>
