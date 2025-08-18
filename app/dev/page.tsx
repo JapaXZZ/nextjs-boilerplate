@@ -1,63 +1,15 @@
-'use client';
+import { LoginForm } from "@/components/login-form"
 
-import React, { useState } from 'react';
-
-const LoginScreen: React.FC = () => {
-  const [username, setUsername] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Usuário:', username);
-    console.log('Senha:', password);
-  };
-
+export default function LoginPage() {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <div style={{ border: '1px solid #ccc', padding: '20px', borderRadius: '8px' }}>
-        <h2>Login</h2>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="username">Usuário</label>
-            <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Digite seu usuário"
-              required
-              style={{ padding: '8px', marginBottom: '10px', width: '100%' }}
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Senha</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Digite sua senha"
-              required
-              style={{ padding: '8px', marginBottom: '20px', width: '100%' }}
-            />
-          </div>
-          <button
-            type="submit"
-            style={{
-              backgroundColor: '#4CAF50',
-              color: 'white',
-              padding: '10px 20px',
-              border: 'none',
-              borderRadius: '4px',
-              width: '100%',
-            }}
-          >
-            Entrar
-          </button>
-        </form>
+    <div className="min-h-screen bg-black flex items-center justify-center p-4">
+      <div className="w-full max-w-md">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-red-500 mb-2">TaskSP</h1>
+          <p className="text-gray-400">Faça login para acessar sua conta</p>
+        </div>
+        <LoginForm />
       </div>
     </div>
-  );
-};
-
-export default LoginScreen;
+  )
+}
