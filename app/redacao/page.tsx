@@ -51,7 +51,7 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
       <div className="w-full max-w-2xl">
 
         {/* Toolbar com botão de voltar */}
-        <div className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-green-800 px-4 py-3 flex items-center gap-3">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-red-800 px-4 py-3 flex items-center gap-3">
           <button
             onClick={() => router.push('/')}
             aria-label="Voltar"
@@ -68,12 +68,12 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
           {/* Título */}
           <div className="text-center space-y-4 mb-4">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-600 via-green-800 to-green-900 rounded-3xl blur-xl opacity-20 animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-800 to-red-900 rounded-3xl blur-xl opacity-20 animate-pulse"></div>
               <div>
-                <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-green-400 via-green-300 to-green-500 bg-clip-text text-transparent select-none">
+                <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-red-400 via-red-300 to-red-500 bg-clip-text text-transparent select-none">
                   Redação SP
                 </h1>
-                <div className="h-1 w-20 bg-green-700 rounded-full mx-auto mt-2"></div>
+                <div className="h-1 w-20 bg-red-700 rounded-full mx-auto mt-2"></div>
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
           {/* Card URL */}
           <Card
             style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
-            className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-green-900/50 border"
+            className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-red-900/50 border"
           >
             <CardHeader className="pb-3">
               <CardTitle className="text-lg text-white flex items-center gap-2">
@@ -94,8 +94,8 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <div className="flex items-center gap-2 p-3 bg-slate-800 rounded-md border border-green-700">
-                <code className="flex-1 text-green-300 text-sm font-mono break-all">
+              <div className="flex items-center gap-2 p-3 bg-slate-800 rounded-md border border-red-700">
+                <code className="flex-1 text-red-300 text-sm font-mono break-all">
                   {url}
                 </code>
               </div>
@@ -104,7 +104,7 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
                   variant="outline"
                   size="sm"
                   onClick={() => copyToClipboard(url)}
-                  className="flex-1 border border-green-700"
+                  className="flex-1 border border-red-700"
                 >
                   Copiar
                 </Button>
@@ -118,7 +118,7 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
  {/* Card URL2 */}
           <Card
             style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
-            className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-green-900/50 border"
+            className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-red-900/50 border"
           >
             <CardHeader className="pb-3">
               <CardTitle className="text-lg text-white flex items-center gap-2">
@@ -126,8 +126,8 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <div className="flex items-center gap-2 p-3 bg-slate-800 rounded-md border border-green-700">
-                <code className="flex-1 text-green-300 text-sm font-mono break-all">
+              <div className="flex items-center gap-2 p-3 bg-slate-800 rounded-md border border-red-700">
+                <code className="flex-1 text-red-300 text-sm font-mono break-all">
                   {url2}
                 </code>
               </div>
@@ -136,7 +136,7 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
                   variant="outline"
                   size="sm"
                   onClick={() => copyToClipboard(url2)}
-                  className="flex-1 border border-green-700"
+                  className="flex-1 border border-red-700"
                 >
                   Copiar
                 </Button>
@@ -150,7 +150,7 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
  {/* Card Code */}
    <Card
             style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
-            className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-green-900/50 border"
+            className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-red-900/50 border"
           >
             <CardHeader className="pb-3">
               <CardTitle className="text-lg text-white flex items-center gap-2">
@@ -158,8 +158,8 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <div className="flex items-center gap-2 p-3 bg-slate-800 rounded-md border border-green-700">
-                <code className="flex-1 text-green-300 text-sm font-mono break-all">
+              <div className="flex items-center gap-2 p-3 bg-slate-800 rounded-md border border-red-700">
+                <code className="flex-1 text-red-300 text-sm font-mono break-all">
                   {code}
                 </code>
               </div>
@@ -168,7 +168,7 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
                   variant="outline"
                   size="sm"
                   onClick={() => copyToClipboard(code)}
-                  className="flex-1 border border-green-700"
+                  className="flex-1 border border-red-700"
                 >
                   Copiar
                 </Button>
@@ -176,7 +176,7 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
   href={`javascript:(function(){${code}})()`}
   draggable
   onClick={(e) => e.preventDefault()}
-  className="bg-green-700 hover:bg-green-800 text-white font-semibold py-2 px-4 rounded-lg text-sm inline-block cursor-move select-none"
+  className="bg-red-700 hover:bg-red-800 text-white font-semibold py-2 px-4 rounded-lg text-sm inline-block cursor-move select-none"
   title="Arraste para a barra de favoritos"
 >
   Redação Arrastar (PC)
@@ -190,7 +190,7 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
           {/* Card Informações */}
           <Card
             style={{ backgroundColor: "#1B1D22", borderColor: "#2C313A" }}
-            className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-green-900/50 border"
+            className="backdrop-blur-md rounded-3xl p-6 shadow-lg shadow-red-900/50 border"
           >
             <CardHeader className="pb-3">
               <CardTitle className="text-lg text-white flex items-center gap-2">
@@ -198,16 +198,16 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex items-center justify-between p-3 bg-slate-800 rounded-md border border-green-700">
+              <div className="flex items-center justify-between p-3 bg-slate-800 rounded-md border border-red-700">
                 <div className="flex items-center gap-3">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                    scriptStatus === "offline" ? "bg-red-700/20 text-red-400" : "bg-green-700/20 text-green-400"
+                    scriptStatus === "offline" ? "bg-red-700/20 text-red-400" : "bg-red-700/20 text-red-400"
                   }`}>
                     {scriptStatus === "offline" ? <>X</> : <>✓</>}
                   </div>
                   <div>
                     <p className="font-medium text-white capitalize">{scriptStatus}</p>
-                    <p className="text-xs text-green-300">STATUS</p>
+                    <p className="text-xs text-red-300">STATUS</p>
                   </div>
                 </div>
                 <Badge variant={scriptStatus === "offline" ? "destructive" : "default"} className="px-3 py-1">
@@ -215,12 +215,12 @@ const [code] = useState('javascript:function remove_block(){const e=function(e){
                 </Badge>
               </div>
 
-              <div className="flex items-center justify-between p-3 bg-slate-800 rounded-md border border-green-700">
+              <div className="flex items-center justify-between p-3 bg-slate-800 rounded-md border border-red-700">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-green-700/20 text-green-400 flex items-center justify-center">🕒</div>
+                  <div className="w-10 h-10 rounded-full bg-red-700/20 text-red-400 flex items-center justify-center">🕒</div>
                   <div>
                     <p className="font-medium text-white">{lastUpdate}</p>
-                    <p className="text-xs text-green-300">ATUALIZAÇÃO</p>
+                    <p className="text-xs text-red-300">ATUALIZAÇÃO</p>
                   </div>
                 </div>
               </div>
