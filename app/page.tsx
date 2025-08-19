@@ -487,7 +487,7 @@ return (
                   </span>  
                 </div>  
                 <div  
-                  className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none bg-red-500/30 text-red-400 border border-red-500/40"  
+                  className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold select-none bg-green-500/30 text-green-400 border border-green-500/40"  
                   aria-label="Status online"  
                 >  
                   <div className="w-2 h-2 rounded-full bg-green-400" />  
