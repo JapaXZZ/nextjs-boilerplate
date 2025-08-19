@@ -9,31 +9,32 @@ export default function LoginPage(): JSX.Element {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-neutral-900 to-black p-6">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-neutral-900 to-black p-6 relative overflow-hidden">
+      {/* Glow animado no fundo */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, scale: [1, 1.2, 1] }}
+        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
+        className="absolute -top-40 -right-40 w-80 h-80 bg-red-500 rounded-full blur-3xl opacity-30"
+      />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, scale: [1.2, 1, 1.2] }}
+        transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
+        className="absolute -bottom-40 -left-40 w-96 h-96 bg-red-700 rounded-full blur-3xl opacity-30"
+      />
+
       <motion.div
         initial={{ opacity: 0, y: 40, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full max-w-md bg-white dark:bg-slate-900 rounded-3xl shadow-2xl p-10 relative overflow-hidden"
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="w-full max-w-md bg-gradient-to-b from-slate-900 via-slate-950 to-black rounded-3xl shadow-2xl p-10 relative overflow-hidden border border-slate-800"
       >
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="absolute -top-12 -right-12 w-40 h-40 bg-red-400 rounded-full blur-3xl opacity-30"
-        ></motion.div>
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="absolute -bottom-16 -left-16 w-40 h-40 bg-red-700 rounded-full blur-3xl opacity-30"
-        ></motion.div>
-
         <motion.h1
-          initial={{ y: -30, opacity: 0 }}
+          initial={{ y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-red-400 via-red-300 to-red-500 bg-clip-text text-transparent text-center select-none"
+          transition={{ duration: 0.8 }}
+          className="text-6xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-red-400 via-red-300 to-red-500 bg-clip-text text-transparent text-center select-none drop-shadow-[0_0_15px_rgba(239,68,68,0.7)]"
         >
           TaskSP
         </motion.h1>
@@ -42,9 +43,9 @@ export default function LoginPage(): JSX.Element {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="text-sm text-slate-500 dark:text-slate-300 mb-8 text-center"
+          className="text-base text-slate-400 mb-8 text-center"
         >
-          Acesse sua conta
+          Faça login para continuar
         </motion.p>
 
         <motion.form
@@ -57,19 +58,19 @@ export default function LoginPage(): JSX.Element {
           <div>
             <label
               htmlFor="ra"
-              className="block text-sm font-medium text-slate-700 dark:text-slate-200"
+              className="block text-sm font-medium text-slate-300"
             >
               RA
             </label>
             <motion.input
-              whileFocus={{ scale: 1.02 }}
+              whileFocus={{ scale: 1.02, borderColor: "#ef4444" }}
               transition={{ duration: 0.2 }}
               id="ra"
               type="text"
               value={ra}
               onChange={(e) => setRa(e.target.value)}
               required
-              className="mt-2 block w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500 shadow-sm"
+              className="mt-2 block w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-red-500 shadow-inner placeholder-slate-500"
               placeholder="Digite seu RA"
             />
           </div>
@@ -77,20 +78,20 @@ export default function LoginPage(): JSX.Element {
           <div>
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-slate-700 dark:text-slate-200"
+              className="block text-sm font-medium text-slate-300"
             >
               Senha
             </label>
             <div className="relative mt-2">
               <motion.input
-                whileFocus={{ scale: 1.02 }}
+                whileFocus={{ scale: 1.02, borderColor: "#ef4444" }}
                 transition={{ duration: 0.2 }}
                 id="password"
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="block w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 text-sm pr-12 focus:outline-none focus:ring-2 focus:ring-red-500 shadow-sm"
+                className="block w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm pr-12 text-white focus:outline-none focus:ring-2 focus:ring-red-500 shadow-inner placeholder-slate-500"
                 placeholder="Senha"
               />
               <motion.button
@@ -98,7 +99,7 @@ export default function LoginPage(): JSX.Element {
                 onClick={() => setShowPassword((s) => !s)}
                 aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
                 whileTap={{ scale: 0.9 }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-slate-500 hover:text-red-600"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-red-500 transition"
               >
                 {showPassword ? "Ocultar" : "Mostrar"}
               </motion.button>
@@ -106,16 +107,16 @@ export default function LoginPage(): JSX.Element {
           </div>
 
           <div className="flex items-center justify-between text-sm">
-            <label className="inline-flex items-center gap-2 text-slate-700 dark:text-slate-200">
+            <label className="inline-flex items-center gap-2 text-slate-400">
               <input
                 type="checkbox"
-                className="rounded border-slate-300 text-red-600 focus:ring-red-500"
+                className="rounded border-slate-600 bg-slate-900 text-red-600 focus:ring-red-500"
               />
               Lembrar-me
             </label>
             <a
               href="https://sed.educacao.sp.gov.br/"
-              className="text-red-600 hover:underline"
+              className="text-red-500 hover:underline"
             >
               Esqueci a senha
             </a>
@@ -123,11 +124,17 @@ export default function LoginPage(): JSX.Element {
 
           <motion.button
             type="submit"
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full rounded-xl py-3 text-sm font-semibold bg-gradient-to-r from-red-600 to-red-700 text-white hover:opacity-90 shadow-md transition"
+            className="relative w-full rounded-xl py-3 text-sm font-semibold bg-gradient-to-r from-red-600 via-red-500 to-red-700 text-white shadow-lg overflow-hidden"
           >
-            Acessar
+            <span className="relative z-10">Acessar</span>
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+              initial={{ x: "-100%" }}
+              animate={{ x: "100%" }}
+              transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+            />
           </motion.button>
         </motion.form>
       </motion.div>
