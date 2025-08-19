@@ -1,16 +1,37 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function LoginPage(): JSX.Element {
   const [ra, setRa] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [remember, setRemember] = useState(false);
+
+  useEffect(() => {
+    const savedRa = localStorage.getItem("ra");
+    const savedPassword = localStorage.getItem("password");
+    if (savedRa && savedPassword) {
+      setRa(savedRa);
+      setPassword(savedPassword);
+      setRemember(true);
+    }
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (remember) {
+      localStorage.setItem("ra", ra);
+      localStorage.setItem("password", password);
+    } else {
+      localStorage.removeItem("ra");
+      localStorage.removeItem("password");
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-neutral-900 to-black p-6 relative overflow-hidden">
-      {/* Glow animado no fundo */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, scale: [1, 1.2, 1] }}
@@ -54,6 +75,7 @@ export default function LoginPage(): JSX.Element {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
+          onSubmit={handleSubmit}
         >
           <div>
             <label
@@ -110,6 +132,8 @@ export default function LoginPage(): JSX.Element {
             <label className="inline-flex items-center gap-2 text-slate-400">
               <input
                 type="checkbox"
+                checked={remember}
+                onChange={(e) => setRemember(e.target.checked)}
                 className="rounded border-slate-600 bg-slate-900 text-red-600 focus:ring-red-500"
               />
               Lembrar-me
