@@ -277,7 +277,7 @@ return (
 
     {/* Estatísticas !!!!!!!!!!!!!!!! */}  
 <div
-  className="max-w-md mx-auto border border-slate-700 rounded-2xl shadow-lg shadow-black/30 p-6 select-none"
+  className="max-w-md mx-auto rounded-2xl shadow-lg shadow-black/30 p-6 select-none"
   style={{ backgroundColor: '#0F0F11' }}
   role="region"
   aria-label="Estatísticas dos scripts"
