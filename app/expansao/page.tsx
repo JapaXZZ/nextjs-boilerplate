@@ -123,7 +123,7 @@ const [sinalizadorcode, setSinalizadorcode] = useState<"online" | "offline">("on
   className={`px-3 py-1 ${
     sinalizadorcode === "offline"
       ? "bg-red-600 text-white"
-      : "bg-red-600 text-white"
+      : "bg-green-600 text-white"
   }`}
 >
   {sinalizadorcode}
