@@ -60,7 +60,7 @@ const Tutoriais = () => {
       },
       duration: {
         celular: "3:04",
-        computador: "1:14",
+        computador: "3:22",
         ios: "2:00"
       }
     },
