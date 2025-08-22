@@ -241,7 +241,7 @@ const Tutoriais = () => {
           </p>
           <button
             onClick={openEmail}
-            className="inline-block px-6 py-3 bg-purple-700 hover:bg-purple-600 text-white rounded-xl font-semibold transition-colors duration-300 shadow-md shadow-purple-600/40"
+            className="inline-block px-6 py-3 bg-red-700 hover:bg-red-600 text-white rounded-xl font-semibold transition-colors duration-300 shadow-md shadow-red-600/40"
             aria-label="Enviar email para suporte"
           >
             Contatar Suporte
