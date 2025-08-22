@@ -259,7 +259,7 @@ return (
       </motion.p>  
 
      
-{/* Notificações 
+{/* Notificações */}
 <Card className="max-w-md mx-auto bg-[#0F0F11] p-6 mb-8 rounded-2xl hover-glow animate-slide-up border-0 shadow-none">
   <div className="flex items-start space-x-4">
     <div className="p-2 rounded-lg bg-yellow-500/20 border border-yellow-500/30">
@@ -268,13 +268,13 @@ return (
     <div className="text-left">
       <h3 className="font-semibold text-yellow-400 mb-2">Notificações</h3>
       <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-        <span>• Automatização de provas estará disponível apenas em dias selecionados de avaliações!</span>
-        <span>• Novo script! Educação Profissional, acesse já!</span>
+        <span>• Tarefas SP agora salva o seu acesso, não há necessidade de logar a cada entrada!</span>
+        <span>• Speak e LeiaSP possui acesso por login, sem bookmark!</span>
       </div>
     </div>
   </div>
 </Card>
-*/}
+
 
     {/* Estatísticas !!!!!!!!!!!!!!!! */}  
 <div
@@ -284,7 +284,7 @@ return (
   aria-label="Estatísticas dos scripts"
 >
   <h3 className="text-5x1 font-semibold text-white mb-1">Estatísticas</h3>
-  <p className="text-base text-slate-400 mb-4">Última atualização: 21/08/2025</p>
+  <p className="text-base text-slate-400 mb-4">Última atualização: 22/08/2025</p>
   <div className="h-px bg-slate-700 mb-4" />
   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
     <div
