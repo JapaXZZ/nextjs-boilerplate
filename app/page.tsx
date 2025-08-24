@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Bell } from "lucide-react";
+import AnimatedBackground from "@/components/ui/AnimatedBackground";
 
 interface Script {
 id: number;
@@ -167,9 +168,11 @@ searchInputRef.current?.focus();
 }, []);
 
 return (
-<div className="min-h-screen bg-gradient-to-br from-black via-[#0b0b0b] to-black text-white">
-  {/* Fundo radial */}
-<div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
+  <div className="min-h-screen bg-gradient-to-br from-black via-[#0b0b0b] to-black text-white">
+    {/* Fundo radial + shapes animados */}
+    <div className="fixed inset-0 bg-grid-white/[0.02] bg-[size:60px_60px] z-0">
+      <AnimatedBackground />
+    </div>
 
 {/* Cabeçalho fixo */}  
   <header className="fixed top-0 left-0 right-0 z-20 backdrop-blur-md bg-black/60 border-b border-red-800/40 max-w-7xl mx-auto flex justify-between items-center px-6 py-3">  
