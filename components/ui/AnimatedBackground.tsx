@@ -19,7 +19,7 @@ export default function AnimatedBackground() {
       s.style.transform = `translate(-50%, -50%) rotate(${Math.floor(
         Math.random() * 360
       )}deg)`;
-      s.style.animationDuration = `${10 + Math.random() * 20}s`;
+      s.style.animationDuration = `${12 + Math.random() * 18}s`;
       s.style.animationDelay = `${-Math.random() * 20}s`;
     };
     shapes.forEach(setPos);
@@ -37,7 +37,7 @@ export default function AnimatedBackground() {
         position: "absolute",
         inset: 0,
         overflow: "hidden",
-        backgroundColor: "#0b0f14",
+        backgroundColor: "#05070a",
         isolation: "isolate",
       }}
     >
@@ -56,16 +56,23 @@ export default function AnimatedBackground() {
             height="40"
             patternUnits="userSpaceOnUse"
           >
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1b222b" strokeWidth="1" />
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#11161c" strokeWidth="1" opacity="0.35" transform="scale(0.5)" />
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0d1218" strokeWidth="1" />
+            <path
+              d="M 40 0 L 0 0 0 40"
+              fill="none"
+              stroke="#06090d"
+              strokeWidth="1"
+              opacity="0.35"
+              transform="scale(0.5)"
+            />
           </pattern>
           <radialGradient id="fade" cx="50%" cy="50%" r="70%">
-            <stop offset="0%" stopColor="white" stopOpacity="1" />
-            <stop offset="70%" stopColor="white" stopOpacity="0.45" />
+            <stop offset="0%" stopColor="white" stopOpacity="0.9" />
+            <stop offset="70%" stopColor="white" stopOpacity="0.25" />
             <stop offset="100%" stopColor="white" stopOpacity="0" />
           </radialGradient>
           <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2" result="blur" />
+            <feGaussianBlur stdDeviation="3" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -73,7 +80,12 @@ export default function AnimatedBackground() {
           </filter>
         </defs>
         <rect width="100%" height="100%" fill="url(#grid-pattern)" />
-        <rect width="100%" height="100%" fill="url(#fade)" style={{ mixBlendMode: "soft-light" }} />
+        <rect
+          width="100%"
+          height="100%"
+          fill="url(#fade)"
+          style={{ mixBlendMode: "soft-light" }}
+        />
       </svg>
 
       <div className="scanline" />
@@ -85,7 +97,11 @@ export default function AnimatedBackground() {
       <div data-shape className="shape triangle" />
       <div data-shape className="shape triangle small" />
 
-      <svg className="wire wire-a" viewBox="0 0 1200 200" preserveAspectRatio="none">
+      <svg
+        className="wire wire-a"
+        viewBox="0 0 1200 200"
+        preserveAspectRatio="none"
+      >
         <path
           d="M0,120 C200,40 400,200 600,120 C800,40 1000,200 1200,120"
           fill="none"
@@ -96,14 +112,18 @@ export default function AnimatedBackground() {
         />
         <defs>
           <linearGradient id="wire-grad-a" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#35c8ff" />
+            <stop offset="0%" stopColor="#0ff" />
             <stop offset="50%" stopColor="#8a5cff" />
-            <stop offset="100%" stopColor="#35c8ff" />
+            <stop offset="100%" stopColor="#0ff" />
           </linearGradient>
         </defs>
       </svg>
 
-      <svg className="wire wire-b" viewBox="0 0 1200 200" preserveAspectRatio="none">
+      <svg
+        className="wire wire-b"
+        viewBox="0 0 1200 200"
+        preserveAspectRatio="none"
+      >
         <path
           d="M0,80 C180,160 420,0 660,120 C840,200 1040,40 1200,120"
           fill="none"
@@ -124,7 +144,7 @@ export default function AnimatedBackground() {
 
       <style>{`
         .grid {
-          opacity: 0.9;
+          opacity: 0.7;
         }
         .scanline {
           position: absolute;
@@ -133,12 +153,12 @@ export default function AnimatedBackground() {
             to bottom,
             rgba(0,0,0,0) 0px,
             rgba(0,0,0,0) 2px,
-            rgba(0,0,0,0.06) 3px
+            rgba(0,0,0,0.1) 3px
           );
           mix-blend-mode: overlay;
           pointer-events: none;
-          animation: scan 12s linear infinite;
-          opacity: 0.35;
+          animation: scan 10s linear infinite;
+          opacity: 0.4;
         }
         @keyframes scan {
           0% { transform: translateY(-10%); }
@@ -147,20 +167,20 @@ export default function AnimatedBackground() {
         .wire {
           position: absolute;
           left: 0;
-          width: 140%;
+          width: 150%;
           height: 220px;
           transform: translateX(-10%);
-          opacity: 0.45;
+          opacity: 0.5;
           pointer-events: none;
-          filter: drop-shadow(0 0 10px rgba(56,189,248,0.15));
+          filter: drop-shadow(0 0 14px rgba(56,189,248,0.2));
         }
         .wire-a {
           top: 20%;
-          animation: drift-x 22s ease-in-out infinite alternate;
+          animation: drift-x 24s ease-in-out infinite alternate;
         }
         .wire-b {
           bottom: 15%;
-          animation: drift-x 28s ease-in-out infinite alternate-reverse;
+          animation: drift-x 30s ease-in-out infinite alternate-reverse;
         }
         @keyframes drift-x {
           0% { transform: translateX(-10%) translateY(0); }
@@ -172,9 +192,9 @@ export default function AnimatedBackground() {
           width: 120px;
           height: 120px;
           border-radius: 16px;
-          opacity: 0.12;
-          filter: blur(0.2px) drop-shadow(0 0 12px rgba(148,163,184,0.15));
-          animation-name: floaty;
+          opacity: 0.1;
+          filter: blur(0.5px) drop-shadow(0 0 15px rgba(148,163,184,0.2));
+          animation-name: floaty, spin;
           animation-timing-function: linear;
           animation-iteration-count: infinite;
           will-change: transform, opacity;
@@ -183,24 +203,23 @@ export default function AnimatedBackground() {
         .shape.small {
           width: 70px;
           height: 70px;
-          opacity: 0.16;
+          opacity: 0.15;
         }
         .shape.circle {
           border-radius: 9999px;
-          background: radial-gradient(closest-side, rgba(56,189,248,0.35), rgba(56,189,248,0.08) 60%, rgba(56,189,248,0.0) 100%);
-          box-shadow: inset 0 0 30px rgba(56,189,248,0.25);
+          background: radial-gradient(closest-side, rgba(56,189,248,0.45), rgba(56,189,248,0.08) 60%, rgba(56,189,248,0.0) 100%);
+          box-shadow: inset 0 0 40px rgba(56,189,248,0.25);
         }
         .shape.square {
-          background: linear-gradient(135deg, rgba(138,92,255,0.35), rgba(138,92,255,0.08));
-          border: 1px solid rgba(138,92,255,0.35);
-          transform: translate(-50%, -50%) rotate(15deg);
+          background: linear-gradient(135deg, rgba(138,92,255,0.4), rgba(138,92,255,0.1));
+          border: 1px solid rgba(138,92,255,0.4);
         }
         .shape.triangle {
           width: 0; height: 0;
           border-left: 60px solid transparent;
           border-right: 60px solid transparent;
-          border-bottom: 100px solid rgba(0,255,209,0.18);
-          filter: drop-shadow(0 0 8px rgba(0,255,209,0.22));
+          border-bottom: 100px solid rgba(0,255,209,0.2);
+          filter: drop-shadow(0 0 10px rgba(0,255,209,0.25));
         }
         .shape.triangle.small {
           border-left-width: 35px;
@@ -209,8 +228,12 @@ export default function AnimatedBackground() {
         }
         @keyframes floaty {
           0% { transform: translate(-50%, -50%) translateY(0) rotate(0deg); }
-          50% { transform: translate(-50%, -50%) translateY(-30px) rotate(10deg); }
+          50% { transform: translate(-50%, -50%) translateY(-40px) rotate(10deg); }
           100% { transform: translate(-50%, -50%) translateY(0) rotate(0deg); }
+        }
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
         }
 
         .animated-bg-container::before {
@@ -218,23 +241,23 @@ export default function AnimatedBackground() {
           position: absolute;
           inset: -20%;
           background:
-            radial-gradient(35% 35% at 20% 15%, rgba(56,189,248,0.12), rgba(0,0,0,0) 70%),
-            radial-gradient(40% 40% at 80% 75%, rgba(138,92,255,0.10), rgba(0,0,0,0) 70%),
-            radial-gradient(25% 25% at 65% 30%, rgba(0,255,209,0.08), rgba(0,0,0,0) 70%);
+            radial-gradient(35% 35% at 20% 15%, rgba(56,189,248,0.15), rgba(0,0,0,0) 70%),
+            radial-gradient(40% 40% at 80% 75%, rgba(138,92,255,0.12), rgba(0,0,0,0) 70%),
+            radial-gradient(25% 25% at 65% 30%, rgba(0,255,209,0.12), rgba(0,0,0,0) 70%);
           mix-blend-mode: screen;
           pointer-events: none;
-          animation: slow-pulse 20s ease-in-out infinite alternate;
+          animation: slow-pulse 18s ease-in-out infinite alternate;
         }
         @keyframes slow-pulse {
-          0% { transform: scale(1); opacity: 0.7; }
-          100% { transform: scale(1.05); opacity: 0.9; }
+          0% { transform: scale(1); opacity: 0.6; }
+          100% { transform: scale(1.07); opacity: 0.85; }
         }
 
         .animated-bg-container::after {
           content: "";
           position: absolute;
           inset: 0;
-          background: radial-gradient(60% 60% at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 100%);
+          background: radial-gradient(60% 60% at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%);
           pointer-events: none;
         }
       `}</style>
