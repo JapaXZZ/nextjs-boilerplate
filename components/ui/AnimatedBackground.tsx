@@ -31,11 +31,11 @@ export default function AnimatedBackground() {
       ref={containerRef}
       className="animated-bg-container"
       style={{
-        position: "absolute",
+        position: "fixed", // fixado atrás de tudo
         inset: 0,
         overflow: "hidden",
         backgroundColor: "#05070a",
-        isolation: "isolate",
+        zIndex: -1, // garante que os cards fiquem na frente e não "transparentes"
       }}
     >
       <svg
@@ -68,60 +68,55 @@ export default function AnimatedBackground() {
 
       <style>{`
         .grid {
-          opacity: 0.25;
+          opacity: 0.2;
         }
 
         .shape {
           position: absolute;
           width: 120px;
           height: 120px;
-          opacity: 0.25;
-          border: 2px solid #6b7280;
+          opacity: 0.3;
           animation: floaty 18s linear infinite;
           pointer-events: none;
+          transform-style: preserve-3d;
         }
         .shape.small {
           width: 70px;
           height: 70px;
-          opacity: 0.3;
+          opacity: 0.35;
         }
+
+        /* ===== 3D EFFECTS ===== */
         .shape.circle {
           border-radius: 9999px;
+          border: 2px solid #6b7280;
+          background: radial-gradient(circle at 30% 30%, #9ca3af 5%, #374151 90%);
+          box-shadow: inset -8px -8px 16px rgba(0,0,0,0.6), inset 8px 8px 16px rgba(255,255,255,0.1), 0 0 30px rgba(156,163,175,0.2);
         }
         .shape.square {
           border-radius: 12px;
+          border: 2px solid #6b7280;
+          background: linear-gradient(145deg, #1f2937, #111827);
+          box-shadow: inset -8px -8px 16px rgba(0,0,0,0.6), inset 8px 8px 16px rgba(255,255,255,0.1), 0 0 30px rgba(156,163,175,0.2);
         }
         .shape.triangle {
           width: 0; 
           height: 0;
           border-left: 60px solid transparent;
           border-right: 60px solid transparent;
-          border-bottom: 100px solid transparent;
-          position: absolute;
+          border-bottom: 100px solid #374151;
+          filter: drop-shadow(0 0 18px rgba(107,114,128,0.4));
         }
-        .shape.triangle::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: -60px;
-          width: 0;
-          height: 0;
-          border-left: 60px solid transparent;
-          border-right: 60px solid transparent;
-          border-bottom: 100px solid #6b7280;
-          opacity: 0.25;
-        }
-        .shape.triangle.small::before {
+        .shape.triangle.small {
           border-left-width: 35px;
           border-right-width: 35px;
           border-bottom-width: 60px;
-          left: -35px;
         }
 
         @keyframes floaty {
-          0% { transform: translate(-50%, -50%) translateY(0) rotate(0deg); }
-          50% { transform: translate(-50%, -50%) translateY(-40px) rotate(30deg); }
-          100% { transform: translate(-50%, -50%) translateY(0) rotate(0deg); }
+          0% { transform: translate(-50%, -50%) translateY(0) rotateX(0deg) rotateY(0deg); }
+          50% { transform: translate(-50%, -50%) translateY(-40px) rotateX(20deg) rotateY(20deg); }
+          100% { transform: translate(-50%, -50%) translateY(0) rotateX(0deg) rotateY(0deg); }
         }
       `}</style>
     </div>
