@@ -9,10 +9,9 @@ export default function AnimatedBackground() {
     const svg = svgRef.current;
     if (!svg) return;
 
-    const shapes: SVGPolygonElement[] = [];
-    const colors = ["#6b7280", "#9ca3af", "#4b5563"]; // tons de cinza
+    const shapes: SVGElement[] = []; // <- aceitar SVGPolygonElement e SVGCircleElement
+    const colors = ["#6b7280", "#9ca3af", "#4b5563"];
 
-    // cria formas geométricas
     const createShape = (type: "triangle" | "square" | "rectangle" | "circle") => {
       if (type === "circle") {
         const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
@@ -47,13 +46,11 @@ export default function AnimatedBackground() {
       }
     };
 
-    // cria múltiplas formas
     for (let i = 0; i < 20; i++) {
       const types = ["triangle", "square", "rectangle", "circle"] as const;
       shapes.push(createShape(types[Math.floor(Math.random() * types.length)]));
     }
 
-    // animação 3D simulada com translate + rotate
     shapes.forEach((shape) => {
       const animate = () => {
         const dx = (Math.random() - 0.5) * 200;
