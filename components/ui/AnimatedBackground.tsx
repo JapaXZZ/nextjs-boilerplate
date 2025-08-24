@@ -9,29 +9,66 @@ export default function AnimatedBackground() {
     const svg = svgRef.current;
     if (!svg) return;
 
-    const shapes: SVGCircleElement[] = [];
-    for (let i = 0; i < 12; i++) {
-      const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-      circle.setAttribute("r", `${15 + Math.random() * 25}`);
-      circle.setAttribute("stroke", "#6b7280");
-      circle.setAttribute("fill", "none");
-      circle.setAttribute("stroke-width", "2");
-      circle.setAttribute("cx", `${Math.random() * window.innerWidth}`);
-      circle.setAttribute("cy", `${Math.random() * window.innerHeight}`);
-      svg.appendChild(circle);
-      shapes.push(circle);
-    }
+    const shapes: SVGPolygonElement[] = [];
+    const colors = ["#6b7280", "#9ca3af", "#4b5563"]; // tons de cinza
 
-    shapes.forEach((c) => {
-      const animate = () => {
+    // cria formas geométricas
+    const createShape = (type: "triangle" | "square" | "rectangle" | "circle") => {
+      if (type === "circle") {
+        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        const r = 15 + Math.random() * 25;
+        circle.setAttribute("r", `${r}`);
+        circle.setAttribute("cx", `${Math.random() * window.innerWidth}`);
+        circle.setAttribute("cy", `${Math.random() * window.innerHeight}`);
+        circle.setAttribute("fill", "none");
+        circle.setAttribute("stroke", colors[Math.floor(Math.random() * colors.length)]);
+        circle.setAttribute("stroke-width", "2");
+        svg.appendChild(circle);
+        return circle;
+      } else {
+        const polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
         const x = Math.random() * window.innerWidth;
         const y = Math.random() * window.innerHeight;
-        c.animate(
+        const size = 30 + Math.random() * 40;
+        let points = "";
+        if (type === "triangle") {
+          points = `${x},${y} ${x + size},${y} ${x + size / 2},${y - size}`;
+        } else if (type === "rectangle") {
+          points = `${x},${y} ${x + size},${y} ${x + size},${y - size / 2} ${x},${y - size / 2}`;
+        } else if (type === "square") {
+          points = `${x},${y} ${x + size},${y} ${x + size},${y - size} ${x},${y - size}`;
+        }
+        polygon.setAttribute("points", points);
+        polygon.setAttribute("fill", "none");
+        polygon.setAttribute("stroke", colors[Math.floor(Math.random() * colors.length)]);
+        polygon.setAttribute("stroke-width", "2");
+        svg.appendChild(polygon);
+        return polygon;
+      }
+    };
+
+    // cria múltiplas formas
+    for (let i = 0; i < 20; i++) {
+      const types = ["triangle", "square", "rectangle", "circle"] as const;
+      shapes.push(createShape(types[Math.floor(Math.random() * types.length)]));
+    }
+
+    // animação 3D simulada com translate + rotate
+    shapes.forEach((shape) => {
+      const animate = () => {
+        const dx = (Math.random() - 0.5) * 200;
+        const dy = (Math.random() - 0.5) * 200;
+        const angle = (Math.random() - 0.5) * 45;
+        shape.animate(
           [
-            { cx: c.cx.baseVal.value, cy: c.cy.baseVal.value },
-            { cx: x, cy: y }
+            { transform: "translate(0px, 0px) rotateY(0deg) rotateX(0deg)" },
+            { transform: `translate(${dx}px, ${dy}px) rotateY(${angle}deg) rotateX(${angle}deg)` }
           ],
-          { duration: 20000 + Math.random() * 10000, iterations: Infinity, direction: "alternate" }
+          {
+            duration: 20000 + Math.random() * 10000,
+            iterations: Infinity,
+            direction: "alternate",
+          }
         );
       };
       animate();
@@ -46,8 +83,8 @@ export default function AnimatedBackground() {
         inset: 0,
         width: "100%",
         height: "100%",
-        zIndex: -1,
         backgroundColor: "#05070a",
+        zIndex: -1,
       }}
     />
   );
