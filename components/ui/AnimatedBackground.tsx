@@ -31,11 +31,10 @@ export default function AnimatedBackground() {
       ref={containerRef}
       className="animated-bg-container"
       style={{
-        position: "fixed", // fixado atrás de tudo
+        position: "fixed",
         inset: 0,
         overflow: "hidden",
         backgroundColor: "#05070a",
-        zIndex: -1, // garante que os cards fiquem na frente e não "transparentes"
       }}
     >
       <svg
@@ -53,7 +52,12 @@ export default function AnimatedBackground() {
             height="40"
             patternUnits="userSpaceOnUse"
           >
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2a2f35" strokeWidth="1" />
+            <path
+              d="M 40 0 L 0 0 0 40"
+              fill="none"
+              stroke="#2a2f35"
+              strokeWidth="1"
+            />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#grid-pattern)" />
@@ -86,21 +90,24 @@ export default function AnimatedBackground() {
           opacity: 0.35;
         }
 
-        /* ===== 3D EFFECTS ===== */
         .shape.circle {
           border-radius: 9999px;
           border: 2px solid #6b7280;
           background: radial-gradient(circle at 30% 30%, #9ca3af 5%, #374151 90%);
-          box-shadow: inset -8px -8px 16px rgba(0,0,0,0.6), inset 8px 8px 16px rgba(255,255,255,0.1), 0 0 30px rgba(156,163,175,0.2);
+          box-shadow: inset -8px -8px 16px rgba(0,0,0,0.6),
+                      inset 8px 8px 16px rgba(255,255,255,0.1),
+                      0 0 30px rgba(156,163,175,0.2);
         }
         .shape.square {
           border-radius: 12px;
           border: 2px solid #6b7280;
           background: linear-gradient(145deg, #1f2937, #111827);
-          box-shadow: inset -8px -8px 16px rgba(0,0,0,0.6), inset 8px 8px 16px rgba(255,255,255,0.1), 0 0 30px rgba(156,163,175,0.2);
+          box-shadow: inset -8px -8px 16px rgba(0,0,0,0.6),
+                      inset 8px 8px 16px rgba(255,255,255,0.1),
+                      0 0 30px rgba(156,163,175,0.2);
         }
         .shape.triangle {
-          width: 0; 
+          width: 0;
           height: 0;
           border-left: 60px solid transparent;
           border-right: 60px solid transparent;
