@@ -189,7 +189,6 @@ return (
       >  
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7 12l2-2 4 4" />  
       </svg>  
-<img src="/rino.svg" alt="Rino" />
       <span className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600 select-none">  
         TaskSP  
       </span>  
@@ -244,6 +243,7 @@ return (
     className="relative z-10 pt-8 pb-12 px-4 sm:px-6"  
   >  
     <div className="max-w-7xl mx-auto text-center px-4">  
+<img src="/rino.svg" alt="Rino" />
       <motion.h1  
         initial={{ opacity: 0, y: 20 }}  
         animate={{ opacity: 1, y: 0 }}  
