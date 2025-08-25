@@ -88,7 +88,7 @@ category: "Web/BookMark",
 id: 9,
 title: "Prova Paulista",
 description: "Sistema para automatização das avaliações",
-online: false,
+online: true,
 url: "/prova",
 category: "Web",
 },
@@ -287,7 +287,7 @@ return (
   aria-label="Estatísticas dos scripts"
 >
   <h3 className="text-5x1 font-semibold text-white mb-1">Estatísticas</h3>
-  <p className="text-base text-slate-400 mb-4">Última atualização: 22/08/2025</p>
+  <p className="text-base text-slate-400 mb-4">Última atualização: 25/08/2025</p>
   <div className="h-px bg-slate-700 mb-4" />
   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
     <div
