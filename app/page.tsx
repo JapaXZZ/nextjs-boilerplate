@@ -189,6 +189,7 @@ return (
       >  
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7 12l2-2 4 4" />  
       </svg>  
+<img src="/rino.svg" alt="Rino" />
       <span className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600 select-none">  
         TaskSP  
       </span>  
