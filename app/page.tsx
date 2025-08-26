@@ -243,7 +243,9 @@ return (
     className="relative z-10 pt-8 pb-12 px-4 sm:px-6"  
   >  
     <div className="max-w-7xl mx-auto text-center px-4">  
-//<img src="/rino.svg" alt="Rino" />
+
+{/*<img src="/rino.svg" alt="Rino" />*/}
+
       <motion.h1  
         initial={{ opacity: 0, y: 20 }}  
         animate={{ opacity: 1, y: 0 }}  
