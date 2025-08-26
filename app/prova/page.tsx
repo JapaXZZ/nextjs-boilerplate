@@ -12,7 +12,7 @@ const TaskApp = () => {
   const { toast } = useToast();
   const router = useRouter();
 
-  const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("online");
+  const [scriptStatus, setScriptStatus] = useState<"online" | "offline">("offline");
   const [lastUpdate] = useState("25/08/2025");
   const [url] = useState("https://provas.moonscripts.cloud/");
   const [tasksCompleted] = useState(127);
